@@ -25,3 +25,6 @@ dist-ssr
 
 #docs
 /docs
+
+*storybook.log
+storybook-static
