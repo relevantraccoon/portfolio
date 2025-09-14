@@ -29,6 +29,7 @@ import {
   breakpoints,
   type Breakpoints,
 } from "@/styles/theme/defaultTheme/breakpoints";
+import { zIndex, type ZIndex } from "@/styles/theme/defaultTheme/zIndex";
 
 export type DefaultThemeProps = {
   colors: Colors;
@@ -45,6 +46,7 @@ export type DefaultThemeProps = {
   iconTypography: IconTypography;
   shadows: Shadows;
   layout: Layout;
+  zIndex: ZIndex;
 };
 
 export const defaultTheme: DefaultThemeProps = {
@@ -62,4 +64,5 @@ export const defaultTheme: DefaultThemeProps = {
   iconTypography,
   shadows,
   layout,
+  zIndex,
 };
