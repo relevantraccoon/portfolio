@@ -1,0 +1,1 @@
+export { SVGLayeredText, type SVGLayeredTextProps } from '@/components/layout/Hero/SVGLayeredText/SVGLayeredText';
