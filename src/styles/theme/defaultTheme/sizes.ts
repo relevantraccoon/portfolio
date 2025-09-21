@@ -40,6 +40,10 @@ export const controls = {
     width: "40px",
     height: "40px",
   },
+  navButton: {
+    width: "50px",
+    height: "50px",
+  },
   dot: {
     width: "12px",
     height: "12px",
