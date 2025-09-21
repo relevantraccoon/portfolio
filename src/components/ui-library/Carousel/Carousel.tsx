@@ -5,7 +5,6 @@ export type CarouselProps = {
   children: React.ReactNode[];
   itemsPerView?: number;
   gap?: string;
-  showDots?: boolean;
   showArrows?: boolean;
   className?: string;
 };
@@ -28,9 +27,6 @@ const CarouselItem = styled.div<{ $itemWidth: string }>`
 `;
 
 const ArrowButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   background: ${({ theme }) => theme.colors.palette.surface};
   border: 2px solid ${({ theme }) => theme.colors.palette.secondary};
   color: ${({ theme }) => theme.colors.palette.onSurface};
@@ -38,7 +34,6 @@ const ArrowButton = styled.button`
   height: ${({ theme }) => theme.controls.button.height};
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,23 +44,18 @@ const ArrowButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme.colors.palette.secondary};
     color: ${({ theme }) => theme.colors.palette.onSecondary};
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.1);
   }
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: translateY(-50%);
   }
 `;
 
-const PrevButton = styled(ArrowButton)`
-  left: 10px;
-`;
+const PrevButton = styled(ArrowButton)``;
 
-const NextButton = styled(ArrowButton)`
-  right: 10px;
-`;
+const NextButton = styled(ArrowButton)``;
 
 const DotsContainer = styled.div`
   display: flex;
@@ -74,27 +64,11 @@ const DotsContainer = styled.div`
   margin-top: 20px;
 `;
 
-const Dot = styled.button<{ $active: boolean }>`
-  width: ${({ theme }) => theme.controls.dot.width};
-  height: ${({ theme }) => theme.controls.dot.height};
-  border-radius: 50%;
-  border: none;
-  background: ${({ $active, theme }) =>
-    $active ? theme.colors.palette.secondary : theme.colors.palette.outline};
-  cursor: pointer;
-  transition: ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.palette.secondary};
-    transform: scale(1.2);
-  }
-`;
 
 export const Carousel: React.FC<CarouselProps> = ({
   children,
   itemsPerView = 1,
   gap = "2rem",
-  showDots = true,
   showArrows = true,
   className,
 }) => {
@@ -119,32 +93,10 @@ export const Carousel: React.FC<CarouselProps> = ({
     setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(Math.min(maxIndex, Math.max(0, index)));
-  };
 
   return (
     <div className={className}>
-      <CarouselContainer>
-        {showArrows && (
-          <>
-            <PrevButton
-              onClick={goToPrevious}
-              disabled={currentIndex === 0}
-              aria-label="Previous"
-            >
-              ‹
-            </PrevButton>
-            <NextButton
-              onClick={goToNext}
-              disabled={currentIndex >= maxIndex}
-              aria-label="Next"
-            >
-              ›
-            </NextButton>
-          </>
-        )}
-        
+      <CarouselContainer>        
         <CarouselTrack $translateX={getTranslateX()} $gap={gap}>
           {children.map((child, index) => (
             <CarouselItem key={index} $itemWidth={itemWidth}>
@@ -154,16 +106,22 @@ export const Carousel: React.FC<CarouselProps> = ({
         </CarouselTrack>
       </CarouselContainer>
 
-      {showDots && totalItems > itemsPerView && (
+      {showArrows && (
         <DotsContainer>
-          {Array.from({ length: maxIndex + 1 }, (_, index) => (
-            <Dot
-              key={index}
-              $active={index === currentIndex}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+          <PrevButton
+            onClick={goToPrevious}
+            disabled={currentIndex === 0}
+            aria-label="Previous"
+          >
+            ‹
+          </PrevButton>
+          <NextButton
+            onClick={goToNext}
+            disabled={currentIndex >= maxIndex}
+            aria-label="Next"
+          >
+            ›
+          </NextButton>
         </DotsContainer>
       )}
     </div>
