@@ -13,10 +13,12 @@ export const fontSize = {
   h2: '1.25rem',     // 20px - subtitle
   display: '72px',   // SVG display text (responsive)
   displaySub: '36px', // SVG subtitle text
+  divider: '1.2rem', // Tech stack divider bullets
 }
 
 // Font weights
 export const fontWeight = {
+  light: 300,
   normal: 400,
   medium: 600,
   bold: 900,
