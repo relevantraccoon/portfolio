@@ -86,7 +86,6 @@ export const layout = {
     },
   },
 
-
   animation: {
     speed: {
       quick: "0.15s",
@@ -110,8 +109,8 @@ export const layout = {
   components: {
     hero: {
       aspectRatio: {
-        landscape: 320 / 991, // Desktop/tablet
-        portrait: 991 / 320, // Mobile
+        landscape: 320 / 280,
+        portrait: 750 / 320,
       },
       svg: {
         viewBox: "0 0 400 250",
@@ -121,7 +120,7 @@ export const layout = {
             y: 105,
           },
           secondary: {
-            y: 165,
+            y: 155,
           },
         },
       },
