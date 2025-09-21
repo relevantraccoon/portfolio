@@ -7,11 +7,13 @@ import {
   gutters,
   containers,
   borderRadius,
+  controls,
   type Sizes,
   type Spacing,
   type Gutters,
   type Containers,
   type BorderRadius,
+  type Controls,
 } from "@/styles/theme/defaultTheme/sizes";
 import {
   iconTypography,
@@ -30,6 +32,7 @@ import {
   type Breakpoints,
 } from "@/styles/theme/defaultTheme/breakpoints";
 import { zIndex, type ZIndex } from "@/styles/theme/defaultTheme/zIndex";
+import { transitions, type Transitions } from "@/styles/theme/defaultTheme/transitions";
 
 export type DefaultThemeProps = {
   colors: Colors;
@@ -38,6 +41,7 @@ export type DefaultThemeProps = {
   gutters: Gutters;
   containers: Containers;
   borderRadius: BorderRadius;
+  controls: Controls;
   fontFamily: FontFamily;
   fontSize: FontSize;
   fontWeight: FontWeight;
@@ -47,6 +51,7 @@ export type DefaultThemeProps = {
   shadows: Shadows;
   layout: Layout;
   zIndex: ZIndex;
+  transitions: Transitions;
 };
 
 export const defaultTheme: DefaultThemeProps = {
@@ -56,6 +61,7 @@ export const defaultTheme: DefaultThemeProps = {
   gutters,
   containers,
   borderRadius,
+  controls,
   fontFamily,
   fontSize,
   fontWeight,
@@ -65,4 +71,5 @@ export const defaultTheme: DefaultThemeProps = {
   shadows,
   layout,
   zIndex,
+  transitions,
 };
