@@ -8,8 +8,8 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background-color: ${({ theme, $backgroundColor }) => 
-    $backgroundColor || theme.colors.background.dark};
+  background-color: ${({ theme, $backgroundColor }) =>
+    $backgroundColor || theme.colors.palette.secondary};
   overflow: hidden;
 
   ${mediaQuery.from("tablet")} {
@@ -17,7 +17,8 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   }
 
   ${mediaQuery.from("desktop")} {
-    min-height: ${({ theme }) => theme.layout.viewport.sections.aboutMe.desktop};
+    min-height: ${({ theme }) =>
+      theme.layout.viewport.sections.aboutMe.desktop};
   }
 
   ${mediaQuery.from("fhd")} {
@@ -25,21 +26,6 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   }
 `;
 
-
-export const AboutContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.gutters.mobile};
-
-  ${mediaQuery.from("tablet")} {
-    padding: ${({ theme }) => theme.spacing.xxxl} ${({ theme }) => theme.gutters.tablet};
-  }
-
-  ${mediaQuery.from("desktop")} {
-    padding: ${({ theme }) => theme.spacing.xxxl} ${({ theme }) => theme.gutters.desktop};
-  }
-`;
 
 export const AboutGrid = styled.div`
   display: grid;
@@ -63,7 +49,7 @@ export const AboutTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: ${({ theme }) => theme.lineHeight.tight};
-  color: ${({ theme }) => theme.colors.text.dark};
+  color: ${({ theme }) => theme.colors.palette.onSecondary};
   margin: 0;
   margin-bottom: ${({ theme }) => theme.spacing.lg};
 
@@ -77,7 +63,7 @@ export const AboutText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   line-height: ${({ theme }) => theme.lineHeight.normal};
-  color: ${({ theme }) => theme.colors.text.dark};
+  color: ${({ theme }) => theme.colors.palette.onSecondary};
   margin: 0;
 
   ${mediaQuery.from("tablet")} {

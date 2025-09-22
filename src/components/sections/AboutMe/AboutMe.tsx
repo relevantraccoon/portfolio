@@ -1,9 +1,8 @@
 import React from "react";
 import { Content } from "@/components/layout/Content";
+import { Typography } from "@/components/ui-library/Typography";
 import {
   AboutMeContainer,
-  AboutContainer,
-  AboutText,
   AboutGrid,
   AboutContent,
   AboutVideo,
@@ -23,26 +22,25 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   ],
 }) => {
   return (
-    <AboutMeContainer $backgroundColor="rgba(220, 178, 166, 1)">
+    <AboutMeContainer>
       <Content type="grid">
-        <AboutContainer>
-          <AboutGrid>
+        <AboutGrid>
             <AboutContent>
               {description.map((paragraph, index) => (
-                <AboutText key={index}>{paragraph}</AboutText>
+                <Typography 
+                  key={index} 
+                  variant="bodyLarge" 
+                  color="onSecondary"
+                >
+                  {paragraph}
+                </Typography>
               ))}
             </AboutContent>
-            <AboutVideo 
-              muted 
-              autoPlay 
-              loop
-              playsInline
-            >
+            <AboutVideo muted autoPlay loop playsInline>
               <source src={VIDEO_URL} type="video/mp4" />
               Your browser does not support the video tag.
             </AboutVideo>
-          </AboutGrid>
-        </AboutContainer>
+        </AboutGrid>
       </Content>
     </AboutMeContainer>
   );
