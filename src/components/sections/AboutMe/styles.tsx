@@ -3,7 +3,7 @@ import { mediaQuery } from "@/styles/theme/mediaQueries";
 
 export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   width: 100%;
-  min-height: ${({ theme }) => theme.layout.viewport.sections.aboutMe.mobile};
+  min-height: ${({ theme }) => theme.layout.viewport.sections.content.mobile};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,16 +13,16 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   overflow: hidden;
 
   ${mediaQuery.from("tablet")} {
-    min-height: ${({ theme }) => theme.layout.viewport.sections.aboutMe.tablet};
+    min-height: ${({ theme }) => theme.layout.viewport.sections.content.tablet};
   }
 
   ${mediaQuery.from("desktop")} {
     min-height: ${({ theme }) =>
-      theme.layout.viewport.sections.aboutMe.desktop};
+      theme.layout.viewport.sections.content.desktop};
   }
 
   ${mediaQuery.from("fhd")} {
-    min-height: ${({ theme }) => theme.layout.viewport.sections.aboutMe.fhd};
+    min-height: ${({ theme }) => theme.layout.viewport.sections.content.fhd};
   }
 `;
 
