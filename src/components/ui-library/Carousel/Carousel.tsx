@@ -19,7 +19,7 @@ const CarouselTrack = styled.div<{ $translateX: number; $gap: string }>`
   display: flex;
   gap: ${({ $gap }) => $gap};
   transform: translateX(${({ $translateX }) => $translateX}px);
-  transition: ${({ theme }) => theme.transitions.transformQuick};
+  transition: ${({ theme }) => theme.transitions.transformSnappy};
 `;
 
 const CarouselItem = styled.div<{ $itemWidth: string }>`
