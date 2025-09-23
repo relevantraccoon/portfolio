@@ -39,6 +39,13 @@ export const lineHeight = {
   normal: 1.7, // paragraph
 }
 
+// Letter spacing
+export const letterSpacing = {
+  tight: "-0.025em",
+  normal: "0",
+  wide: "0.1em",
+}
+
 // Icon typography (legacy)
 export const iconTypography = {
   iconMini: css`
@@ -71,4 +78,5 @@ export type FontFamily = typeof fontFamily;
 export type FontSize = typeof fontSize;
 export type FontWeight = typeof fontWeight;
 export type LineHeight = typeof lineHeight;
+export type LetterSpacing = typeof letterSpacing;
 export type IconTypography = typeof iconTypography;
