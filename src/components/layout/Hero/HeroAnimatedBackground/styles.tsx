@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.transparent};
+  background-color: transparent;
 `;
 
 export const CirclesCanvas = styled.canvas`
