@@ -21,11 +21,13 @@ import {
   fontSize,
   fontWeight,
   lineHeight,
+  letterSpacing,
   type IconTypography,
   type FontFamily,
   type FontSize,
   type FontWeight,
   type LineHeight,
+  type LetterSpacing,
 } from "@/styles/theme/defaultTheme/typography";
 import {
   breakpoints,
@@ -46,6 +48,7 @@ export type DefaultThemeProps = {
   fontSize: FontSize;
   fontWeight: FontWeight;
   lineHeight: LineHeight;
+  letterSpacing: LetterSpacing;
   breakpoints: Breakpoints;
   iconTypography: IconTypography;
   shadows: Shadows;
@@ -66,6 +69,7 @@ export const defaultTheme: DefaultThemeProps = {
   fontSize,
   fontWeight,
   lineHeight,
+  letterSpacing,
   breakpoints,
   iconTypography,
   shadows,
