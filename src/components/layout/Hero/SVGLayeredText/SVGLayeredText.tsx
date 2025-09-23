@@ -1,6 +1,11 @@
 import React from "react";
 import { useTheme } from "styled-components";
-import { SVGText } from "@/components/layout/Hero/SVGLayeredText/styles";
+import { 
+  SVGTitleShadow, 
+  SVGTitleText, 
+  SVGHeroStroke, 
+  SVGHeroFill 
+} from "@/components/layout/Hero/SVGLayeredText/styles";
 import type { DefaultThemeProps } from "@/styles/theme/defaultTheme";
 
 export type SVGLayeredTextProps = {
@@ -11,6 +16,9 @@ export type SVGLayeredTextProps = {
   fillColor?: string;
   strokeColor?: string;
   secondaryStrokeColor?: string;
+  letterSpacing?: string;
+  fontFamily?: string;
+  isSubtitle?: boolean;
 };
 
 export const SVGLayeredText: React.FC<SVGLayeredTextProps> = ({
@@ -21,60 +29,78 @@ export const SVGLayeredText: React.FC<SVGLayeredTextProps> = ({
   fillColor,
   strokeColor,
   secondaryStrokeColor,
+  letterSpacing = "normal",
+  fontFamily,
+  isSubtitle = false,
 }) => {
   const theme = useTheme() as DefaultThemeProps;
   const strokeWidthLarge = Math.max(4, fontSize / 6);
   const strokeWidthSmall = Math.max(2, fontSize / 9);
 
-  const finalFillColor = fillColor || theme.colors.background.dark;
-  const finalStrokeColor = strokeColor || theme.colors.background.dark;
+  const finalFillColor = fillColor || theme.colors.palette.background;
+  const finalStrokeColor = strokeColor || theme.colors.palette.background;
   const finalSecondaryStrokeColor =
-    secondaryStrokeColor || theme.colors.brand.light;
+    secondaryStrokeColor || theme.colors.palette.secondary;
+
+  const baseProps = {
+    x,
+    y,
+    fontSize,
+    $letterSpacing: letterSpacing,
+    $fontFamily: fontFamily,
+  };
+
+  if (isSubtitle) {
+    return (
+      <>
+        {/* Blurry shadow for better readability */}
+        <SVGTitleShadow
+          {...baseProps}
+          fill="rgba(0, 0, 0, 0.6)"
+          stroke="rgba(0, 0, 0, 0.4)"
+          strokeWidth={3}
+        >
+          {text}
+        </SVGTitleShadow>
+
+        {/* Main text */}
+        <SVGTitleText
+          {...baseProps}
+          fill={theme.colors.palette.secondary}
+        >
+          {text}
+        </SVGTitleText>
+      </>
+    );
+  }
 
   return (
     <>
       {/* Background stroke (largest) */}
-      <SVGText
-        x={x}
-        y={y}
-        fontSize={fontSize}
-        fill="none"
+      <SVGHeroStroke
+        {...baseProps}
         stroke={finalStrokeColor}
         strokeWidth={strokeWidthLarge}
-        strokeLinejoin="round"
-        textAnchor="middle"
-        dominantBaseline="central"
       >
         {text}
-      </SVGText>
+      </SVGHeroStroke>
 
       {/* Secondary stroke (medium) */}
-      <SVGText
-        x={x}
-        y={y}
-        fontSize={fontSize}
-        fill="none"
+      <SVGHeroStroke
+        {...baseProps}
         stroke={finalSecondaryStrokeColor}
         strokeWidth={strokeWidthSmall}
-        strokeLinejoin="round"
-        textAnchor="middle"
-        dominantBaseline="central"
       >
         {text}
-      </SVGText>
+      </SVGHeroStroke>
 
       {/* Fill (top layer) */}
-      <SVGText
-        x={x}
-        y={y}
-        fontSize={fontSize}
+      <SVGHeroFill
+        {...baseProps}
         fill={finalFillColor}
-        stroke="none"
-        textAnchor="middle"
-        dominantBaseline="central"
       >
         {text}
-      </SVGText>
+      </SVGHeroFill>
     </>
   );
 };
