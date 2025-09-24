@@ -2,7 +2,6 @@ import * as FaIcons from "react-icons/fa";
 import * as GiIcons from "react-icons/gi";
 import styled from "styled-components";
 import type { IconTypography } from "../../../styles/theme/defaultTheme/typography";
-import type { Colors } from "../../../styles/theme/defaultTheme/colors";
 
 const allIcons = {
   ...FaIcons,
@@ -14,12 +13,15 @@ export type IconName = keyof typeof allIcons;
 type IconProps = {
   name: IconName;
   variant: keyof IconTypography;
-  color: keyof Colors["primary"];
+  color?: string;
 };
 
-const StyledIcon = styled.div<{ $variant: keyof IconTypography; $color: keyof Colors["primary"] }>`
+const StyledIcon = styled.div<{
+  $variant: keyof IconTypography;
+  $color?: string;
+}>`
   ${({ theme, $variant }) => theme.iconTypography[$variant]}
-  color: ${({ theme, $color }) => theme.colors.primary[$color]};
+  color: ${({ theme, $color }) => $color || theme.colors.palette.onSurface};
 `;
 
 export const Icon: React.FC<IconProps> = ({ name, variant, color }) => {

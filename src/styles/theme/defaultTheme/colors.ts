@@ -1,27 +1,50 @@
 export const colors = {
-  // Brand colors from Hero
-  brand: {
-    primary: "rgb(187, 94, 79)",
-    primaryDark: "rgb(167, 74, 59)",
-    light: "rgb(219, 177, 166)",
-  },
+  palette: {
+    // Core Brand Colors
+    primary: "rgb(191, 93, 84)", // Main brand color for buttons, links, key actions
+    secondary: "rgb(217, 176, 167)", // Supporting brand color for accents and highlights
+    tertiary: "rgb(89, 61, 54)", // Third level brand color for subtle emphasis
 
-  // Background colors
-  background: {
-    dark: "rgb(30, 20, 18)",
-    transparent: "transparent",
-  },
+    // Background Colors
+    background: "rgb(30, 20, 18)", // Main page/body background
+    onBackground: "rgb(217, 176, 167)", // Text/icons directly on main background
 
-  // Text colors
-  text: {
-    primary: "#ffffff",
-    secondary: "rgb(219, 177, 166)",
-    accent: "rgb(187, 94, 79)",
-    dark: "rgb(30, 20, 18)",
-  },
+    // Surface Colors (backgrounds for different elevation levels)
+    surface: "rgb(89, 61, 54)", // Main background for cards, modals, panels
+    surfaceVariant: "rgb(105, 77, 70)", // Alternative surface for visual distinction
+    surfaceContainer: "#B5948B", // Low elevation containers
+    surfaceContainerHigh: "rgb(175, 135, 125)", // Medium elevation containers
+    surfaceContainerHighest: "rgb(154, 115, 106)", // Maximum elevation containers (dialogs, menus)
 
-  // Colors extracted from Hero image, for later use
-  extracted: {
+    // Content Colors (text and icons)
+    onPrimary: "#FFFFFF", // Text/icons on primary color background
+    onSecondary: "#000000", // Text/icons on secondary color background
+    onTertiary: "#FFFFFF", // Text/icons on tertiary color background
+    onSurface: "#FFFFFF", // Primary text on surface backgrounds
+    onSurfaceVariant: "#FFFFFF", // Secondary/muted text on surface backgrounds
+    onSurfaceSubdued: "rgba(255, 245, 240, 0.9)", // Subtitle text on surface backgrounds (warm tint)
+    onSurfaceContainer: "#000000", // Text/icons on surfaceContainer background
+    onSurfaceContainerHigh: "#000000", // Text/icons on surfaceContainerHigh background
+    onSurfaceContainerHighest: "#000000", // Text/icons on surfaceContainerHighest background
+
+    // Semantic Colors
+    success: "#54BF5F", // Success states (form validation, confirmations)
+    onSuccess: "#000000", // Text/icons on success color
+    warning: "#C2451D", // Warning states (alerts, cautions)
+    onWarning: "#FFFFFF", // Text/icons on warning color
+    error: "#C2281D", // Error states (validation errors, destructive actions)
+    onError: "#FFFFFF", // Text/icons on error color
+    info: "#54BEBF", // Information states (tips, notifications)
+    onInfo: "#000000", // Text/icons on info color
+
+    // Utility Colors
+    outline: "rgba(217, 176, 167, 0.3)", // Borders, dividers, input outlines
+    outlineVariant: "rgba(217, 176, 167, 0.15)", // Subtle borders and separators
+    shadow: "rgba(0, 0, 0, 0.25)", // Drop shadows and elevation effects
+    scrim: "rgba(0, 0, 0, 0.6)", // Semi-transparent overlays for modals/drawers
+  },
+  // Colors extracted from Hero image - DO NOT USE, for reference only
+  extractedDoNotUse: {
     lightest: [
       "rgba(220, 178, 168, 1)",
       "rgba(220, 178, 166, 1)",

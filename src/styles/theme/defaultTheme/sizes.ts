@@ -35,8 +35,24 @@ export const borderRadius = {
   xl: "16px",
 };
 
+export const controls = {
+  button: {
+    width: "40px",
+    height: "40px",
+  },
+  navButton: {
+    width: "50px",
+    height: "50px",
+  },
+  dot: {
+    width: "12px",
+    height: "12px",
+  },
+};
+
 export const sizes: Sizes = {};
 
+export type Controls = typeof controls;
 export type Sizes = { [key: string]: number };
 export type Spacing = typeof spacing;
 export type Gutters = typeof gutters;

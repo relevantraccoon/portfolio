@@ -36,7 +36,7 @@ export const useResponsiveGrid = (bubbleCount: number) => {
       const idealSpacing = bubbleRadius * 2.5;
       
       const cols = Math.max(3, Math.floor(canvasWidth / idealSpacing));
-      const rows = Math.max(2, Math.floor(canvasHeight / idealSpacing));
+      const rows = Math.max(6, Math.floor(canvasHeight / idealSpacing));
       
       let finalCols = cols;
       let finalRows = rows;

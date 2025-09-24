@@ -38,19 +38,7 @@ export const layout = {
         desktop: "100vh",
         fhd: "100vh",
       },
-      aboutMe: {
-        mobile: "80vh",
-        tablet: "70vh",
-        desktop: "60vh",
-        fhd: "50vh",
-      },
-      project: {
-        mobile: "80vh",
-        tablet: "70vh",
-        desktop: "60vh",
-        fhd: "50vh",
-      },
-      skillsAndTech: {
+      content: {
         mobile: "80vh",
         tablet: "70vh",
         desktop: "60vh",
@@ -86,7 +74,6 @@ export const layout = {
     },
   },
 
-
   animation: {
     speed: {
       quick: "0.15s",
@@ -110,8 +97,8 @@ export const layout = {
   components: {
     hero: {
       aspectRatio: {
-        landscape: 320 / 991, // Desktop/tablet
-        portrait: 991 / 320, // Mobile
+        landscape: 320 / 280,
+        portrait: 750 / 320,
       },
       svg: {
         viewBox: "0 0 400 250",
@@ -121,9 +108,67 @@ export const layout = {
             y: 105,
           },
           secondary: {
-            y: 165,
+            y: 155,
           },
         },
+      },
+    },
+    carousel: {
+      maxWidths: {
+        content: "1200px",
+        stack: "800px",
+        card: {
+          mobile: "450px",
+          mobileWide: "520px",
+          tablet: "650px",
+          desktop: "700px",
+          desktopLarge: "950px",
+          widescreen: "1100px",
+          fhd: "1300px",
+        },
+      },
+      heights: {
+        stack: {
+          mobile: "290px",
+          mobileWide: "300px",
+          tablet: "320px",
+          desktop: "350px",
+        },
+        minHeights: {
+          thumbnail: "120px",
+          logo: "80px",
+          mood: "100px",
+          description: "100px",
+        },
+      },
+      transforms: {
+        positions: {
+          left: "-30%",
+          right: "30%",
+          hidden: "200%",
+        },
+        scales: {
+          active: "1",
+          side: "0.8",
+          hidden: "0.6",
+        },
+      },
+      opacity: {
+        active: 1,
+        side: 0.4,
+        hidden: 0,
+        disabled: 0.5,
+        blur: {
+          slight: 0.3,
+          medium: 0.6,
+          heavy: 0.8,
+        },
+      },
+      blur: {
+        none: "0px",
+        slight: "1px",
+        medium: "2px",
+        heavy: "3px",
       },
     },
   },
