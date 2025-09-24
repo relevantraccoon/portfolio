@@ -11,7 +11,7 @@ export type ProjectData = {
   description: string;
   moodImage?: string;
   techStack: string[];
-  role: string;
+  status: string;
   projectType: string;
   backgroundColor?: string;
   href?: string;

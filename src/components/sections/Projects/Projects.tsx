@@ -74,7 +74,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                   <CarouselCard key={project.id} $position={position}>
                     <Card
                       title={project.title}
-                      subtitle={project.role}
+                      subtitle={project.status}
                       badges={[project.projectType, ...project.techStack]}
                       hoverable={true}
                       backgroundImage={project.thumbnail}

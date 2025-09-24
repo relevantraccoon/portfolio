@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { mediaQuery } from "@/styles/theme/mediaQueries";
 
-export type CardVariant = 'mobile' | 'mobileWide' | 'tablet' | 'desktop' | 'responsive';
+export type CardVariant =
+  | "mobile"
+  | "mobileWide"
+  | "tablet"
+  | "desktop"
+  | "responsive";
 
 export type CardProps = {
   title?: string;
@@ -13,7 +18,12 @@ export type CardProps = {
   maxWidth?: string;
   className?: string;
   backgroundImage?: string;
-  backgroundBlendMode?: 'multiply' | 'overlay' | 'soft-light' | 'hard-light' | 'normal';
+  backgroundBlendMode?:
+    | "multiply"
+    | "overlay"
+    | "soft-light"
+    | "hard-light"
+    | "normal";
   variant?: CardVariant;
   href?: string;
   onClick?: () => void;
@@ -21,63 +31,63 @@ export type CardProps = {
 
 const getCardDimensions = (variant: CardVariant) => {
   switch (variant) {
-    case 'mobile':
+    case "mobile":
       return {
-        width: '320px',
-        height: '280px', // Even taller for better text space
-        padding: '0.75rem',
-        fontSize: '0.8rem',
-        titleSize: '1.1rem',
-        subtitleSize: '0.9rem',
-        imageHeight: '140px' // 16:9 portion in the middle
+        width: "320px",
+        height: "280px", // Even taller for better text space
+        padding: "0.75rem",
+        fontSize: "0.8rem",
+        titleSize: "1.1rem",
+        subtitleSize: "0.9rem",
+        imageHeight: "140px", // 16:9 portion in the middle
       };
-    case 'mobileWide':
+    case "mobileWide":
       return {
-        width: '400px',
-        height: '280px', // Taller for better text space
-        padding: '1.25rem',
-        fontSize: '0.925rem',
-        titleSize: '1.375rem',
-        subtitleSize: '1.1rem',
-        imageHeight: '180px' // 16:9 portion
+        width: "400px",
+        height: "280px", // Taller for better text space
+        padding: "1.25rem",
+        fontSize: "0.925rem",
+        titleSize: "1.375rem",
+        subtitleSize: "1.1rem",
+        imageHeight: "180px", // 16:9 portion
       };
-    case 'tablet':
+    case "tablet":
       return {
-        width: '480px',
-        height: '270px', // 16:9 aspect ratio
-        padding: '1.5rem',
-        fontSize: '1rem',
-        titleSize: '1.5rem',
-        subtitleSize: '1.2rem',
-        imageHeight: '270px' // Full height on tablet+
+        width: "480px",
+        height: "270px", // 16:9 aspect ratio
+        padding: "1.5rem",
+        fontSize: "1rem",
+        titleSize: "1.5rem",
+        subtitleSize: "1.2rem",
+        imageHeight: "270px", // Full height on tablet+
       };
-    case 'desktop':
+    case "desktop":
       return {
-        width: '560px',
-        height: '315px', // 16:9 aspect ratio (widescreen monitor feel)
-        padding: '2rem',
-        fontSize: '1rem',
-        titleSize: '2rem',
-        subtitleSize: '1.2rem',
-        imageHeight: '315px' // Full height on desktop
+        width: "560px",
+        height: "315px", // 16:9 aspect ratio (widescreen monitor feel)
+        padding: "2rem",
+        fontSize: "1rem",
+        titleSize: "2rem",
+        subtitleSize: "1.2rem",
+        imageHeight: "315px", // Full height on desktop
       };
-    case 'responsive':
+    case "responsive":
     default:
       return {
-        width: '100%',
-        height: '100%',
-        padding: '2rem',
-        fontSize: '1rem',
-        titleSize: '2rem',
-        subtitleSize: '1.2rem',
-        imageHeight: '100%'
+        width: "100%",
+        height: "100%",
+        padding: "2rem",
+        fontSize: "1rem",
+        titleSize: "2rem",
+        subtitleSize: "1.2rem",
+        imageHeight: "100%",
       };
   }
 };
 
-const StyledCard = styled.div<{ 
-  $hoverable: boolean; 
-  $maxWidth?: string; 
+const StyledCard = styled.div<{
+  $hoverable: boolean;
+  $maxWidth?: string;
   $backgroundImage?: string;
   $backgroundBlendMode?: string;
   $variant: CardVariant;
@@ -87,15 +97,16 @@ const StyledCard = styled.div<{
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   box-shadow: ${({ theme }) => theme.shadows.card.default};
   cursor: ${({ $hoverable }) => ($hoverable ? "pointer" : "default")};
-  transition: ${({ theme }) => theme.transitions.transform}, ${({ theme }) => theme.transitions.boxShadow};
+  transition: ${({ theme }) => theme.transitions.transform},
+    ${({ theme }) => theme.transitions.boxShadow};
   position: relative;
   overflow: hidden;
   margin: 0 auto;
 
-  ${({ $variant, $maxWidth }) => {
+  ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
-    
-    if ($variant === 'responsive') {
+
+    if ($variant === "responsive") {
       return `
         width: 100%;
         height: 280px;
@@ -121,7 +132,7 @@ const StyledCard = styled.div<{
         }
       `;
     }
-    
+
     return `
       width: ${dimensions.width};
       height: ${dimensions.height};
@@ -130,7 +141,9 @@ const StyledCard = styled.div<{
     `;
   }}
 
-  ${({ $backgroundImage, $variant, theme }) => $backgroundImage && `
+  ${({ $backgroundImage, $variant, theme }) =>
+    $backgroundImage &&
+    `
     background: #000;
     
     &::before {
@@ -144,17 +157,15 @@ const StyledCard = styled.div<{
       z-index: 0;
       
       ${(() => {
-        const dimensions = getCardDimensions($variant);
-        
-        if ($variant === 'mobile' || $variant === 'mobileWide') {
+        if ($variant === "mobile" || $variant === "mobileWide") {
           return `
             top: 0;
             bottom: 0;
             background-size: contain;
           `;
         }
-        
-        if ($variant === 'responsive') {
+
+        if ($variant === "responsive") {
           return `
             top: 0;
             bottom: 0;
@@ -169,7 +180,7 @@ const StyledCard = styled.div<{
             }
           `;
         }
-        
+
         return `
           top: 0;
           bottom: 0;
@@ -188,11 +199,11 @@ const StyledCard = styled.div<{
       background: ${theme.colors.palette.surface};
       border-right: 15px solid rgba(217, 176, 167, 0.2);
       z-index: 1;
-      transition: ${({ theme }) => theme.transitions.width};
+      transition: ${theme.transitions.width};
     }
   `}
 
-  ${({ $hoverable, theme }) =>
+  ${({ $hoverable }) =>
     $hoverable &&
     `
     &:hover {
@@ -209,18 +220,18 @@ const CardTitle = styled.h2<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onSurface};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   transition: ${({ theme }) => theme.transitions.opacity};
-  
+
   ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
-    
-    if ($variant === 'mobile') {
+
+    if ($variant === "mobile") {
       return `
         margin: 0;
         font-size: ${dimensions.titleSize};
       `;
     }
-    
-    if ($variant === 'responsive') {
+
+    if ($variant === "responsive") {
       return `
         margin: 0;
         font-size: 1.1rem;
@@ -238,7 +249,7 @@ const CardTitle = styled.h2<{ $variant: CardVariant }>`
         }
       `;
     }
-    
+
     return `
       margin: 0;
       font-size: ${dimensions.titleSize};
@@ -250,18 +261,18 @@ const CardSubtitle = styled.h3<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onSurfaceSubdued};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   transition: ${({ theme }) => theme.transitions.opacity};
-  
+
   ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
-    
-    if ($variant === 'mobile') {
+
+    if ($variant === "mobile") {
       return `
         margin: 0;
         font-size: ${dimensions.subtitleSize};
       `;
     }
-    
-    if ($variant === 'responsive') {
+
+    if ($variant === "responsive") {
       return `
         margin: 0;
         font-size: 0.9rem;
@@ -279,7 +290,7 @@ const CardSubtitle = styled.h3<{ $variant: CardVariant }>`
         }
       `;
     }
-    
+
     return `
       margin: 0;
       font-size: ${dimensions.subtitleSize};
@@ -291,27 +302,27 @@ const BadgeContainer = styled.div<{ $variant: CardVariant }>`
   display: flex;
   flex-wrap: wrap;
   transition: ${({ theme }) => theme.transitions.opacity};
-  
-  ${({ $variant }) => {
-    if ($variant === 'mobile') {
+
+  ${({ $variant, theme }) => {
+    if ($variant === "mobile") {
       return `
-        gap: ${({ theme }) => theme.spacing.xs};
+        gap: ${theme.spacing.xs};
       `;
     }
-    if ($variant === 'responsive') {
+    if ($variant === "responsive") {
       return `
-        gap: ${({ theme }) => theme.spacing.xs};
+        gap: ${theme.spacing.xs};
         
         ${mediaQuery.from("mobileWide")} {
-          gap: ${({ theme }) => theme.spacing.sm};
+          gap: ${theme.spacing.sm};
         }
         
         ${mediaQuery.from("tablet")} {
-          gap: ${({ theme }) => theme.spacing.sm};
+          gap: ${theme.spacing.sm};
         }
       `;
     }
-    return `gap: ${({ theme }) => theme.spacing.sm};`;
+    return `gap: ${theme.spacing.sm};`;
   }}
 `;
 
@@ -320,11 +331,9 @@ const Badge = styled.span<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onPrimary};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  
+
   ${({ $variant }) => {
-    const dimensions = getCardDimensions($variant);
-    
-    if ($variant === 'responsive') {
+    if ($variant === "responsive") {
       return `
         padding: 0.2rem 0.6rem;
         font-size: 0.75rem;
@@ -345,14 +354,14 @@ const Badge = styled.span<{ $variant: CardVariant }>`
         }
       `;
     }
-    
-    if ($variant === 'mobile') {
+
+    if ($variant === "mobile") {
       return `
         padding: 0.2rem 0.6rem;
         font-size: 0.75rem;
       `;
     }
-    
+
     return `
       padding: 0.25rem 0.75rem;
       font-size: 0.875rem;
@@ -374,59 +383,59 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
   & > * + * {
     margin-top: ${({ theme }) => theme.spacing.md};
   }
-  
-  ${({ $variant }) => {
+
+  ${({ $variant, theme }) => {
     const dimensions = getCardDimensions($variant);
-    
-    if ($variant === 'mobile') {
+
+    if ($variant === "mobile") {
       return `
         font-size: ${dimensions.fontSize};
         line-height: 1.4;
-        
+
         & > * + * {
-          margin-top: ${({ theme }) => theme.spacing.sm};
+          margin-top: ${theme.spacing.sm};
         }
       `;
     }
-    
-    if ($variant === 'responsive') {
+
+    if ($variant === "responsive") {
       return `
         font-size: 0.8rem;
         line-height: 1.4;
-        
+
         & > * + * {
-          margin-top: ${({ theme }) => theme.spacing.sm};
+          margin-top: ${theme.spacing.sm};
         }
-        
+
         ${mediaQuery.from("mobileWide")} {
           font-size: 0.925rem;
           line-height: 1.5;
-          
+
           & > * + * {
             margin-top: 0.75rem; // Could use theme.spacing but 0.75rem is between sm and md
           }
         }
-        
+
         ${mediaQuery.from("tablet")} {
           font-size: 1rem;
           line-height: 1.6;
-          
+
           & > * + * {
-            margin-top: ${({ theme }) => theme.spacing.md};
+            margin-top: ${theme.spacing.md};
           }
         }
-        
+
         ${mediaQuery.from("desktop")} {
           font-size: 1rem;
           line-height: 1.6;
-          
+
           & > * + * {
-            margin-top: ${({ theme }) => theme.spacing.md};
+            margin-top: ${theme.spacing.md};
           }
         }
       `;
     }
-    
+
     return `
       font-size: ${dimensions.fontSize};
       line-height: 1.6;
@@ -434,22 +443,25 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
   }}
 `;
 
-const ContentWrapper = styled.div<{ $hasBackgroundImage?: boolean; $variant: CardVariant }>`
+const ContentWrapper = styled.div<{
+  $hasBackgroundImage?: boolean;
+  $variant: CardVariant;
+}>`
   position: relative;
   z-index: 2;
   transition: ${({ theme }) => theme.transitions.quick};
   display: flex;
   flex-direction: column;
-  
+
   ${({ $variant }) => {
-    if ($variant === 'mobile') {
+    if ($variant === "mobile") {
       return `
         padding: 0.5rem 0.5rem;
         gap: 0.75rem;
       `;
     }
-    
-    if ($variant === 'responsive') {
+
+    if ($variant === "responsive") {
       return `
         padding: 0.5rem 0.5rem;
         gap: 0.75rem;
@@ -470,11 +482,13 @@ const ContentWrapper = styled.div<{ $hasBackgroundImage?: boolean; $variant: Car
         }
       `;
     }
-    
-    return '';
+
+    return "";
   }}
-  
-  ${({ $hasBackgroundImage }) => $hasBackgroundImage && `
+
+  ${({ $hasBackgroundImage }) =>
+    $hasBackgroundImage &&
+    `
     opacity: 0;
     
     .card-hoverable:hover & {
@@ -492,14 +506,14 @@ export const Card: React.FC<CardProps> = ({
   maxWidth,
   className,
   backgroundImage,
-  backgroundBlendMode = 'multiply',
-  variant = 'responsive',
+  backgroundBlendMode = "multiply",
+  variant = "responsive",
   href,
   onClick,
 }) => {
   const handleClick = () => {
     if (href) {
-      window.open(href, '_blank', 'noopener,noreferrer');
+      window.open(href, "_blank", "noopener,noreferrer");
     } else if (onClick) {
       onClick();
     }
@@ -508,30 +522,41 @@ export const Card: React.FC<CardProps> = ({
   const isClickable = !!(href || onClick);
 
   return (
-    <StyledCard 
-      $hoverable={hoverable || isClickable} 
+    <StyledCard
+      $hoverable={hoverable || isClickable}
       $maxWidth={maxWidth}
       $backgroundImage={backgroundImage}
       $backgroundBlendMode={backgroundBlendMode}
       $variant={variant}
-      className={`${className || ''} ${(hoverable || isClickable) ? 'card-hoverable' : ''}`}
+      className={`${className || ""} ${
+        hoverable || isClickable ? "card-hoverable" : ""
+      }`}
       onClick={isClickable ? handleClick : undefined}
       role={isClickable ? "button" : undefined}
       tabIndex={isClickable ? 0 : undefined}
-      onKeyDown={isClickable ? (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleClick();
-        }
-      } : undefined}
+      onKeyDown={
+        isClickable
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleClick();
+              }
+            }
+          : undefined
+      }
     >
-      <ContentWrapper $hasBackgroundImage={!!backgroundImage} $variant={variant}>
+      <ContentWrapper
+        $hasBackgroundImage={!!backgroundImage}
+        $variant={variant}
+      >
         {title && <CardTitle $variant={variant}>{title}</CardTitle>}
         {subtitle && <CardSubtitle $variant={variant}>{subtitle}</CardSubtitle>}
         {badges.length > 0 && (
           <BadgeContainer $variant={variant}>
             {badges.map((badge, index) => (
-              <Badge key={index} $variant={variant}>{badge}</Badge>
+              <Badge key={index} $variant={variant}>
+                {badge}
+              </Badge>
             ))}
           </BadgeContainer>
         )}
