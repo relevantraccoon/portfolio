@@ -38,7 +38,7 @@ function App() {
             {
               id: "1",
               title: "Portfolio Website",
-              thumbnail: "/projectCardDemo/image.png",
+              thumbnail: "/projectCardDemo/project-card-portfolio-img.png",
               description:
                 "Modern animated portfolio website built with React, TypeScript, and Styled Components featuring responsive design and smooth animations",
               techStack: ["React", "TypeScript", "Styled Components"],
