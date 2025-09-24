@@ -37,14 +37,14 @@ function App() {
           projects={[
             {
               id: "1",
-              title: "Kubic Kode",
+              title: "Portfolio Website",
               thumbnail: "/projectCardDemo/image.png",
               description:
-                "Complete 2D game engine with multiplayer support and comprehensive toolkit for game development",
-              techStack: ["JavaScript", "WebGL"],
-              role: "Frontend Developer",
-              projectType: "Game Engine",
-              href: "https://github.com/example/kubic-kode",
+                "Modern animated portfolio website built with React, TypeScript, and Styled Components featuring responsive design and smooth animations",
+              techStack: ["React", "TypeScript", "Styled Components"],
+              status: "Status: Live • 2025",
+              projectType: "Portfolio",
+              href: "https://github.com/relevantraccoon/portfoliov2",
             },
             {
               id: "2",
@@ -53,7 +53,7 @@ function App() {
               description:
                 "Modern web application built with React and TypeScript featuring responsive design and real-time updates",
               techStack: ["React", "TypeScript"],
-              role: "Full Stack Developer",
+              status: "Completed • 2023",
               projectType: "Web App",
               href: "https://project-two-demo.vercel.app",
             },
@@ -64,7 +64,7 @@ function App() {
               description:
                 "RESTful API backend with Vue.js frontend providing seamless data integration and user experience",
               techStack: ["Vue", "Node.js"],
-              role: "Backend Developer",
+              status: "In Development • 2024",
               projectType: "API",
               href: "https://api.project-three.com",
             },
@@ -75,7 +75,7 @@ function App() {
               description:
                 "Cross-platform mobile application with native performance and intuitive user interface design",
               techStack: ["React Native", "Expo"],
-              role: "Mobile Developer",
+              status: "Prototype • 2023",
               projectType: "Mobile App",
               href: "https://github.com/example/project-four",
             },
@@ -86,7 +86,7 @@ function App() {
               description:
                 "AI-powered application with real-time data processing and machine learning integration for intelligent insights",
               techStack: ["Python", "TensorFlow"],
-              role: "ML Engineer",
+              status: "Live • 2024",
               projectType: "AI Application",
               href: "https://project-five-ai.netlify.app",
             },

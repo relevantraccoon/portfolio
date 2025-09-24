@@ -92,7 +92,7 @@ const StyledCard = styled.div<{
   overflow: hidden;
   margin: 0 auto;
 
-  ${({ $variant, $maxWidth }) => {
+  ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
     
     if ($variant === 'responsive') {
@@ -144,7 +144,6 @@ const StyledCard = styled.div<{
       z-index: 0;
       
       ${(() => {
-        const dimensions = getCardDimensions($variant);
         
         if ($variant === 'mobile' || $variant === 'mobileWide') {
           return `
@@ -188,11 +187,11 @@ const StyledCard = styled.div<{
       background: ${theme.colors.palette.surface};
       border-right: 15px solid rgba(217, 176, 167, 0.2);
       z-index: 1;
-      transition: ${({ theme }) => theme.transitions.width};
+      transition: ${theme.transitions.width};
     }
   `}
 
-  ${({ $hoverable, theme }) =>
+  ${({ $hoverable }) =>
     $hoverable &&
     `
     &:hover {
@@ -292,26 +291,26 @@ const BadgeContainer = styled.div<{ $variant: CardVariant }>`
   flex-wrap: wrap;
   transition: ${({ theme }) => theme.transitions.opacity};
   
-  ${({ $variant }) => {
+  ${({ $variant, theme }) => {
     if ($variant === 'mobile') {
       return `
-        gap: ${({ theme }) => theme.spacing.xs};
+        gap: ${theme.spacing.xs};
       `;
     }
     if ($variant === 'responsive') {
       return `
-        gap: ${({ theme }) => theme.spacing.xs};
+        gap: ${theme.spacing.xs};
         
         ${mediaQuery.from("mobileWide")} {
-          gap: ${({ theme }) => theme.spacing.sm};
+          gap: ${theme.spacing.sm};
         }
         
         ${mediaQuery.from("tablet")} {
-          gap: ${({ theme }) => theme.spacing.sm};
+          gap: ${theme.spacing.sm};
         }
       `;
     }
-    return `gap: ${({ theme }) => theme.spacing.sm};`;
+    return `gap: ${theme.spacing.sm};`;
   }}
 `;
 
@@ -322,8 +321,6 @@ const Badge = styled.span<{ $variant: CardVariant }>`
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   
   ${({ $variant }) => {
-    const dimensions = getCardDimensions($variant);
-    
     if ($variant === 'responsive') {
       return `
         padding: 0.2rem 0.6rem;
@@ -374,65 +371,66 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
   & > * + * {
     margin-top: ${({ theme }) => theme.spacing.md};
   }
-  
-  ${({ $variant }) => {
+
+  ${({ $variant, theme }) => {
     const dimensions = getCardDimensions($variant);
-    
+
     if ($variant === 'mobile') {
       return `
         font-size: ${dimensions.fontSize};
         line-height: 1.4;
-        
+
         & > * + * {
-          margin-top: ${({ theme }) => theme.spacing.sm};
+          margin-top: ${theme.spacing.sm};
         }
       `;
     }
-    
+
     if ($variant === 'responsive') {
       return `
         font-size: 0.8rem;
         line-height: 1.4;
-        
+
         & > * + * {
-          margin-top: ${({ theme }) => theme.spacing.sm};
+          margin-top: ${theme.spacing.sm};
         }
-        
+
         ${mediaQuery.from("mobileWide")} {
           font-size: 0.925rem;
           line-height: 1.5;
-          
+
           & > * + * {
             margin-top: 0.75rem; // Could use theme.spacing but 0.75rem is between sm and md
           }
         }
-        
+
         ${mediaQuery.from("tablet")} {
           font-size: 1rem;
           line-height: 1.6;
-          
+
           & > * + * {
-            margin-top: ${({ theme }) => theme.spacing.md};
+            margin-top: ${theme.spacing.md};
           }
         }
-        
+
         ${mediaQuery.from("desktop")} {
           font-size: 1rem;
           line-height: 1.6;
-          
+
           & > * + * {
-            margin-top: ${({ theme }) => theme.spacing.md};
+            margin-top: ${theme.spacing.md};
           }
         }
       `;
     }
-    
+
     return `
       font-size: ${dimensions.fontSize};
       line-height: 1.6;
     `;
   }}
 `;
+
 
 const ContentWrapper = styled.div<{ $hasBackgroundImage?: boolean; $variant: CardVariant }>`
   position: relative;
@@ -497,6 +495,7 @@ export const Card: React.FC<CardProps> = ({
   href,
   onClick,
 }) => {
+
   const handleClick = () => {
     if (href) {
       window.open(href, '_blank', 'noopener,noreferrer');
@@ -504,6 +503,7 @@ export const Card: React.FC<CardProps> = ({
       onClick();
     }
   };
+
 
   const isClickable = !!(href || onClick);
 
@@ -535,7 +535,11 @@ export const Card: React.FC<CardProps> = ({
             ))}
           </BadgeContainer>
         )}
-        {children && <CardContent $variant={variant}>{children}</CardContent>}
+        {children && (
+          <CardContent $variant={variant}>
+            {children}
+          </CardContent>
+        )}
       </ContentWrapper>
     </StyledCard>
   );
