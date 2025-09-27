@@ -90,6 +90,11 @@ export const layout = {
       sparkSlide: "6px",
       sparkOffset: "-12px",
     },
+    scale: {
+      hover: "1.05",
+      hoverLarge: "1.1",
+      press: "0.95",
+    },
     rotation: {
       sparkTilt: "3deg",
     },
