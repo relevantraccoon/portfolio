@@ -48,6 +48,10 @@ export const controls = {
     width: "12px",
     height: "12px",
   },
+  icon: {
+    padding: "12px",
+    fontSize: "20px",
+  },
 };
 
 export const sizes: Sizes = {};
