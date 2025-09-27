@@ -79,12 +79,19 @@ export const layout = {
       quick: "0.15s",
       smooth: "0.3s",
       slow: "0.6s",
+      sparkle: "0.6s",
+      sparkFloat: "0.8s",
     },
     movement: {
       lift: "-2px",
       press: "0",
       float: "-4px",
       drop: "2px",
+      sparkSlide: "6px",
+      sparkOffset: "-12px",
+    },
+    rotation: {
+      sparkTilt: "3deg",
     },
     easing: {
       ease: "ease",
@@ -92,6 +99,12 @@ export const layout = {
       easeOut: "ease-out",
       easeInOut: "ease-in-out",
     },
+  },
+
+  opacity: {
+    disabled: 0.5,
+    hidden: 0,
+    visible: 1,
   },
 
   components: {
