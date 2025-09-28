@@ -56,11 +56,9 @@ export const Contact: React.FC<ContactProps> = ({
         <ContactGrid>
           <ContactContent>
             <ContactTitle>
-              <Typography variant="h1" color="primary">
-                <ContactTitleTypography>
-                  I'm always up for a chat!
-                </ContactTitleTypography>
-              </Typography>
+              <ContactTitleTypography>
+                I'm always up for a chat!
+              </ContactTitleTypography>
             </ContactTitle>
 
             <ContactTextContainer>

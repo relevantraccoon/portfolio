@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQuery } from "@/styles/theme/mediaQueries";
 
 export const ContactWrapper = styled.section`
   width: 100%;
@@ -9,7 +10,7 @@ export const ContactWrapper = styled.section`
   align-items: center;
   position: sticky;
   bottom: 0;
-  padding: 4rem 0;
+  padding: ${({ theme }) => theme.spacing.xxxl} 0;
   background: ${({ theme }) => theme.colors.palette.primary};
   z-index: ${({ theme }) => theme.zIndex.sections.bottom};
 `;
@@ -17,9 +18,9 @@ export const ContactWrapper = styled.section`
 export const ContactContainer = styled.div`
   background: ${({ theme }) => theme.colors.palette.background};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: 3rem;
-  width: 90vw;
-  height: 80vh;
+  padding: 0;
+  width: ${({ theme }) => theme.layout.proportions.sizing.mostlyFull};
+  height: ${({ theme }) => theme.layout.viewport.sections.contact.mobile};
   min-height: 500px;
   overflow-y: auto;
   text-align: center;
@@ -28,67 +29,64 @@ export const ContactContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  @media (min-width: 1280px) {
-    padding: 3rem 10rem;
-  }
 `;
 
 export const ContactGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(1rem, 2vh, 1.5rem);
+  gap: ${({ theme }) => theme.layout.responsive.gaps.small};
   height: 100%;
   align-items: center;
+  padding: ${({ theme }) => theme.spacing.xl};
 
-  @media (min-width: 480px) {
-    gap: clamp(1.5rem, 3vh, 2rem);
+  ${mediaQuery.from('mobileWide')} {
+    gap: ${({ theme }) => theme.layout.responsive.gaps.medium};
+    padding: ${({ theme }) => theme.spacing.xxxl};
   }
 
-  @media (min-width: 768px) {
-    grid-template-columns: 2fr 1fr;
-    gap: clamp(2rem, 4vh, 3rem);
+  ${mediaQuery.from('tablet')} {
+    grid-template-columns: ${({ theme }) => theme.layout.proportions.gridTemplates.majorMinor};
+    gap: ${({ theme }) => theme.layout.responsive.gaps.large};
+    padding: ${({ theme }) => theme.spacing.xxxxl};
   }
 
-  @media (min-width: 991px) {
-    gap: clamp(3rem, 5vh, 4rem);
+  ${mediaQuery.from('desktop')} {
+    gap: ${({ theme }) => theme.layout.responsive.gaps.xlarge};
   }
 
-  @media (min-width: 1280px) {
-    gap: clamp(4rem, 6vh, 5rem);
+  ${mediaQuery.from('desktopLarge')} {
+    gap: ${({ theme }) => theme.layout.responsive.gaps.xxlarge};
+    padding: ${({ theme }) => theme.spacing.xxxxl} ${({ theme }) => theme.gutters.widescreen};
   }
 
   @media (max-height: 600px) {
-    gap: 1rem;
+    gap: ${({ theme }) => theme.spacing.md};
   }
 `;
 
 export const ContactContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 3vh, 1.5rem);
+  gap: ${({ theme }) => theme.layout.responsive.contentGaps.small};
   text-align: center;
   width: 100%;
-  padding: 1rem;
   align-items: center;
 
-  @media (min-width: 480px) {
-    padding: 1.5rem;
-    gap: clamp(1.5rem, 4vh, 2rem);
+  ${mediaQuery.from('mobileWide')} {
+    gap: ${({ theme }) => theme.layout.responsive.contentGaps.medium};
   }
 
-  @media (min-width: 768px) {
-    padding: 2rem;
-    gap: clamp(2rem, 5vh, 2.5rem);
+  ${mediaQuery.from('tablet')} {
+    gap: ${({ theme }) => theme.layout.responsive.contentGaps.large};
     text-align: left;
     align-items: flex-start;
   }
 
   @media (max-height: 600px) {
     gap: 1.25rem;
-    padding: 1rem;
   }
 
-  @media (max-width: 767px) {
+  ${mediaQuery.until('mobileWide')} {
     text-align: center;
     align-items: center;
   }
@@ -98,26 +96,18 @@ export const ContactTitle = styled.div`
   width: 100%;
   text-align: center;
 
-  * {
-    text-align: center !important;
-  }
-
-  @media (min-width: 768px) {
+  ${mediaQuery.from('tablet')} {
     text-align: left;
-
-    * {
-      text-align: left !important;
-    }
   }
 `;
 
 export const ContactTextContainer = styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: ${({ theme }) => theme.layout.components.contact.maxWidths.text};
   text-align: center;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  ${mediaQuery.from('tablet')} {
     text-align: left;
     margin: 0;
   }
@@ -125,11 +115,11 @@ export const ContactTextContainer = styled.div`
 
 export const ContactButtonContainer = styled.div`
   width: 100%;
-  max-width: 250px;
+  max-width: ${({ theme }) => theme.layout.components.contact.maxWidths.button};
   text-align: center;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  ${mediaQuery.from('tablet')} {
     text-align: left;
     margin: 0;
   }
@@ -138,15 +128,15 @@ export const ContactButtonContainer = styled.div`
 export const ContactTextSVG = styled.svg`
   width: 100%;
   height: auto;
-  max-width: 500px;
-  margin-bottom: 1rem;
+  max-width: ${({ theme }) => theme.layout.components.contact.maxWidths.svg};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
   pointer-events: none;
 `;
 
 export const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: ${({ theme }) => theme.spacing.sm};
   text-align: inherit;
 
   * {
@@ -154,23 +144,23 @@ export const ContactInfo = styled.div`
   }
 
   > *:first-child {
-    margin-bottom: 0.25rem;
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
   }
 
   > *:nth-child(2) {
-    margin-bottom: 1rem;
+    margin-bottom: ${({ theme }) => theme.spacing.md};
   }
 `;
 
 export const ContactLinks = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing.md};
   width: 100%;
-  max-width: 250px;
+  max-width: ${({ theme }) => theme.layout.components.contact.maxWidths.button};
   justify-content: space-between;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  ${mediaQuery.from('tablet')} {
     justify-content: flex-start;
     max-width: none;
     width: auto;
@@ -181,23 +171,20 @@ export const ContactLinks = styled.div`
 export const VideoPlaceholder = styled.div`
   display: none;
 
-  @media (min-width: 768px) and (min-height: 500px) {
+  ${mediaQuery.from('tablet')} and (min-height: 500px) {
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 220px;
-    height: 220px;
+    width: ${({ theme }) => theme.layout.components.video.sizes.small};
+    height: ${({ theme }) => theme.layout.components.video.sizes.small};
     color: ${({ theme }) => theme.colors.palette.secondary};
     font-style: italic;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 22px
-      ${({ theme }) => theme.colors.extractedDoNotUse.lightest[0].replace('1)', '0.5)')};
-  }
+    box-shadow: ${({ theme }) => theme.shadows.video.small};
 
-  @media (min-width: 768px) and (min-height: 500px) {
     &::after {
       content: "";
       position: absolute;
@@ -206,31 +193,29 @@ export const VideoPlaceholder = styled.div`
       right: 0;
       bottom: 0;
       border-radius: 50%;
-      box-shadow: inset 0 0 0 8px rgba(0, 0, 0, 1);
+      box-shadow: ${({ theme }) => theme.shadows.video.insetSmall};
       pointer-events: none;
-      z-index: 10;
+      z-index: ${({ theme }) => theme.zIndex.sections.content};
     }
   }
 
-  @media (min-width: 991px) and (min-height: 600px) {
-    width: 260px;
-    height: 260px;
-    box-shadow: 0 0 26px
-      ${({ theme }) => theme.colors.extractedDoNotUse.lightest[0].replace('1)', '0.5)')};
+  ${mediaQuery.from('desktop')} and (min-height: 600px) {
+    width: ${({ theme }) => theme.layout.components.video.sizes.medium};
+    height: ${({ theme }) => theme.layout.components.video.sizes.medium};
+    box-shadow: ${({ theme }) => theme.shadows.video.medium};
 
     &::after {
-      box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 1);
+      box-shadow: ${({ theme }) => theme.shadows.video.insetMedium};
     }
   }
 
-  @media (min-width: 1280px) and (min-height: 700px) {
-    width: 300px;
-    height: 300px;
-    box-shadow: 0 0 30px
-      ${({ theme }) => theme.colors.extractedDoNotUse.lightest[0].replace('1)', '0.5)')};
+  ${mediaQuery.from('desktopLarge')} and (min-height: 700px) {
+    width: ${({ theme }) => theme.layout.components.video.sizes.large};
+    height: ${({ theme }) => theme.layout.components.video.sizes.large};
+    box-shadow: ${({ theme }) => theme.shadows.video.large};
 
     &::after {
-      box-shadow: inset 0 0 0 12px rgba(0, 0, 0, 1);
+      box-shadow: ${({ theme }) => theme.shadows.video.insetLarge};
     }
   }
 `;
@@ -238,20 +223,23 @@ export const VideoPlaceholder = styled.div`
 export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing.md};
 `;
 
-export const ContactTitleTypography = styled.div`
-  font-size: clamp(1.5rem, 4vw, 3rem);
+export const ContactTitleTypography = styled.h1`
+  font-size: ${({ theme }) => theme.responsiveTypography.contactTitle};
   font-weight: bold;
   letter-spacing: 0.025em;
   line-height: 1.1;
+  color: ${({ theme }) => theme.colors.palette.primary};
+  text-align: inherit;
+  margin: 0;
 `;
 
 export const ContactEmailWrapper = styled.span`
   display: inline-flex;
   align-items: center;
-  margin-left: 0.25rem;
+  margin-left: ${({ theme }) => theme.spacing.xs};
 `;
 
 export const ContactEmailLink = styled.span`
