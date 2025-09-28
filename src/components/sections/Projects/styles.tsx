@@ -10,6 +10,7 @@ export const ProjectsContainer = styled.section`
   position: relative;
   background-color: ${({ theme }) => theme.colors.palette.background};
   overflow: hidden;
+  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 
   ${mediaQuery.from("tablet")} {
     min-height: ${({ theme }) => theme.layout.viewport.sections.content.tablet};
@@ -117,7 +118,7 @@ export const NavigationContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing.lg};
   width: 100%;
   position: relative;
-  z-index: 20;
+  z-index: ${({ theme }) => theme.zIndex.carousel.navigation};
 
   ${mediaQuery.from("mobileWide")} {
     margin-top: ${({ theme }) => theme.spacing.lg};

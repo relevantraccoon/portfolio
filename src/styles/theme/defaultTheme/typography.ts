@@ -43,8 +43,14 @@ export const lineHeight = {
 export const letterSpacing = {
   tight: "-0.025em",
   normal: "0",
+  medium: "0.05em",
   wide: "0.1em",
 }
+
+// Responsive typography
+export const responsiveTypography = {
+  contactTitle: "clamp(1.5rem, 4vw, 3rem)",
+};
 
 // Icon typography (legacy)
 export const iconTypography = {
@@ -79,4 +85,5 @@ export type FontSize = typeof fontSize;
 export type FontWeight = typeof fontWeight;
 export type LineHeight = typeof lineHeight;
 export type LetterSpacing = typeof letterSpacing;
+export type ResponsiveTypography = typeof responsiveTypography;
 export type IconTypography = typeof iconTypography;

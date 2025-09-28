@@ -6,6 +6,7 @@ export const spacing = {
   xl: "2rem", // 32px
   xxl: "3rem", // 48px
   xxxl: "4rem", // 64px
+  xxxxl: "5rem", // 80px
 };
 
 export const gutters = {
@@ -37,8 +38,18 @@ export const borderRadius = {
 
 export const controls = {
   button: {
-    width: "40px",
-    height: "40px",
+    small: {
+      width: "40px",
+      height: "40px",
+    },
+    medium: {
+      width: "48px",
+      height: "48px",
+    },
+    large: {
+      width: "60px",
+      height: "60px",
+    },
   },
   navButton: {
     width: "50px",
@@ -47,6 +58,10 @@ export const controls = {
   dot: {
     width: "12px",
     height: "12px",
+  },
+  icon: {
+    padding: "12px",
+    fontSize: "20px",
   },
 };
 

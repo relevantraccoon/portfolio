@@ -1,0 +1,144 @@
+import React from "react";
+import { useTheme } from "styled-components";
+import {
+  ContactWrapper,
+  ContactContainer,
+  ContactGrid,
+  ContactContent,
+  ContactTitle,
+  ContactTextContainer,
+  ContactButtonContainer,
+  ContactInfo,
+  ContactLinks,
+  VideoPlaceholder,
+  ContactTitleTypography,
+  ContactEmailWrapper,
+  ContactEmailLink,
+  ContactCopyIcon,
+  ContactVideo,
+} from "@/components/sections/Contact/styles";
+import { Typography } from "@/components/ui-library/Typography";
+import { Button } from "@/components/ui-library/Button";
+import { Link } from "@/components/ui-library/Link";
+import { FaLinkedin, FaGithub, FaFilePdf, FaCopy } from "react-icons/fa";
+import { SiStrava } from "react-icons/si";
+
+type ContactProps = {
+  email?: string;
+  phone?: string;
+  linkedinUrl?: string;
+  githubUrl?: string;
+  stravaUrl?: string;
+  cvUrl?: string;
+};
+
+export const Contact: React.FC<ContactProps> = ({
+  email = "your.email@example.com",
+  linkedinUrl = "https://linkedin.com/in/yourprofile",
+  githubUrl = "https://github.com/yourusername",
+  stravaUrl = "https://strava.com/athletes/yourprofile",
+  cvUrl = "/cv/your-cv.pdf",
+}) => {
+  const handleSocialClick = (url: string) => {
+    window.open(url, "_blank");
+  };
+
+  const handleCVDownload = () => {
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Joakim_Karlsson_CV.pdf";
+    link.click();
+  };
+
+  return (
+    <ContactWrapper>
+      <ContactContainer>
+        <ContactGrid>
+          <ContactContent>
+            <ContactTitle>
+              <ContactTitleTypography>
+                I'm always up for a chat!
+              </ContactTitleTypography>
+            </ContactTitle>
+
+            <ContactTextContainer>
+              <ContactInfo>
+                <Typography
+                  variant="body"
+                  color="secondary"
+                >
+                  Pop me an email at
+                  <ContactEmailWrapper>
+                    <Link
+                      href={`mailto:${email}`}
+                      variant="default"
+                    >
+                      <ContactEmailLink>
+                        {email}
+                        <ContactCopyIcon
+                          as={FaCopy}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            alert("Email copied to clipboard!");
+                          }}
+                        />
+                      </ContactEmailLink>
+                    </Link>
+                  </ContactEmailWrapper>
+                </Typography>
+                <Typography
+                  variant="body"
+                  color="secondary"
+                >
+                  ...or give me a shout on social media.
+                </Typography>
+
+                <ContactLinks>
+                  <Button
+                    variant="secondary"
+                    shape="round"
+                    onClick={() => handleSocialClick(githubUrl)}
+                  >
+                    <FaGithub />
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    shape="round"
+                    onClick={() => handleSocialClick(linkedinUrl)}
+                  >
+                    <FaLinkedin />
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    shape="round"
+                    onClick={() => handleSocialClick(stravaUrl)}
+                  >
+                    <SiStrava />
+                  </Button>
+                </ContactLinks>
+              </ContactInfo>
+            </ContactTextContainer>
+
+            <ContactButtonContainer>
+              <Button variant="outlinePrimary" onClick={handleCVDownload}>
+                Download my CV
+                <FaFilePdf />
+              </Button>
+            </ContactButtonContainer>
+          </ContactContent>
+
+          <VideoPlaceholder>
+            <ContactVideo autoPlay muted loop>
+              <source
+                src="/finalvideo/bounce_loop_premult_alpha.webm"
+                type="video/webm"
+              />
+              Your browser does not support the video tag.
+            </ContactVideo>
+          </VideoPlaceholder>
+        </ContactGrid>
+      </ContactContainer>
+    </ContactWrapper>
+  );
+};

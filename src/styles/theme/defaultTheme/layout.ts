@@ -74,17 +74,44 @@ export const layout = {
     },
   },
 
+  responsive: {
+    gaps: {
+      small: "clamp(1rem, 2vh, 1.5rem)",
+      medium: "clamp(1.5rem, 3vh, 2rem)",
+      large: "clamp(2rem, 4vh, 3rem)",
+      xlarge: "clamp(3rem, 5vh, 4rem)",
+      xxlarge: "clamp(4rem, 6vh, 5rem)",
+    },
+    contentGaps: {
+      small: "clamp(1rem, 3vh, 1.5rem)",
+      medium: "clamp(1.5rem, 4vh, 2rem)",
+      large: "clamp(2rem, 5vh, 2.5rem)",
+    },
+  },
+
   animation: {
     speed: {
       quick: "0.15s",
       smooth: "0.3s",
       slow: "0.6s",
+      sparkle: "0.6s",
+      sparkFloat: "0.8s",
     },
     movement: {
       lift: "-2px",
       press: "0",
       float: "-4px",
       drop: "2px",
+      sparkSlide: "6px",
+      sparkOffset: "-12px",
+    },
+    scale: {
+      hover: "1.05",
+      hoverLarge: "1.1",
+      press: "0.95",
+    },
+    rotation: {
+      sparkTilt: "3deg",
     },
     easing: {
       ease: "ease",
@@ -92,6 +119,12 @@ export const layout = {
       easeOut: "ease-out",
       easeInOut: "ease-in-out",
     },
+  },
+
+  opacity: {
+    disabled: 0.5,
+    hidden: 0,
+    visible: 1,
   },
 
   components: {
@@ -169,6 +202,25 @@ export const layout = {
         slight: "1px",
         medium: "2px",
         heavy: "3px",
+      },
+    },
+    video: {
+      sizes: {
+        small: "220px",
+        medium: "260px",
+        large: "300px",
+      },
+      borders: {
+        small: "8px",
+        medium: "10px",
+        large: "12px",
+      },
+    },
+    contact: {
+      maxWidths: {
+        text: "400px",
+        button: "250px",
+        svg: "500px",
       },
     },
   },
