@@ -13,6 +13,8 @@ export const HeroContainer = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.primary};
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;
+  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 
   ${mediaQuery.from("tablet")} {
     height: ${({ theme }) => theme.layout.viewport.sections.hero.tablet};
