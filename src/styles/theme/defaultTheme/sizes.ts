@@ -6,6 +6,7 @@ export const spacing = {
   xl: "2rem", // 32px
   xxl: "3rem", // 48px
   xxxl: "4rem", // 64px
+  xxxxl: "5rem", // 80px
 };
 
 export const gutters = {

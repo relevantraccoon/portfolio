@@ -74,6 +74,21 @@ export const layout = {
     },
   },
 
+  responsive: {
+    gaps: {
+      small: "clamp(1rem, 2vh, 1.5rem)",
+      medium: "clamp(1.5rem, 3vh, 2rem)",
+      large: "clamp(2rem, 4vh, 3rem)",
+      xlarge: "clamp(3rem, 5vh, 4rem)",
+      xxlarge: "clamp(4rem, 6vh, 5rem)",
+    },
+    contentGaps: {
+      small: "clamp(1rem, 3vh, 1.5rem)",
+      medium: "clamp(1.5rem, 4vh, 2rem)",
+      large: "clamp(2rem, 5vh, 2.5rem)",
+    },
+  },
+
   animation: {
     speed: {
       quick: "0.15s",
@@ -187,6 +202,25 @@ export const layout = {
         slight: "1px",
         medium: "2px",
         heavy: "3px",
+      },
+    },
+    video: {
+      sizes: {
+        small: "220px",
+        medium: "260px",
+        large: "300px",
+      },
+      borders: {
+        small: "8px",
+        medium: "10px",
+        large: "12px",
+      },
+    },
+    contact: {
+      maxWidths: {
+        text: "400px",
+        button: "250px",
+        svg: "500px",
       },
     },
   },
