@@ -154,12 +154,17 @@ const StyledButton = styled.button<{
           border-radius: ${theme.borderRadius.xl};
           padding: ${theme.spacing.lg};
           font-weight: bold;
+          letter-spacing: ${theme.letterSpacing.medium};
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
           gap: 1rem;
           width: 100%;
+
+          svg {
+            font-size: 1.25em;
+          }
 
           &:hover:not(:disabled) {
             background: ${theme.colors.palette.primary};

@@ -4,6 +4,7 @@ import { Hero } from "@/components/layout/Hero";
 import { AboutMe } from "@/components/sections/AboutMe";
 import { CircleDivider } from "@/components/layout/CircleDivider";
 import { Projects } from "@/components/sections/Projects";
+import { Contact } from "@/components/sections/Contact";
 
 function App() {
   return (
@@ -91,6 +92,16 @@ function App() {
               href: "https://project-five-ai.netlify.app",
             },
           ]}
+        />
+
+        <CircleDivider circleCount={20} circleSize={16} />
+
+        <Contact
+          email="hello@joakimkarlsson.com"
+          linkedinUrl="https://linkedin.com/in/joakim-karlsson"
+          githubUrl="https://github.com/relevantraccoon"
+          stravaUrl="https://strava.com/athletes/joakim-karlsson"
+          cvUrl="/cv/Joakim_Karlsson_CV.pdf"
         />
       </>
     </DefaultThemeProvider>

@@ -93,8 +93,8 @@ export const OutlinePrimary: Story = {
     variant: "outlinePrimary",
     children: (
       <>
-        <span style={{ letterSpacing: "0.05em" }}>Download my CV</span>
-        <FaFilePdf style={{ fontSize: "1.25em" }} />
+        Download my CV
+        <FaFilePdf />
       </>
     ),
   },
