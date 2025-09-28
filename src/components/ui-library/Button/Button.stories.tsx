@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
+import { FaFilePdf } from "react-icons/fa";
+import { TbArrowBigRightFilled } from "react-icons/tb";
 
 const meta: Meta<typeof Button> = {
   title: "UI Library/Button",
@@ -11,7 +13,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["primary", "secondary"],
+      options: ["primary", "secondary", "navigation", "outlinePrimary"],
       description: "The visual style of the button",
     },
     size: {
@@ -79,14 +81,40 @@ export const Disabled: Story = {
   },
 };
 
+export const Navigation: Story = {
+  args: {
+    variant: "navigation",
+    children: <TbArrowBigRightFilled />,
+  },
+};
+
+export const OutlinePrimary: Story = {
+  args: {
+    variant: "outlinePrimary",
+    children: (
+      <>
+        <span style={{ letterSpacing: "0.05em" }}>Download my CV</span>
+        <FaFilePdf style={{ fontSize: "1.25em" }} />
+      </>
+    ),
+  },
+  render: (args) => (
+    <div style={{ width: "250px" }}>
+      <Button {...args} />
+    </div>
+  ),
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
+      <Button variant="navigation"><TbArrowBigRightFilled /></Button>
       <Button variant="primary" size="small">Small</Button>
       <Button variant="primary" size="large">Large</Button>
       <Button variant="primary" disabled>Disabled</Button>
+      <Button variant="outlinePrimary">Outline Primary</Button>
     </div>
   ),
 };

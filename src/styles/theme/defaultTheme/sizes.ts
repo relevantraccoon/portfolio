@@ -37,8 +37,18 @@ export const borderRadius = {
 
 export const controls = {
   button: {
-    width: "40px",
-    height: "40px",
+    small: {
+      width: "40px",
+      height: "40px",
+    },
+    medium: {
+      width: "48px",
+      height: "48px",
+    },
+    large: {
+      width: "60px",
+      height: "60px",
+    },
   },
   navButton: {
     width: "50px",
