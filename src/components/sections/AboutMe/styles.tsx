@@ -11,6 +11,7 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
   background-color: ${({ theme, $backgroundColor }) =>
     $backgroundColor || theme.colors.palette.secondary};
   overflow: hidden;
+  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 
   ${mediaQuery.from("tablet")} {
     min-height: ${({ theme }) => theme.layout.viewport.sections.content.tablet};
