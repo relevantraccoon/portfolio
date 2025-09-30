@@ -26,8 +26,9 @@ function App() {
 
         <AboutMe
           description={[
-            "Frontend developer transitioning from tech support. I understand what users need because I've solved their problems directly.",
-            "Led internal audits implementing ISO 27001. I care about how my work affects the whole system, not just my piece.",
+            "I'm a frontend developer who understands users because I've solved their problems directly in tech support. Good interfaces work for real people under pressure. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "As an internal audit team leader, I learned to think like an owner. I approach development the same way: understanding how my code serves both users and business objectives. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "I build with TypeScript, React, and Styled Components. Whether debugging workflows or grinding through long runs, I solve problems systematically. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
             "I value learning forever - constantly building new skills and understanding.",
           ]}
         />

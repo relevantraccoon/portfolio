@@ -40,8 +40,23 @@ export const colors = {
     // Utility Colors
     outline: "rgba(217, 176, 167, 0.3)", // Borders, dividers, input outlines
     outlineVariant: "rgba(217, 176, 167, 0.15)", // Subtle borders and separators
+    outlineDark: "rgba(89, 61, 54, 0.3)", // Dark borders, dividers, input outlines
+    outlineDarkVariant: "rgba(89, 61, 54, 0.15)", // Subtle dark borders and separators
     shadow: "rgba(0, 0, 0, 0.25)", // Drop shadows and elevation effects
     scrim: "rgba(0, 0, 0, 0.6)", // Semi-transparent overlays for modals/drawers
+  },
+  // Technology/Tool Brand Colors
+  brandColors: {
+    typescript: "#3178c6",
+    javascript: "#f7df1e",
+    react: "#61dafb",
+    css3: "#1572b6",
+    html5: "#e34f26",
+    styledcomponents: "#db7093",
+    graphql: "#e10098",
+    git: "#f05032",
+    figma: "#f24e1e",
+    storybook: "#ff4785",
   },
   // Colors extracted from Hero image - DO NOT USE, for reference only
   extractedDoNotUse: {

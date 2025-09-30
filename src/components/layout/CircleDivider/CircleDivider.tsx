@@ -12,7 +12,6 @@ export type CircleDividerProps = {
 
 const FullWidthContainer = styled.div`
   width: 100%;
-  height: 100px;
   background-color: ${({ theme }) => theme.colors.palette.background};
   display: flex;
   align-items: center;
@@ -73,7 +72,7 @@ export const CircleDivider: React.FC<CircleDividerProps> = ({
 
   return (
     <FullWidthContainer>
-      <Content type="grid">
+      <Content type="grid" verticalPadding={true} verticalPaddingSize="half">
         <CirclesContainer>
           {circles.map((circle) => (
             <Circle key={circle.id} $size={circleSize} $color={circle.color} />

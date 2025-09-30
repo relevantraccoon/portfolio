@@ -1,6 +1,6 @@
 import { FaLinkedin, FaGithub, FaFilePdf, FaCopy } from "react-icons/fa";
 
-import { SiStrava } from "react-icons/si";
+import { SiStrava, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiStyledcomponents, SiGraphql, SiGit, SiFigma, SiReact, SiStorybook } from "react-icons/si";
 
 import { TbArrowBigLeftFilled, TbArrowBigRightFilled } from "react-icons/tb";
 
@@ -10,6 +10,16 @@ export type IconName =
   | "FaFilePdf"
   | "FaCopy"
   | "SiStrava"
+  | "SiTypescript"
+  | "SiJavascript"
+  | "SiCss3"
+  | "SiHtml5"
+  | "SiStyledcomponents"
+  | "SiGraphql"
+  | "SiGit"
+  | "SiFigma"
+  | "SiReact"
+  | "SiStorybook"
   | "TbArrowBigLeftFilled"
   | "TbArrowBigRightFilled";
 
@@ -19,6 +29,16 @@ export const iconRegistry = {
   FaFilePdf,
   FaCopy,
   SiStrava,
+  SiTypescript,
+  SiJavascript,
+  SiCss3,
+  SiHtml5,
+  SiStyledcomponents,
+  SiGraphql,
+  SiGit,
+  SiFigma,
+  SiReact,
+  SiStorybook,
   TbArrowBigLeftFilled,
   TbArrowBigRightFilled,
 } as const;
