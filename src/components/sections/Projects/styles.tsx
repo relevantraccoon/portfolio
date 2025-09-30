@@ -3,27 +3,12 @@ import { mediaQuery } from "@/styles/theme/mediaQueries";
 
 export const ProjectsContainer = styled.section`
   width: 100%;
-  min-height: ${({ theme }) => theme.layout.viewport.sections.content.mobile};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
   background-color: ${({ theme }) => theme.colors.palette.background};
   overflow: hidden;
   z-index: ${({ theme }) => theme.zIndex.sections.normal};
-
-  ${mediaQuery.from("tablet")} {
-    min-height: ${({ theme }) => theme.layout.viewport.sections.content.tablet};
-  }
-
-  ${mediaQuery.from("desktop")} {
-    min-height: ${({ theme }) =>
-      theme.layout.viewport.sections.content.desktop};
-  }
-
-  ${mediaQuery.from("fhd")} {
-    min-height: ${({ theme }) => theme.layout.viewport.sections.content.fhd};
-  }
 `;
 
 export const ProjectsContentWrapper = styled.div`
@@ -31,7 +16,7 @@ export const ProjectsContentWrapper = styled.div`
   max-width: ${({ theme }) =>
     theme.layout.components.carousel.maxWidths.content};
   margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xxxl} 0;
+  padding: 0;
 `;
 
 export const CarouselContainer = styled.div`

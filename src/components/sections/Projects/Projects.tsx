@@ -50,7 +50,7 @@ export const Projects: React.FC<ProjectsProps> = ({
 
   return (
     <ProjectsContainer>
-      <Content type="grid">
+      <Content type="grid" verticalPadding={true}>
         <ProjectsContentWrapper>
           <Typography
             variant="h1"
@@ -71,15 +71,20 @@ export const Projects: React.FC<ProjectsProps> = ({
                 const position = getCardPosition(index);
 
                 return (
-                  <CarouselCard key={project.id} $position={position}>
+                  <CarouselCard
+                    key={project.id}
+                    $position={position}
+                    aria-hidden={position !== "active"}
+                    tabIndex={position !== "active" ? -1 : undefined}
+                  >
                     <Card
                       title={project.title}
                       subtitle={project.status}
                       badges={[project.projectType, ...project.techStack]}
-                      hoverable={true}
+                      hoverable={position === "active"}
                       backgroundImage={project.thumbnail}
                       variant="responsive"
-                      href={project.href}
+                      href={position === "active" ? project.href : undefined}
                     >
                       {project.description}
                     </Card>
