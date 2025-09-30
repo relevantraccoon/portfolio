@@ -12,11 +12,6 @@ import {
   HeroTextContainer,
   HeroTextSVG,
   OverlayImage,
-  Title,
-  Subtitle,
-  TechStack,
-  TechItem,
-  TechDivider,
   TextContent,
 } from "@/components/layout/Hero/styles";
 import { Button } from "@/components/ui-library/Button";
@@ -37,7 +32,6 @@ export type HeroProps = {
   titleFontSize?: number;
   titleLetterSpacing?: number;
   subtitle?: string;
-  techStack?: string[];
   ctaText?: string;
   profileImageUrl?: string;
   onCTAClick?: () => void;
@@ -52,11 +46,9 @@ export const Hero: React.FC<HeroProps> = ({
   svgSubtitleFontFamily = "default",
   svgSubtitleFontSize = 20,
   title = "Tech Support → Frontend Developer",
-  titleFontFamily = "'Roboto', sans-serif",
   titleFontSize = 24,
   titleLetterSpacing = 0.1,
   subtitle = "I've seen what breaks, now I build what works",
-  techStack = ["TypeScript", "React", "GraphQL", "CSS/HTML", "Styled Components"],
   ctaText = "Reach out",
   profileImageUrl = j4,
   onCTAClick,
@@ -100,7 +92,9 @@ export const Hero: React.FC<HeroProps> = ({
               text={svgSubtitle}
               x={theme.layout.components.hero.svg.centerX}
               y={theme.layout.components.hero.svg.text.secondary.y}
-              fontSize={svgSubtitleFontSize || parseInt(theme.fontSize.displaySub)}
+              fontSize={
+                svgSubtitleFontSize || parseInt(theme.fontSize.displaySub)
+              }
               letterSpacing={`${svgSubtitleLetterSpacing}em`}
               fontFamily={svgSubtitleFontFamily}
               isSubtitle={true}
@@ -126,8 +120,8 @@ export const Hero: React.FC<HeroProps> = ({
               style={{
                 fontSize: `${titleFontSize}px`,
                 letterSpacing: `${titleLetterSpacing}em`,
-                WebkitFontSmoothing: 'antialiased',
-                marginBottom: '0.5rem'
+                WebkitFontSmoothing: "antialiased",
+                marginBottom: "0.5rem",
               }}
             >
               {title}
@@ -138,21 +132,15 @@ export const Hero: React.FC<HeroProps> = ({
               align="center"
               style={{
                 opacity: 0.8,
-                marginBottom: '1rem'
+                marginBottom: "1rem",
               }}
             >
               {subtitle}
             </Typography>
-            <TechStack>
-              {techStack.map((tech, index) => (
-                <React.Fragment key={index}>
-                  <TechItem>{tech}</TechItem>
-                  {index < techStack.length - 1 && <TechDivider>•</TechDivider>}
-                </React.Fragment>
-              ))}
-            </TechStack>
-            
-            <Button variant="primary" onClick={onCTAClick}>{ctaText}</Button>
+
+            <Button variant="primary" onClick={onCTAClick}>
+              {ctaText}
+            </Button>
           </TextContent>
         </Content>
       </ContentSection>
