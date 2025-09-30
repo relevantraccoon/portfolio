@@ -5,41 +5,96 @@ import {
   AboutMeContainer,
   AboutGrid,
   AboutContent,
-  AboutVideo,
+  VerticalDivider,
+  SkillsContainer,
+  SkillCategory,
+  SkillCategoryTitle,
+  SkillsList,
+  SkillItem,
+  SkillIconWrapper,
 } from "@/components/sections/AboutMe/styles";
+import {
+  SiTypescript,
+  SiCss3,
+  SiHtml5,
+  SiStyledcomponents,
+  SiGraphql,
+  SiGit,
+  SiFigma,
+  SiReact,
+  SiStorybook,
+} from "react-icons/si";
+
+const TECHNOLOGIES = [
+  { id: "typescript", icon: SiTypescript, label: "TypeScript" },
+  { id: "react", icon: SiReact, label: "React" },
+  { id: "css3", icon: SiCss3, label: "CSS" },
+  { id: "html5", icon: SiHtml5, label: "HTML" },
+  { id: "styledcomponents", icon: SiStyledcomponents, label: "Styled Components" },
+  { id: "graphql", icon: SiGraphql, label: "GraphQL" },
+] as const;
+
+const TOOLS = [
+  { id: "git", icon: SiGit, label: "Git" },
+  { id: "figma", icon: SiFigma, label: "Figma" },
+  { id: "storybook", icon: SiStorybook, label: "Storybook" },
+] as const;
 
 export type AboutMeProps = {
-  description?: string[];
+  description: string[];
 };
 
-const VIDEO_URL = "/Web_Development_Solutions_Video_Creation.mp4";
-
-export const AboutMe: React.FC<AboutMeProps> = ({
-  description = [
-    "I'm a frontend developer who understands users because I've solved their problems directly in tech support. Good interfaces work for real people under pressure.",
-    "As an internal audit team leader, I learned to think like an owner. I approach development the same way: understanding how my code serves both users and business objectives.",
-    "I build with TypeScript, React, and Styled Components. Whether debugging workflows or grinding through long runs, I solve problems systematically.",
-  ],
-}) => {
+export const AboutMe: React.FC<AboutMeProps> = ({ description }) => {
   return (
     <AboutMeContainer>
-      <Content type="grid">
+      <Content type="grid" verticalPadding={true}>
         <AboutGrid>
-            <AboutContent>
-              {description.map((paragraph, index) => (
-                <Typography 
-                  key={index} 
-                  variant="bodyLarge" 
-                  color="onSecondary"
-                >
-                  {paragraph}
-                </Typography>
-              ))}
-            </AboutContent>
-            <AboutVideo muted autoPlay loop playsInline>
-              <source src={VIDEO_URL} type="video/mp4" />
-              Your browser does not support the video tag.
-            </AboutVideo>
+          <VerticalDivider />
+          <AboutContent>
+            {description.map((paragraph, index) => (
+              <Typography key={index} variant="body" color="onSecondary">
+                {paragraph}
+              </Typography>
+            ))}
+          </AboutContent>
+          <SkillsContainer>
+            <SkillCategory>
+              <SkillCategoryTitle>
+                Some of the technologies I use:
+              </SkillCategoryTitle>
+              <SkillsList>
+                {TECHNOLOGIES.map((tech) => {
+                  const Icon = tech.icon;
+                  return (
+                    <SkillItem key={tech.id} data-tech={tech.id}>
+                      <SkillIconWrapper>
+                        <Icon />
+                      </SkillIconWrapper>
+                      {tech.label}
+                    </SkillItem>
+                  );
+                })}
+              </SkillsList>
+            </SkillCategory>
+            <SkillCategory>
+              <SkillCategoryTitle>
+                ...and a couple of the tools:
+              </SkillCategoryTitle>
+              <SkillsList>
+                {TOOLS.map((tool) => {
+                  const Icon = tool.icon;
+                  return (
+                    <SkillItem key={tool.id} data-tech={tool.id}>
+                      <SkillIconWrapper>
+                        <Icon />
+                      </SkillIconWrapper>
+                      {tool.label}
+                    </SkillItem>
+                  );
+                })}
+              </SkillsList>
+            </SkillCategory>
+          </SkillsContainer>
         </AboutGrid>
       </Content>
     </AboutMeContainer>

@@ -8,6 +8,7 @@ export const spacing = {
   xxxl: "4rem", // 64px
   xxxxl: "5rem", // 80px
   xxxxxl: "5.25rem", // 84px
+  xxxxxxl: "11.25rem", // 180px
 };
 
 export const gutters = {
@@ -63,6 +64,11 @@ export const controls = {
   icon: {
     padding: "12px",
     fontSize: "20px",
+    size: "24px",
+  },
+  skillItem: {
+    minHeight: "48px",
+    minWidth: "120px",
   },
 };
 

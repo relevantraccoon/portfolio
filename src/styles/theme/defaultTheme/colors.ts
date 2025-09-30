@@ -45,6 +45,19 @@ export const colors = {
     shadow: "rgba(0, 0, 0, 0.25)", // Drop shadows and elevation effects
     scrim: "rgba(0, 0, 0, 0.6)", // Semi-transparent overlays for modals/drawers
   },
+  // Technology/Tool Brand Colors
+  brandColors: {
+    typescript: "#3178c6",
+    javascript: "#f7df1e",
+    react: "#61dafb",
+    css3: "#1572b6",
+    html5: "#e34f26",
+    styledcomponents: "#db7093",
+    graphql: "#e10098",
+    git: "#f05032",
+    figma: "#f24e1e",
+    storybook: "#ff4785",
+  },
   // Colors extracted from Hero image - DO NOT USE, for reference only
   extractedDoNotUse: {
     lightest: [

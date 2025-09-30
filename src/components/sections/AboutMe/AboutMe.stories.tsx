@@ -9,23 +9,10 @@ const meta: Meta<typeof AboutMe> = {
     layout: "fullscreen",
     docs: {
       description: {
-        component: "About Me section with description and video.",
+        component: "About Me section with description and skills showcase.",
       },
     },
   },
-  argTypes: {
-    description: {
-      control: { type: "object" },
-      description: "Array of description paragraphs",
-    },
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-  args: {},
   decorators: [
     (Story) => (
       <DefaultThemeProvider>
@@ -33,11 +20,18 @@ export const Default: Story = {
       </DefaultThemeProvider>
     ),
   ],
-  parameters: {
-    docs: {
-      description: {
-        story: "AboutMe section with video on the right side and light background.",
-      },
-    },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    description: [
+      "I'm a frontend developer who understands users because I've solved their problems directly in tech support. Good interfaces work for real people under pressure.",
+      "As an internal audit team leader, I learned to think like an owner. I approach development the same way: understanding how my code serves both users and business objectives.",
+      "I build with TypeScript, React, and Styled Components. Whether debugging workflows or grinding through long runs, I solve problems systematically.",
+      "I value learning forever - constantly building new skills and understanding.",
+    ],
   },
 };
