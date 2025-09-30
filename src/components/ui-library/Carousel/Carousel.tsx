@@ -30,8 +30,8 @@ const ArrowButton = styled.button`
   background: ${({ theme }) => theme.colors.palette.surface};
   border: 2px solid ${({ theme }) => theme.colors.palette.secondary};
   color: ${({ theme }) => theme.colors.palette.onSurface};
-  width: ${({ theme }) => theme.controls.button.width};
-  height: ${({ theme }) => theme.controls.button.height};
+  width: ${({ theme }) => theme.controls.button.medium.width};
+  height: ${({ theme }) => theme.controls.button.medium.height};
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -73,12 +73,12 @@ export const Carousel: React.FC<CarouselProps> = ({
   className,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   const totalItems = children.length;
   const maxIndex = Math.max(0, totalItems - itemsPerView);
-  
+
   const itemWidth = `calc((100% - ${gap} * ${itemsPerView - 1}) / ${itemsPerView})`;
-  
+
   const getTranslateX = () => {
     const containerWidth = 100;
     const gapWidth = parseFloat(gap) * currentIndex;
@@ -96,7 +96,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <div className={className}>
-      <CarouselContainer>        
+      <CarouselContainer>
         <CarouselTrack $translateX={getTranslateX()} $gap={gap}>
           {children.map((child, index) => (
             <CarouselItem key={index} $itemWidth={itemWidth}>
