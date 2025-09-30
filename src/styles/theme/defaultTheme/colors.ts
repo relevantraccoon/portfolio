@@ -40,6 +40,8 @@ export const colors = {
     // Utility Colors
     outline: "rgba(217, 176, 167, 0.3)", // Borders, dividers, input outlines
     outlineVariant: "rgba(217, 176, 167, 0.15)", // Subtle borders and separators
+    outlineDark: "rgba(89, 61, 54, 0.3)", // Dark borders, dividers, input outlines
+    outlineDarkVariant: "rgba(89, 61, 54, 0.15)", // Subtle dark borders and separators
     shadow: "rgba(0, 0, 0, 0.25)", // Drop shadows and elevation effects
     scrim: "rgba(0, 0, 0, 0.6)", // Semi-transparent overlays for modals/drawers
   },
