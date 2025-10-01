@@ -39,58 +39,14 @@ function App() {
           projects={[
             {
               id: "1",
-              title: "Portfolio Website",
-              thumbnail: "/projectCardDemo/project-card-portfolio-img.png",
+              title: "Portfolio",
+              thumbnail: "/projectCardsFinal/portfolio.png",
               description:
-                "Modern animated portfolio website built with React, TypeScript, and Styled Components featuring responsive design and smooth animations",
+                "Responsive portfolio site with animated canvas background, dynamic carousel, and component-driven architecture.",
               techStack: ["React", "TypeScript", "Styled Components"],
               status: "Status: Live • 2025",
               projectType: "Portfolio",
               href: "https://github.com/relevantraccoon/portfoliov2",
-            },
-            {
-              id: "2",
-              title: "Project Two",
-              thumbnail: "/projectCardDemo/image2.png",
-              description:
-                "Modern web application built with React and TypeScript featuring responsive design and real-time updates",
-              techStack: ["React", "TypeScript"],
-              status: "Completed • 2023",
-              projectType: "Web App",
-              href: "https://project-two-demo.vercel.app",
-            },
-            {
-              id: "3",
-              title: "Project Three",
-              thumbnail: "/projectCardDemo/image3.png",
-              description:
-                "RESTful API backend with Vue.js frontend providing seamless data integration and user experience",
-              techStack: ["Vue", "Node.js"],
-              status: "In Development • 2024",
-              projectType: "API",
-              href: "https://api.project-three.com",
-            },
-            {
-              id: "4",
-              title: "Project Four",
-              thumbnail: "/projectCardDemo/image.png",
-              description:
-                "Cross-platform mobile application with native performance and intuitive user interface design",
-              techStack: ["React Native", "Expo"],
-              status: "Prototype • 2023",
-              projectType: "Mobile App",
-              href: "https://github.com/example/project-four",
-            },
-            {
-              id: "5",
-              title: "Project Five",
-              thumbnail: "/projectCardDemo/image2.png",
-              description:
-                "AI-powered application with real-time data processing and machine learning integration for intelligent insights",
-              techStack: ["Python", "TensorFlow"],
-              status: "Live • 2024",
-              projectType: "AI Application",
-              href: "https://project-five-ai.netlify.app",
             },
           ]}
         />
