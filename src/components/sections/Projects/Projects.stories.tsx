@@ -34,7 +34,7 @@ const sampleProjects = [
     description:
       "Complete 2D game engine with multiplayer support and comprehensive toolkit for game development",
     techStack: ["JavaScript", "WebGL"],
-    role: "Frontend Developer",
+    status: "Live • 2024",
     projectType: "Game Engine",
   },
   {
@@ -44,7 +44,7 @@ const sampleProjects = [
     description:
       "Modern web application built with React and TypeScript featuring responsive design and real-time updates",
     techStack: ["React", "TypeScript"],
-    role: "Full Stack Developer",
+    status: "Live • 2024",
     projectType: "Web App",
   },
   {
@@ -54,7 +54,7 @@ const sampleProjects = [
     description:
       "RESTful API backend with Vue.js frontend providing seamless data integration and user experience",
     techStack: ["Vue", "Node.js"],
-    role: "Backend Developer",
+    status: "Live • 2023",
     projectType: "API",
   },
   {
@@ -64,7 +64,7 @@ const sampleProjects = [
     description:
       "Cross-platform mobile application with native performance and intuitive user interface design",
     techStack: ["React Native", "Expo"],
-    role: "Mobile Developer",
+    status: "In Development • 2024",
     projectType: "Mobile App",
   },
   {
@@ -74,7 +74,7 @@ const sampleProjects = [
     description:
       "AI-powered application with real-time data processing and machine learning integration for intelligent insights",
     techStack: ["Python", "TensorFlow"],
-    role: "ML Engineer",
+    status: "Beta • 2024",
     projectType: "AI Application",
   },
 ];
@@ -357,6 +357,27 @@ export const CarouselBouncyFast: Story = {
       description: {
         story:
           "Fast bouncy animation: 0.5s with extra elastic bounce at the end",
+      },
+    },
+  },
+};
+
+export const SingleProject: Story = {
+  args: {
+    projects: [sampleProjects[0]],
+  },
+  decorators: [
+    (Story) => (
+      <DefaultThemeProvider>
+        <Story />
+      </DefaultThemeProvider>
+    ),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single project display - navigation buttons are hidden when there's only one project",
       },
     },
   },
