@@ -87,7 +87,7 @@ export const SkillCategoryTitle = styled.h3`
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-size: ${({ theme }) => theme.fontSize.h3};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  color: ${({ theme }) => theme.colors.palette.onSecondary};
+  color: ${({ theme }) => theme.colors.palette.onPrimary};
   margin: 0;
 `;
 
