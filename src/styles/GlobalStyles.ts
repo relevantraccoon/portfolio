@@ -15,9 +15,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html,
   body {
     margin: 0;
     padding: 0;
     font-family: 'Varela Round', sans-serif;
+    background-color: ${({ theme }) => theme.colors.palette.background};
   }
 `;

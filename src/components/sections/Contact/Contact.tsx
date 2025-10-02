@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "styled-components";
 import {
   ContactWrapper,
   ContactContainer,
@@ -30,6 +29,7 @@ type ContactProps = {
   githubUrl?: string;
   stravaUrl?: string;
   cvUrl?: string;
+  shouldShowCVButton?: boolean;
 };
 
 export const Contact: React.FC<ContactProps> = ({
@@ -38,6 +38,7 @@ export const Contact: React.FC<ContactProps> = ({
   githubUrl = "https://github.com/yourusername",
   stravaUrl = "https://strava.com/athletes/yourprofile",
   cvUrl = "/cv/your-cv.pdf",
+  shouldShowCVButton = false,
 }) => {
   const handleSocialClick = (url: string) => {
     window.open(url, "_blank");
@@ -57,22 +58,16 @@ export const Contact: React.FC<ContactProps> = ({
           <ContactContent>
             <ContactTitle>
               <ContactTitleTypography>
-                I'm always up for a chat!
+                Building something cool?{" "}
               </ContactTitleTypography>
             </ContactTitle>
 
             <ContactTextContainer>
               <ContactInfo>
-                <Typography
-                  variant="body"
-                  color="secondary"
-                >
-                  Pop me an email at
+                <Typography variant="body" color="secondary">
+                  Drop me an email at
                   <ContactEmailWrapper>
-                    <Link
-                      href={`mailto:${email}`}
-                      variant="default"
-                    >
+                    <Link href={`mailto:${email}`} variant="default">
                       <ContactEmailLink>
                         {email}
                         <ContactCopyIcon
@@ -87,11 +82,8 @@ export const Contact: React.FC<ContactProps> = ({
                     </Link>
                   </ContactEmailWrapper>
                 </Typography>
-                <Typography
-                  variant="body"
-                  color="secondary"
-                >
-                  ...or give me a shout on social media.
+                <Typography variant="body" color="secondary">
+                  ...or reach out on social media{" "}
                 </Typography>
 
                 <ContactLinks>
@@ -120,12 +112,14 @@ export const Contact: React.FC<ContactProps> = ({
               </ContactInfo>
             </ContactTextContainer>
 
-            <ContactButtonContainer>
-              <Button variant="outlinePrimary" onClick={handleCVDownload}>
-                Download my CV
-                <FaFilePdf />
-              </Button>
-            </ContactButtonContainer>
+            {shouldShowCVButton && (
+              <ContactButtonContainer>
+                <Button variant="outlinePrimary" onClick={handleCVDownload}>
+                  Download my CV
+                  <FaFilePdf />
+                </Button>
+              </ContactButtonContainer>
+            )}
           </ContactContent>
 
           <VideoPlaceholder>
