@@ -220,6 +220,9 @@ const CardTitle = styled.h2<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onSurface};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   transition: ${({ theme }) => theme.transitions.opacity};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);

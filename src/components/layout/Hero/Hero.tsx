@@ -6,18 +6,14 @@ import type { DefaultThemeProps } from "@/styles/theme/defaultTheme";
 import {
   AnimationWrapper,
   CanvasContainer,
-  ContentSection,
   HeroContainer,
   HeroImageContainer,
   HeroTextContainer,
-  HeroTextSVG,
+  HeroTextContent,
+  HeroName,
+  HeroSubtitleText,
   OverlayImage,
-  TextContent,
 } from "@/components/layout/Hero/styles";
-import { Button } from "@/components/ui-library/Button";
-import { Typography } from "@/components/ui-library/Typography";
-import { SVGLayeredText } from "@/components/layout/Hero/SVGLayeredText";
-import { Content } from "@/components/layout/Content";
 
 export type HeroProps = {
   shouldAnimate?: boolean;
@@ -78,28 +74,10 @@ export const Hero: React.FC<HeroProps> = ({
         </CanvasContainer>
 
         <HeroTextContainer>
-          <HeroTextSVG
-            viewBox={theme.layout.components.hero.svg.viewBox}
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <SVGLayeredText
-              text={svgName}
-              x={theme.layout.components.hero.svg.centerX}
-              y={theme.layout.components.hero.svg.text.primary.y}
-              fontSize={parseInt(theme.fontSize.display)}
-            />
-            <SVGLayeredText
-              text={svgSubtitle}
-              x={theme.layout.components.hero.svg.centerX}
-              y={theme.layout.components.hero.svg.text.secondary.y}
-              fontSize={
-                svgSubtitleFontSize || parseInt(theme.fontSize.displaySub)
-              }
-              letterSpacing={`${svgSubtitleLetterSpacing}em`}
-              fontFamily={svgSubtitleFontFamily}
-              isSubtitle={true}
-            />
-          </HeroTextSVG>
+          <HeroTextContent>
+            <HeroName data-text={svgName}>{svgName}</HeroName>
+            <HeroSubtitleText>{svgSubtitle}</HeroSubtitleText>
+          </HeroTextContent>
         </HeroTextContainer>
 
         {showOverlayImage && (
@@ -108,42 +86,6 @@ export const Hero: React.FC<HeroProps> = ({
           </HeroImageContainer>
         )}
       </AnimationWrapper>
-
-      <ContentSection>
-        <Content type="text">
-          <TextContent>
-            <Typography
-              variant="h1"
-              color="primary"
-              align="center"
-              fontFamily="roboto"
-              style={{
-                fontSize: `${titleFontSize}px`,
-                letterSpacing: `${titleLetterSpacing}em`,
-                WebkitFontSmoothing: "antialiased",
-                marginBottom: "0.5rem",
-              }}
-            >
-              {title}
-            </Typography>
-            <Typography
-              variant="body"
-              color="onBackground"
-              align="center"
-              style={{
-                opacity: 0.8,
-                marginBottom: "1rem",
-              }}
-            >
-              {subtitle}
-            </Typography>
-
-            <Button variant="primary" onClick={onCTAClick}>
-              {ctaText}
-            </Button>
-          </TextContent>
-        </Content>
-      </ContentSection>
     </HeroContainer>
   );
 };

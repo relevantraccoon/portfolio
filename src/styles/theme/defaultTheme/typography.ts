@@ -50,6 +50,8 @@ export const letterSpacing = {
 // Responsive typography
 export const responsiveTypography = {
   contactTitle: "clamp(1.5rem, 4vw, 3rem)",
+  heroName: "clamp(48px, 12vw, 96px)",
+  heroSubtitle: "clamp(16px, 4vw, 24px)",
 };
 
 // Icon typography (legacy)
