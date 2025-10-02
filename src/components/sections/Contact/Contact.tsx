@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ContactWrapper,
   ContactContainer,
@@ -19,7 +19,13 @@ import {
 import { Typography } from "@/components/ui-library/Typography";
 import { Button } from "@/components/ui-library/Button";
 import { Link } from "@/components/ui-library/Link";
-import { FaLinkedin, FaGithub, FaFilePdf, FaCopy } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaFilePdf,
+  FaCopy,
+  FaCheck,
+} from "react-icons/fa";
 import { SiStrava } from "react-icons/si";
 
 type ContactProps = {
@@ -40,6 +46,8 @@ export const Contact: React.FC<ContactProps> = ({
   cvUrl = "/cv/your-cv.pdf",
   shouldShowCVButton = false,
 }) => {
+  const [copied, setCopied] = useState(false);
+
   const handleSocialClick = (url: string) => {
     window.open(url, "_blank");
   };
@@ -49,6 +57,14 @@ export const Contact: React.FC<ContactProps> = ({
     link.href = cvUrl;
     link.download = "Joakim_Karlsson_CV.pdf";
     link.click();
+  };
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -71,12 +87,8 @@ export const Contact: React.FC<ContactProps> = ({
                       <ContactEmailLink>
                         {email}
                         <ContactCopyIcon
-                          as={FaCopy}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            alert("Email copied to clipboard!");
-                          }}
+                          as={copied ? FaCheck : FaCopy}
+                          onClick={handleCopyEmail}
                         />
                       </ContactEmailLink>
                     </Link>
