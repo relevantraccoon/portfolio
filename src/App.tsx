@@ -46,7 +46,7 @@ function App() {
               techStack: ["React", "TypeScript", "Styled Components"],
               status: "Status: Live • 2025",
               projectType: "Portfolio",
-              href: "https://github.com/relevantraccoon/portfoliov2",
+              href: "https://github.com/relevantraccoon/portfolio",
             },
           ]}
         />
@@ -55,9 +55,9 @@ function App() {
 
         <Contact
           email="hello@joakimkarlsson.com"
-          linkedinUrl="https://linkedin.com/in/joakim-karlsson"
+          linkedinUrl="https://www.linkedin.com/in/joakim-t-karlsson/"
           githubUrl="https://github.com/relevantraccoon"
-          stravaUrl="https://strava.com/athletes/joakim-karlsson"
+          stravaUrl="https://www.strava.com/athletes/71140950"
           cvUrl="/cv/Joakim_Karlsson_CV.pdf"
         />
       </>

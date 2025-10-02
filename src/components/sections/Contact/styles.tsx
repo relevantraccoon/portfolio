@@ -166,6 +166,11 @@ export const ContactLinks = styled.div`
     width: auto;
     margin: 0;
   }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
 `;
 
 export const VideoPlaceholder = styled.div`

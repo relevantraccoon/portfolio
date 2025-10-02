@@ -39,18 +39,15 @@ type ContactProps = {
 };
 
 export const Contact: React.FC<ContactProps> = ({
-  email = "your.email@example.com",
+  email = "hello@joakimkarlsson.com",
   linkedinUrl = "https://linkedin.com/in/yourprofile",
   githubUrl = "https://github.com/yourusername",
   stravaUrl = "https://strava.com/athletes/yourprofile",
-  cvUrl = "/cv/your-cv.pdf",
+  cvUrl = "/cv/placeholder.pdf",
   shouldShowCVButton = false,
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleSocialClick = (url: string) => {
-    window.open(url, "_blank");
-  };
 
   const handleCVDownload = () => {
     const link = document.createElement("a");
@@ -99,27 +96,30 @@ export const Contact: React.FC<ContactProps> = ({
                 </Typography>
 
                 <ContactLinks>
-                  <Button
-                    variant="secondary"
-                    shape="round"
-                    onClick={() => handleSocialClick(githubUrl)}
-                  >
-                    <FaGithub />
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    shape="round"
-                    onClick={() => handleSocialClick(linkedinUrl)}
-                  >
-                    <FaLinkedin />
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    shape="round"
-                    onClick={() => handleSocialClick(stravaUrl)}
-                  >
-                    <SiStrava />
-                  </Button>
+                  <Link href={githubUrl} variant="default" external>
+                    <Button
+                      variant="secondary"
+                      shape="round"
+                    >
+                      <FaGithub />
+                    </Button>
+                  </Link>
+                  <Link href={linkedinUrl} variant="default" external>
+                    <Button
+                      variant="secondary"
+                      shape="round"
+                    >
+                      <FaLinkedin />
+                    </Button>
+                  </Link>
+                  <Link href={stravaUrl} variant="default" external>
+                    <Button
+                      variant="secondary"
+                      shape="round"
+                    >
+                      <SiStrava />
+                    </Button>
+                  </Link>
                 </ContactLinks>
               </ContactInfo>
             </ContactTextContainer>
