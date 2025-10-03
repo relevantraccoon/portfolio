@@ -48,8 +48,7 @@ export const VerticalDivider = styled.div`
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 1px;
-    background: ${({ theme }) => theme.colors.palette.outlineDarkVariant};
+    border-left: 5px dotted rgba(89, 61, 54, 0.08);
     transform: translateX(-50%);
   }
 `;
@@ -57,7 +56,7 @@ export const VerticalDivider = styled.div`
 export const AboutContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.lg};
+  gap: 1rem;
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
@@ -89,6 +88,7 @@ export const SkillCategoryTitle = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   color: ${({ theme }) => theme.colors.palette.onPrimary};
   margin: 0;
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 `;
 
 export const SkillsList = styled.div`
@@ -114,6 +114,9 @@ export const SkillItem = styled.span`
   transition: background-color
     ${({ theme }) => theme.layout.animation.speed.smooth}
     ${({ theme }) => theme.layout.animation.easing.ease};
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
+  line-height: ${({ theme }) => theme.lineHeight.normal};
+  letter-spacing: 0.01em;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.palette.background};

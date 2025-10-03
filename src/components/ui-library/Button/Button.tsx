@@ -35,6 +35,7 @@ const StyledButton = styled.button<{
   justify-content: center;
   text-decoration: none;
   user-select: none;
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 
   ${({ theme, $size, $shape }) => {
     if ($shape === "round") {

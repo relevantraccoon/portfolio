@@ -159,6 +159,7 @@ const getVariantStyles = (variant: TypographyVariant) => {
         font-size: ${({ theme }) => theme.fontSize.body};
         font-weight: ${({ theme }) => theme.fontWeight.normal};
         line-height: ${({ theme }) => theme.lineHeight.normal};
+        letter-spacing: 0.01em;
       `;
     case "bodyLarge":
       return css`
@@ -194,30 +195,37 @@ const getColorStyles = (color: TypographyColor) => {
     case "primary":
       return css`
         color: ${({ theme }) => theme.colors.palette.primary};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "secondary":
       return css`
         color: ${({ theme }) => theme.colors.palette.secondary};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "onBackground":
       return css`
         color: ${({ theme }) => theme.colors.palette.onBackground};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "onPrimary":
       return css`
         color: ${({ theme }) => theme.colors.palette.onPrimary};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "onSecondary":
       return css`
         color: ${({ theme }) => theme.colors.palette.onSecondary};
+        text-shadow: ${({ theme }) => theme.textShadow.light};
       `;
     case "onSurface":
       return css`
         color: ${({ theme }) => theme.colors.palette.onSurface};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "onTertiary":
       return css`
         color: ${({ theme }) => theme.colors.palette.onTertiary};
+        text-shadow: ${({ theme }) => theme.textShadow.dark};
       `;
     case "inherit":
       return css`
