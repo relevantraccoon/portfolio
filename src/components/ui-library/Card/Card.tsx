@@ -223,6 +223,7 @@ const CardTitle = styled.h2<{ $variant: CardVariant }>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 
   ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
@@ -238,15 +239,15 @@ const CardTitle = styled.h2<{ $variant: CardVariant }>`
       return `
         margin: 0;
         font-size: 1.1rem;
-        
+
         ${mediaQuery.from("mobileWide")} {
           font-size: 1.375rem;
         }
-        
+
         ${mediaQuery.from("tablet")} {
           font-size: 1.5rem;
         }
-        
+
         ${mediaQuery.from("desktop")} {
           font-size: 2rem;
         }
@@ -264,6 +265,7 @@ const CardSubtitle = styled.h3<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onSurfaceSubdued};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   transition: ${({ theme }) => theme.transitions.opacity};
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 
   ${({ $variant }) => {
     const dimensions = getCardDimensions($variant);
@@ -279,15 +281,15 @@ const CardSubtitle = styled.h3<{ $variant: CardVariant }>`
       return `
         margin: 0;
         font-size: 0.9rem;
-        
+
         ${mediaQuery.from("mobileWide")} {
           font-size: 1.1rem;
         }
-        
+
         ${mediaQuery.from("tablet")} {
           font-size: 1.2rem;
         }
-        
+
         ${mediaQuery.from("desktop")} {
           font-size: 1.2rem;
         }
@@ -334,6 +336,7 @@ const Badge = styled.span<{ $variant: CardVariant }>`
   color: ${({ theme }) => theme.colors.palette.onPrimary};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 
   ${({ $variant }) => {
     if ($variant === "responsive") {
@@ -378,6 +381,9 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
   position: relative;
   z-index: ${({ theme }) => theme.zIndex.card.content};
   transition: ${({ theme }) => theme.transitions.opacity};
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
+  line-height: ${({ theme }) => theme.lineHeight.normal};
+  letter-spacing: 0.01em;
 
   & > * {
     margin: 0;
@@ -393,7 +399,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
     if ($variant === "mobile") {
       return `
         font-size: ${dimensions.fontSize};
-        line-height: 1.4;
 
         & > * + * {
           margin-top: ${theme.spacing.sm};
@@ -404,7 +409,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
     if ($variant === "responsive") {
       return `
         font-size: 0.8rem;
-        line-height: 1.4;
 
         & > * + * {
           margin-top: ${theme.spacing.sm};
@@ -412,7 +416,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
 
         ${mediaQuery.from("mobileWide")} {
           font-size: 0.925rem;
-          line-height: 1.5;
 
           & > * + * {
             margin-top: 0.75rem; // Could use theme.spacing but 0.75rem is between sm and md
@@ -421,7 +424,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
 
         ${mediaQuery.from("tablet")} {
           font-size: 1rem;
-          line-height: 1.6;
 
           & > * + * {
             margin-top: ${theme.spacing.md};
@@ -430,7 +432,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
 
         ${mediaQuery.from("desktop")} {
           font-size: 1rem;
-          line-height: 1.6;
 
           & > * + * {
             margin-top: ${theme.spacing.md};
@@ -441,7 +442,6 @@ const CardContent = styled.div<{ $variant: CardVariant }>`
 
     return `
       font-size: ${dimensions.fontSize};
-      line-height: 1.6;
     `;
   }}
 `;

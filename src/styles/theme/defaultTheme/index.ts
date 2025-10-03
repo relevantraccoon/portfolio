@@ -22,6 +22,7 @@ import {
   fontWeight,
   lineHeight,
   letterSpacing,
+  textShadow,
   responsiveTypography,
   type IconTypography,
   type FontFamily,
@@ -29,6 +30,7 @@ import {
   type FontWeight,
   type LineHeight,
   type LetterSpacing,
+  type TextShadow,
   type ResponsiveTypography,
 } from "@/styles/theme/defaultTheme/typography";
 import {
@@ -51,6 +53,7 @@ export type DefaultThemeProps = {
   fontWeight: FontWeight;
   lineHeight: LineHeight;
   letterSpacing: LetterSpacing;
+  textShadow: TextShadow;
   responsiveTypography: ResponsiveTypography;
   breakpoints: Breakpoints;
   iconTypography: IconTypography;
@@ -73,6 +76,7 @@ export const defaultTheme: DefaultThemeProps = {
   fontWeight,
   lineHeight,
   letterSpacing,
+  textShadow,
   responsiveTypography,
   breakpoints,
   iconTypography,

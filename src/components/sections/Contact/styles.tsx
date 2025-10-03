@@ -239,6 +239,7 @@ export const ContactTitleTypography = styled.h1`
   color: ${({ theme }) => theme.colors.palette.primary};
   text-align: inherit;
   margin: 0;
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
 `;
 
 export const ContactEmailWrapper = styled.span`

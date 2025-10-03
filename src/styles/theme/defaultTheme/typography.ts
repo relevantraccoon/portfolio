@@ -36,7 +36,7 @@ export const fontWeight = {
 // Line heights
 export const lineHeight = {
   tight: 1.6,  // subtitle
-  normal: 1.7, // paragraph
+  normal: 1.625, // paragraph
 }
 
 // Letter spacing
@@ -45,6 +45,12 @@ export const letterSpacing = {
   normal: "0",
   medium: "0.05em",
   wide: "0.1em",
+}
+
+// Text shadows
+export const textShadow = {
+  light: "0 0 1px rgba(255, 255, 255, 0.1)", // For dark text on light backgrounds
+  dark: "0 0 1px rgba(0, 0, 0, 0.1)", // For light text on dark backgrounds
 }
 
 // Responsive typography
@@ -87,5 +93,6 @@ export type FontSize = typeof fontSize;
 export type FontWeight = typeof fontWeight;
 export type LineHeight = typeof lineHeight;
 export type LetterSpacing = typeof letterSpacing;
+export type TextShadow = typeof textShadow;
 export type ResponsiveTypography = typeof responsiveTypography;
 export type IconTypography = typeof iconTypography;

@@ -60,7 +60,7 @@ export const Projects: React.FC<ProjectsProps> = ({
             variant="h1"
             color="onBackground"
             align="center"
-            fontFamily="roboto"
+            fontFamily="varela"
             style={{
               marginBottom: theme.spacing.xxl,
               letterSpacing: theme.letterSpacing.wide,
