@@ -21,5 +21,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: 'Varela Round', sans-serif;
     background-color: ${({ theme }) => theme.colors.palette.background};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 `;

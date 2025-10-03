@@ -243,9 +243,15 @@ const StyledTypography = styled.div.withConfig({
     fontFamily ? getFontFamily(fontFamily) : theme.fontFamily.primary};
   margin: 0;
   text-align: ${({ align }) => align};
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   ${({ variant }) => getVariantStyles(variant)}
   ${({ color }) => getColorStyles(color)}
+
+  strong, b {
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+  }
 `;
 
 export const Typography: React.FC<TypographyProps> = ({
