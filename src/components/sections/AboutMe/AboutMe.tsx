@@ -41,7 +41,7 @@ const TOOLS = [
 ] as const;
 
 export type AboutMeProps = {
-  description: string[];
+  description: React.ReactNode[];
 };
 
 export const AboutMe: React.FC<AboutMeProps> = ({ description }) => {

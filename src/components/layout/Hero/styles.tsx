@@ -150,12 +150,12 @@ export const HeroSubtitleText = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.colors.palette.secondary};
   margin: ${({ theme }) => theme.spacing.xs} 0 0 0;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.15em;
   text-shadow: ${({ theme }) => theme.shadows.text.heroSubtitle};
   white-space: nowrap;
 
   ${mediaQuery.from("tablet")} {
-    font-size: clamp(24px, 4vw, 36px);
+    font-size: clamp(18px, 3vw, 28px);
   }
 `;
 
