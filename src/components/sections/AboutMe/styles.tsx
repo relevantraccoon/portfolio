@@ -32,7 +32,7 @@ export const AboutGrid = styled.div`
   gap: ${({ theme }) => theme.spacing.xxxl};
   align-items: center;
 
-  ${mediaQuery.from("tablet")} {
+  ${mediaQuery.from("desktopLarge")} {
     grid-template-columns: 1fr 1fr;
     gap: ${({ theme }) => theme.spacing.xxxxxxl};
     position: relative;
@@ -42,7 +42,7 @@ export const AboutGrid = styled.div`
 export const VerticalDivider = styled.div`
   display: none;
 
-  ${mediaQuery.from("tablet")} {
+  ${mediaQuery.from("desktopLarge")} {
     display: block;
     position: absolute;
     left: 50%;
@@ -101,12 +101,22 @@ export const SkillCategoryTitle = styled.h3`
 
 export const SkillsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(${({ theme }) => theme.controls.skillItem.minWidth}, 1fr)
-  );
-  gap: ${({ theme }) => theme.spacing.sm};
+  grid-template-columns: repeat(auto-fit, minmax(${({ theme }) => theme.controls.skillItem.minWidth}, 1fr));
+  gap: ${({ theme }) => theme.spacing.lg};
   justify-items: start;
+  max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
+
+  ${mediaQuery.from("tablet")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
+  }
+
+  ${mediaQuery.from("desktop")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
+  }
+
+  ${mediaQuery.from("widescreen")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
+  }
 `;
 
 export const SkillItem = styled.span`

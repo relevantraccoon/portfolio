@@ -33,6 +33,18 @@ export const ContactContainer = styled.div`
     max-height: 75vh;
   }
 
+  ${mediaQuery.from("tablet")} {
+    height: ${({ theme }) => theme.layout.viewport.sections.contact.tablet};
+  }
+
+  ${mediaQuery.from("desktop")} {
+    height: ${({ theme }) => theme.layout.viewport.sections.contact.desktop};
+  }
+
+  ${mediaQuery.from("fhd")} {
+    height: ${({ theme }) => theme.layout.viewport.sections.contact.fhd};
+  }
+
 `;
 
 export const ContactGrid = styled.div`
