@@ -28,9 +28,11 @@ export const Projects: React.FC<ProjectsProps> = ({
 
   if (projects.length === 0) return null;
 
-  const shouldDisplayNavButtons = projects.length > 1;
+  const shouldDisplayNavigation = projects.length > 1;
   const shouldUsePluralTitle = projects.length > 1;
-  const displayTitle = shouldUsePluralTitle ? title : title.replace("Projects", "Project");
+  const displayTitle = shouldUsePluralTitle
+    ? title
+    : title.replace("Projects", "Project");
 
   const getCardPosition = (
     index: number
@@ -98,18 +100,16 @@ export const Projects: React.FC<ProjectsProps> = ({
             </CardStack>
           </CarouselContainer>
 
-          {shouldDisplayNavButtons && (
-            <NavigationContainer>
-              <NavButton
-                direction="left"
-                onClick={handlePrev}
-              />
-
-              <NavButton
-                direction="right"
-                onClick={handleNext}
-              />
-            </NavigationContainer>
+          {shouldDisplayNavigation && (
+            <>
+              <Typography variant="caption" color="onBackground" align="center">
+                {activeIndex + 1} / {projects.length}
+              </Typography>
+              <NavigationContainer>
+                <NavButton direction="left" onClick={handlePrev} />
+                <NavButton direction="right" onClick={handleNext} />
+              </NavigationContainer>
+            </>
           )}
         </ProjectsContentWrapper>
       </Content>
