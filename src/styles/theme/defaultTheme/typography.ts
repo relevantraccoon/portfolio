@@ -45,6 +45,7 @@ export const letterSpacing = {
   normal: "0",
   medium: "0.05em",
   wide: "0.1em",
+  wider: "0.15em",
 }
 
 // Text shadows

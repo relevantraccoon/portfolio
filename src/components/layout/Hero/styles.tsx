@@ -150,9 +150,13 @@ export const HeroSubtitleText = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.colors.palette.secondary};
   margin: ${({ theme }) => theme.spacing.xs} 0 0 0;
-  letter-spacing: 0.15em;
+  letter-spacing: ${({ theme }) => theme.letterSpacing.wider};
   text-shadow: ${({ theme }) => theme.shadows.text.heroSubtitle};
   white-space: nowrap;
+
+  @media (max-width: 375px) {
+    letter-spacing: ${({ theme }) => theme.letterSpacing.medium};
+  }
 
   ${mediaQuery.from("tablet")} {
     font-size: clamp(18px, 3vw, 28px);

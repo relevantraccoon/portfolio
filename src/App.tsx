@@ -14,12 +14,8 @@ function App() {
         <Hero
           shouldAnimate={true}
           showOverlayImage={true}
-          svgName="Joakim Karlsson"
-          svgSubtitle="Tech Support → Frontend Developer"
-          title="Tech Support → Frontend Developer"
-          subtitle="I've seen what breaks, now I build what works"
-          ctaText="Get In Touch"
-          onCTAClick={() => console.log("CTA clicked")}
+          name="Joakim Karlsson"
+          subtitle="Tech Support → Frontend Developer"
         />
         <CircleDivider circleCount={20} circleSize={16} />
         <AboutMe
@@ -56,8 +52,8 @@ function App() {
             </>,
             <>
               Away from the keyboard, I'm passionate about long distance running
-              (2-time marathon finisher, working on 10k speed), and home life
-              with fiancée and our cats.
+              (2-time marathon finisher, working on 10k speed). At home, it's all
+              about my fiancée and our cats.
             </>,
           ]}
         />
@@ -72,7 +68,7 @@ function App() {
               description:
                 "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
               techStack: ["React", "TypeScript", "Styled Components"],
-              status: "Status: Live • 2025",
+              status: "Live • 2025",
               projectType: "Portfolio",
               href: "https://github.com/relevantraccoon/portfolio",
             },

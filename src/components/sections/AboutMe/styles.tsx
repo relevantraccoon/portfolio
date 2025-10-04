@@ -32,7 +32,7 @@ export const AboutGrid = styled.div`
   gap: ${({ theme }) => theme.spacing.xxxl};
   align-items: center;
 
-  ${mediaQuery.from("tablet")} {
+  ${mediaQuery.from("desktopLarge")} {
     grid-template-columns: 1fr 1fr;
     gap: ${({ theme }) => theme.spacing.xxxxxxl};
     position: relative;
@@ -42,7 +42,7 @@ export const AboutGrid = styled.div`
 export const VerticalDivider = styled.div`
   display: none;
 
-  ${mediaQuery.from("tablet")} {
+  ${mediaQuery.from("desktopLarge")} {
     display: block;
     position: absolute;
     left: 50%;
@@ -66,14 +66,22 @@ export const SkillsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xl};
-  padding: ${({ theme }) => theme.spacing.xxl};
-  background: ${({ theme }) => theme.colors.palette.primary};
+  background: ${({ theme }) => theme.colors.palette.secondary};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   height: 100%;
 
   ${mediaQuery.from("tablet")} {
     justify-content: center;
   }
+`;
+
+export const SkillsMainTitle = styled.h1`
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-size: ${({ theme }) => theme.fontSize.h1};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.palette.onSecondary};
+  margin: 0 0 ${({ theme }) => theme.spacing.lg} 0;
+  text-shadow: ${({ theme }) => theme.textShadow.light};
 `;
 
 export const SkillCategory = styled.div`
@@ -86,22 +94,35 @@ export const SkillCategoryTitle = styled.h3`
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-size: ${({ theme }) => theme.fontSize.h3};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  color: ${({ theme }) => theme.colors.palette.onPrimary};
+  color: ${({ theme }) => theme.colors.palette.onSecondary};
   margin: 0;
-  text-shadow: ${({ theme }) => theme.textShadow.dark};
+  text-shadow: ${({ theme }) => theme.textShadow.light};
 `;
 
 export const SkillsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(${({ theme }) => theme.controls.skillItem.minWidth}, 1fr));
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.lg};
+  justify-items: start;
+  max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
+
+  ${mediaQuery.from("tablet")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
+  }
+
+  ${mediaQuery.from("desktop")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
+  }
+
+  ${mediaQuery.from("widescreen")} {
+    max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
+  }
 `;
 
 export const SkillItem = styled.span`
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
+  padding: ${({ theme }) => theme.spacing.md} 0;
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.palette.onPrimary};
-  border: 1px solid ${({ theme }) => theme.colors.palette.outline};
+  color: ${({ theme }) => theme.colors.palette.onSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-size: ${({ theme }) => theme.fontSize.caption};
@@ -111,15 +132,14 @@ export const SkillItem = styled.span`
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.sm};
   min-height: ${({ theme }) => theme.controls.skillItem.minHeight};
-  transition: background-color
-    ${({ theme }) => theme.layout.animation.speed.smooth}
+  transition: all ${({ theme }) => theme.layout.animation.speed.smooth}
     ${({ theme }) => theme.layout.animation.easing.ease};
-  text-shadow: ${({ theme }) => theme.textShadow.dark};
+  text-shadow: ${({ theme }) => theme.textShadow.light};
   line-height: ${({ theme }) => theme.lineHeight.normal};
   letter-spacing: 0.01em;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.palette.background};
+    border-color: ${({ theme }) => theme.colors.palette.outlineDarkVariant};
   }
 `;
 

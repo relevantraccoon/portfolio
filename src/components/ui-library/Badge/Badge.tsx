@@ -1,23 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 
-export type BadgeVariant = "primary" | "secondary" | "tech" | "role";
+export type BadgeVariant = "primary" | "secondary" | "tertiary" | "info";
+export type BadgeSize = "small" | "medium" | "large";
 
 export type BadgeProps = {
   children: React.ReactNode;
   variant?: BadgeVariant;
+  size?: BadgeSize;
 };
 
-const StyledBadge = styled.span<{ $variant: BadgeVariant }>`
+const StyledBadge = styled.span<{ $variant: BadgeVariant; $size: BadgeSize }>`
   display: inline-flex;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.sm};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  font-size: 0.875rem;
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 1;
   white-space: nowrap;
   font-family: ${({ theme }) => theme.fontFamily.primary};
+  text-shadow: ${({ theme }) => theme.textShadow.dark};
+
+  ${({ theme, $size }) => {
+    switch ($size) {
+      case "small":
+        return `
+          padding: ${theme.spacing.sm} ${theme.spacing.sm};
+          font-size: 0.75rem;
+        `;
+      case "medium":
+        return `
+          padding: ${theme.spacing.sm} ${theme.spacing.md};
+          font-size: 0.875rem;
+        `;
+      case "large":
+        return `
+          padding: ${theme.spacing.md} ${theme.spacing.lg};
+          font-size: 1rem;
+        `;
+      default:
+        return `
+          padding: ${theme.spacing.sm} ${theme.spacing.md};
+          font-size: 0.875rem;
+        `;
+    }
+  }}
 
   ${({ theme, $variant }) => {
     switch ($variant) {
@@ -31,20 +57,20 @@ const StyledBadge = styled.span<{ $variant: BadgeVariant }>`
           background-color: ${theme.colors.palette.secondary};
           color: ${theme.colors.palette.onSecondary};
         `;
-      case "tech":
+      case "tertiary":
         return `
           background-color: ${theme.colors.palette.tertiary};
           color: ${theme.colors.palette.onTertiary};
         `;
-      case "role":
+      case "info":
         return `
           background-color: ${theme.colors.palette.info};
           color: ${theme.colors.palette.onInfo};
         `;
       default:
         return `
-          background-color: ${theme.colors.palette.secondary};
-          color: ${theme.colors.palette.onSecondary};
+          background-color: ${theme.colors.palette.primary};
+          color: ${theme.colors.palette.onPrimary};
         `;
     }
   }}
@@ -52,7 +78,8 @@ const StyledBadge = styled.span<{ $variant: BadgeVariant }>`
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
-  variant = "secondary",
+  variant = "primary",
+  size = "medium",
 }) => {
-  return <StyledBadge $variant={variant}>{children}</StyledBadge>;
+  return <StyledBadge $variant={variant} $size={size}>{children}</StyledBadge>;
 };

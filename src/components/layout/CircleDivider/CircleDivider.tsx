@@ -50,23 +50,23 @@ export const CircleDivider: React.FC<CircleDividerProps> = ({
 }) => {
   const theme = useTheme() as DefaultThemeProps;
 
-  // Get all extracted colors from theme
-  const extractedColors = [
-    ...theme.colors.extractedDoNotUse.lightest,
-    ...theme.colors.extractedDoNotUse.light,
-    ...theme.colors.extractedDoNotUse.mediumLight,
-    ...theme.colors.extractedDoNotUse.medium,
-    ...theme.colors.extractedDoNotUse.mediumDark,
-    ...theme.colors.extractedDoNotUse.dark,
-    ...theme.colors.extractedDoNotUse.darkest,
+  // Get all decorative palette colors from theme
+  const decorativeColors = [
+    ...theme.colors.decorativePalette.lightest,
+    ...theme.colors.decorativePalette.light,
+    ...theme.colors.decorativePalette.mediumLight,
+    ...theme.colors.decorativePalette.medium,
+    ...theme.colors.decorativePalette.mediumDark,
+    ...theme.colors.decorativePalette.dark,
+    ...theme.colors.decorativePalette.darkest,
   ];
 
   // Generate random colors for circles
   const circles = Array.from({ length: circleCount }, (_, index) => {
-    const colorIndex = Math.floor(Math.random() * extractedColors.length);
+    const colorIndex = Math.floor(Math.random() * decorativeColors.length);
     return {
       id: index,
-      color: extractedColors[colorIndex],
+      color: decorativeColors[colorIndex],
     };
   });
 

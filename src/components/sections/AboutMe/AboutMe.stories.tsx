@@ -59,8 +59,8 @@ export const Default: Story = {
       </>,
       <>
         Away from the keyboard, I'm passionate about long distance running
-        (2-time marathon finisher, working on 10k speed), and home life with
-        fiancée and our cats
+        (2-time marathon finisher, working on 10k speed). At home, it's all
+        about my fiancée and our cats.
       </>,
     ],
   },
