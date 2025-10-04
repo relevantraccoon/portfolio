@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "./Button";
 import { TbArrowBigRightFilled } from "react-icons/tb";
 
@@ -96,13 +96,28 @@ export const OutlinePrimary: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        flexWrap: "wrap",
+        alignItems: "center",
+      }}
+    >
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
-      <Button variant="navigation"><TbArrowBigRightFilled /></Button>
-      <Button variant="primary" size="small">Small</Button>
-      <Button variant="primary" size="large">Large</Button>
-      <Button variant="primary" disabled>Disabled</Button>
+      <Button variant="navigation">
+        <TbArrowBigRightFilled />
+      </Button>
+      <Button variant="primary" size="small">
+        Small
+      </Button>
+      <Button variant="primary" size="large">
+        Large
+      </Button>
+      <Button variant="primary" disabled>
+        Disabled
+      </Button>
       <Button variant="outlinePrimary">Outline Primary</Button>
     </div>
   ),
