@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { mediaQuery } from "@/styles/theme/mediaQueries";
+import { Badge } from "@/components/ui-library/Badge/Badge";
+import type { BadgeSize } from "@/components/ui-library/Badge/Badge";
 
 export type CardVariant =
   | "mobile"
@@ -27,6 +29,22 @@ export type CardProps = {
   variant?: CardVariant;
   href?: string;
   onClick?: () => void;
+};
+
+const getBadgeSize = (variant: CardVariant): BadgeSize => {
+  switch (variant) {
+    case "mobile":
+      return "small";
+    case "mobileWide":
+      return "small";
+    case "tablet":
+      return "medium";
+    case "desktop":
+      return "medium";
+    case "responsive":
+    default:
+      return "small";
+  }
 };
 
 const getCardDimensions = (variant: CardVariant) => {
@@ -310,68 +328,18 @@ const BadgeContainer = styled.div<{ $variant: CardVariant }>`
 
   ${({ $variant, theme }) => {
     if ($variant === "mobile") {
-      return `
-        gap: ${theme.spacing.xs};
-      `;
+      return `gap: ${theme.spacing.xs};`;
     }
     if ($variant === "responsive") {
       return `
         gap: ${theme.spacing.xs};
-        
+
         ${mediaQuery.from("mobileWide")} {
-          gap: ${theme.spacing.sm};
-        }
-        
-        ${mediaQuery.from("tablet")} {
           gap: ${theme.spacing.sm};
         }
       `;
     }
     return `gap: ${theme.spacing.sm};`;
-  }}
-`;
-
-const Badge = styled.span<{ $variant: CardVariant }>`
-  background: ${({ theme }) => theme.colors.palette.primary};
-  color: ${({ theme }) => theme.colors.palette.onPrimary};
-  border-radius: ${({ theme }) => theme.borderRadius.xl};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  text-shadow: ${({ theme }) => theme.textShadow.dark};
-
-  ${({ $variant }) => {
-    if ($variant === "responsive") {
-      return `
-        padding: 0.2rem 0.6rem;
-        font-size: 0.75rem;
-        
-        ${mediaQuery.from("mobileWide")} {
-          padding: 0.225rem 0.675rem;
-          font-size: 0.8rem;
-        }
-        
-        ${mediaQuery.from("tablet")} {
-          padding: 0.25rem 0.75rem;
-          font-size: 0.875rem;
-        }
-        
-        ${mediaQuery.from("desktop")} {
-          padding: 0.25rem 0.75rem;
-          font-size: 0.875rem;
-        }
-      `;
-    }
-
-    if ($variant === "mobile") {
-      return `
-        padding: 0.2rem 0.6rem;
-        font-size: 0.75rem;
-      `;
-    }
-
-    return `
-      padding: 0.25rem 0.75rem;
-      font-size: 0.875rem;
-    `;
   }}
 `;
 
@@ -557,7 +525,7 @@ export const Card: React.FC<CardProps> = ({
         {badges.length > 0 && (
           <BadgeContainer $variant={variant}>
             {badges.map((badge, index) => (
-              <Badge key={index} $variant={variant}>
+              <Badge key={index} size={getBadgeSize(variant)} variant="primary">
                 {badge}
               </Badge>
             ))}

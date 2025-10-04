@@ -58,8 +58,8 @@ export const colors = {
     figma: "#f24e1e",
     storybook: "#ff4785",
   },
-  // Colors extracted from Hero image - DO NOT USE, for reference only
-  extractedDoNotUse: {
+  // Decorative palette extracted from Hero image - used for circle dividers and accents
+  decorativePalette: {
     lightest: [
       "rgba(220, 178, 168, 1)",
       "rgba(220, 178, 166, 1)",

@@ -16,6 +16,7 @@ import {
   ContactCopyIcon,
   ContactVideo,
 } from "@/components/sections/Contact/styles";
+import { Content } from "@/components/layout/Content";
 import { Typography } from "@/components/ui-library/Typography";
 import { Button } from "@/components/ui-library/Button";
 import { Link } from "@/components/ui-library/Link";
@@ -66,85 +67,87 @@ export const Contact: React.FC<ContactProps> = ({
 
   return (
     <ContactWrapper>
-      <ContactContainer>
-        <ContactGrid>
-          <ContactContent>
-            <ContactTitle>
-              <ContactTitleTypography>
-                Building something cool?{" "}
-              </ContactTitleTypography>
-            </ContactTitle>
+      <Content type="grid">
+        <ContactContainer>
+          <ContactGrid>
+            <VideoPlaceholder>
+              <ContactVideo autoPlay muted loop>
+                <source
+                  src="/finalvideo/bounce_loop_premult_alpha.webm"
+                  type="video/webm"
+                />
+                Your browser does not support the video tag.
+              </ContactVideo>
+            </VideoPlaceholder>
 
-            <ContactTextContainer>
-              <ContactInfo>
-                <Typography variant="body" color="secondary">
-                  Drop me an email at
-                  <ContactEmailWrapper>
-                    <Link href={`mailto:${email}`} variant="default">
-                      <ContactEmailLink>
-                        {email}
-                        <ContactCopyIcon
-                          as={copied ? FaCheck : FaCopy}
-                          onClick={handleCopyEmail}
-                        />
-                      </ContactEmailLink>
+            <ContactContent>
+              <ContactTitle>
+                <ContactTitleTypography>
+                  Building something cool?{" "}
+                </ContactTitleTypography>
+              </ContactTitle>
+
+              <ContactTextContainer>
+                <ContactInfo>
+                  <Typography variant="body" color="secondary">
+                    Drop me an email at
+                    <ContactEmailWrapper>
+                      <Link href={`mailto:${email}`} variant="default">
+                        <ContactEmailLink>
+                          {email}
+                          <ContactCopyIcon
+                            as={copied ? FaCheck : FaCopy}
+                            onClick={handleCopyEmail}
+                          />
+                        </ContactEmailLink>
+                      </Link>
+                    </ContactEmailWrapper>
+                  </Typography>
+                  <Typography variant="body" color="secondary">
+                    ...or reach out on social media{" "}
+                  </Typography>
+
+                  <ContactLinks>
+                    <Link href={githubUrl} variant="default" external>
+                      <Button
+                        variant="secondary"
+                        shape="round"
+                      >
+                        <FaGithub />
+                      </Button>
                     </Link>
-                  </ContactEmailWrapper>
-                </Typography>
-                <Typography variant="body" color="secondary">
-                  ...or reach out on social media{" "}
-                </Typography>
+                    <Link href={linkedinUrl} variant="default" external>
+                      <Button
+                        variant="secondary"
+                        shape="round"
+                      >
+                        <FaLinkedin />
+                      </Button>
+                    </Link>
+                    <Link href={stravaUrl} variant="default" external>
+                      <Button
+                        variant="secondary"
+                        shape="round"
+                      >
+                        <SiStrava />
+                      </Button>
+                    </Link>
+                  </ContactLinks>
+                </ContactInfo>
+              </ContactTextContainer>
 
-                <ContactLinks>
-                  <Link href={githubUrl} variant="default" external>
-                    <Button
-                      variant="secondary"
-                      shape="round"
-                    >
-                      <FaGithub />
-                    </Button>
-                  </Link>
-                  <Link href={linkedinUrl} variant="default" external>
-                    <Button
-                      variant="secondary"
-                      shape="round"
-                    >
-                      <FaLinkedin />
-                    </Button>
-                  </Link>
-                  <Link href={stravaUrl} variant="default" external>
-                    <Button
-                      variant="secondary"
-                      shape="round"
-                    >
-                      <SiStrava />
-                    </Button>
-                  </Link>
-                </ContactLinks>
-              </ContactInfo>
-            </ContactTextContainer>
-
-            {shouldShowCVButton && (
-              <ContactButtonContainer>
-                <Button variant="outlinePrimary" onClick={handleCVDownload}>
-                  Download my CV
-                  <FaFilePdf />
-                </Button>
-              </ContactButtonContainer>
-            )}
-          </ContactContent>
-
-          <VideoPlaceholder>
-            <ContactVideo autoPlay muted loop>
-              <source
-                src="/finalvideo/bounce_loop_premult_alpha.webm"
-                type="video/webm"
-              />
-              Your browser does not support the video tag.
-            </ContactVideo>
-          </VideoPlaceholder>
-        </ContactGrid>
-      </ContactContainer>
+              {shouldShowCVButton && (
+                <ContactButtonContainer>
+                  <Button variant="outlinePrimary" onClick={handleCVDownload}>
+                    Download my CV
+                    <FaFilePdf />
+                  </Button>
+                </ContactButtonContainer>
+              )}
+            </ContactContent>
+          </ContactGrid>
+        </ContactContainer>
+      </Content>
     </ContactWrapper>
   );
 };

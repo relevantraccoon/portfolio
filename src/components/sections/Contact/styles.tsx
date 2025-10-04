@@ -10,7 +10,6 @@ export const ContactWrapper = styled.section`
   align-items: center;
   position: sticky;
   bottom: 0;
-  padding: ${({ theme }) => theme.spacing.xxxl} 0;
   background: ${({ theme }) => theme.colors.palette.primary};
   z-index: ${({ theme }) => theme.zIndex.sections.bottom};
 `;
@@ -19,7 +18,7 @@ export const ContactContainer = styled.div`
   background: ${({ theme }) => theme.colors.palette.background};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: 0;
-  width: ${({ theme }) => theme.layout.proportions.sizing.mostlyFull};
+  width: 100%;
   height: ${({ theme }) => theme.layout.viewport.sections.contact.mobile};
   min-height: 500px;
   overflow-y: auto;
@@ -28,6 +27,11 @@ export const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (orientation: portrait) {
+    height: auto;
+    max-height: 75vh;
+  }
 
 `;
 
@@ -44,17 +48,22 @@ export const ContactGrid = styled.div`
     padding: ${({ theme }) => theme.spacing.xxxl};
   }
 
-  ${mediaQuery.from('tablet')} {
+  ${mediaQuery.from('tablet')} and (orientation: portrait) {
+    gap: ${({ theme }) => theme.layout.responsive.gaps.xlarge};
+  }
+
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     grid-template-columns: ${({ theme }) => theme.layout.proportions.gridTemplates.majorMinor};
     gap: ${({ theme }) => theme.layout.responsive.gaps.large};
     padding: ${({ theme }) => theme.spacing.xxxxl};
   }
 
-  ${mediaQuery.from('desktop')} {
+  ${mediaQuery.from('desktop')} and (orientation: landscape) {
+    grid-template-columns: ${({ theme }) => theme.layout.proportions.gridTemplates.majorMinor};
     gap: ${({ theme }) => theme.layout.responsive.gaps.xlarge};
   }
 
-  ${mediaQuery.from('desktopLarge')} {
+  ${mediaQuery.from('desktopLarge')} and (orientation: landscape) {
     gap: ${({ theme }) => theme.layout.responsive.gaps.xxlarge};
     padding: ${({ theme }) => theme.spacing.xxxxl} ${({ theme }) => theme.gutters.widescreen};
   }
@@ -78,17 +87,16 @@ export const ContactContent = styled.div`
 
   ${mediaQuery.from('tablet')} {
     gap: ${({ theme }) => theme.layout.responsive.contentGaps.large};
+  }
+
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
     align-items: flex-start;
+    order: 1;
   }
 
   @media (max-height: 600px) {
     gap: 1.25rem;
-  }
-
-  ${mediaQuery.until('mobileWide')} {
-    text-align: center;
-    align-items: center;
   }
 `;
 
@@ -96,7 +104,7 @@ export const ContactTitle = styled.div`
   width: 100%;
   text-align: center;
 
-  ${mediaQuery.from('tablet')} {
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
   }
 `;
@@ -107,7 +115,7 @@ export const ContactTextContainer = styled.div`
   text-align: center;
   margin: 0 auto;
 
-  ${mediaQuery.from('tablet')} {
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
     margin: 0;
   }
@@ -119,7 +127,7 @@ export const ContactButtonContainer = styled.div`
   text-align: center;
   margin: 0 auto;
 
-  ${mediaQuery.from('tablet')} {
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
     margin: 0;
   }
@@ -160,7 +168,7 @@ export const ContactLinks = styled.div`
   justify-content: space-between;
   margin: 0 auto;
 
-  ${mediaQuery.from('tablet')} {
+  ${mediaQuery.from('tablet')} and (orientation: landscape) {
     justify-content: flex-start;
     max-width: none;
     width: auto;
@@ -202,6 +210,10 @@ export const VideoPlaceholder = styled.div`
       pointer-events: none;
       z-index: ${({ theme }) => theme.zIndex.sections.content};
     }
+  }
+
+  ${mediaQuery.from('tablet')} and (orientation: landscape) and (min-height: 500px) {
+    order: 2;
   }
 
   ${mediaQuery.from('desktop')} and (min-height: 600px) {

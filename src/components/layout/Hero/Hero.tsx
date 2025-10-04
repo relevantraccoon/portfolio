@@ -18,36 +18,23 @@ import {
 export type HeroProps = {
   shouldAnimate?: boolean;
   showOverlayImage?: boolean;
-  svgName?: string;
-  svgSubtitle?: string;
-  svgSubtitleLetterSpacing?: number;
-  svgSubtitleFontFamily?: string;
-  svgSubtitleFontSize?: number;
-  title?: string;
-  titleFontFamily?: string;
-  titleFontSize?: number;
-  titleLetterSpacing?: number;
+  name?: string;
   subtitle?: string;
-  ctaText?: string;
+  subtitleLetterSpacing?: number;
+  subtitleFontFamily?: string;
+  subtitleFontSize?: number;
   profileImageUrl?: string;
-  onCTAClick?: () => void;
 };
 
 export const Hero: React.FC<HeroProps> = ({
   shouldAnimate = true,
   showOverlayImage = true,
-  svgName = "Joakim Karlsson",
-  svgSubtitle = "Frontend Developer",
-  svgSubtitleLetterSpacing = 0.25,
-  svgSubtitleFontFamily = "default",
-  svgSubtitleFontSize = 20,
-  title = "Tech Support → Frontend Developer",
-  titleFontSize = 24,
-  titleLetterSpacing = 0.1,
-  subtitle = "I've seen what breaks, now I build what works",
-  ctaText = "Reach out",
+  name = "Joakim Karlsson",
+  subtitle = "Tech Support → Frontend Developer",
+  subtitleLetterSpacing = 0.25,
+  subtitleFontFamily = "default",
+  subtitleFontSize = 20,
   profileImageUrl = j4,
-  onCTAClick,
 }) => {
   const theme = useTheme() as DefaultThemeProps;
 
@@ -75,8 +62,8 @@ export const Hero: React.FC<HeroProps> = ({
 
         <HeroTextContainer>
           <HeroTextContent>
-            <HeroName data-text={svgName}>{svgName}</HeroName>
-            <HeroSubtitleText>{svgSubtitle}</HeroSubtitleText>
+            <HeroName data-text={name}>{name}</HeroName>
+            <HeroSubtitleText>{subtitle}</HeroSubtitleText>
           </HeroTextContent>
         </HeroTextContainer>
 

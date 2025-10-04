@@ -7,6 +7,7 @@ import {
   AboutContent,
   VerticalDivider,
   SkillsContainer,
+  SkillsMainTitle,
   SkillCategory,
   SkillCategoryTitle,
   SkillsList,
@@ -36,8 +37,8 @@ const TECHNOLOGIES = [
 
 const TOOLS = [
   { id: "git", icon: SiGit, label: "Git" },
-  { id: "figma", icon: SiFigma, label: "Figma" },
   { id: "storybook", icon: SiStorybook, label: "Storybook" },
+  { id: "figma", icon: SiFigma, label: "Figma" },
 ] as const;
 
 export type AboutMeProps = {
@@ -58,6 +59,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ description }) => {
             ))}
           </AboutContent>
           <SkillsContainer>
+            <SkillsMainTitle>My Tech Stack</SkillsMainTitle>
             <SkillCategory>
               <SkillCategoryTitle>
                 Some of the technologies I use:

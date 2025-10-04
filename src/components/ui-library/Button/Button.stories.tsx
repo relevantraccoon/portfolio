@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { FaFilePdf } from "react-icons/fa";
 import { TbArrowBigRightFilled } from "react-icons/tb";
 
 const meta: Meta<typeof Button> = {
@@ -91,18 +90,8 @@ export const Navigation: Story = {
 export const OutlinePrimary: Story = {
   args: {
     variant: "outlinePrimary",
-    children: (
-      <>
-        Download my CV
-        <FaFilePdf />
-      </>
-    ),
+    children: "Outline Primary",
   },
-  render: (args) => (
-    <div style={{ width: "250px" }}>
-      <Button {...args} />
-    </div>
-  ),
 };
 
 export const AllVariants: Story = {

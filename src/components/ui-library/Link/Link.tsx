@@ -2,13 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 export type LinkVariant = "default" | "subtle" | "bold" | "button";
-export type LinkEffect = "none" | "spark";
 
 export type LinkProps = {
   children: React.ReactNode;
   href: string;
   variant?: LinkVariant;
-  effect?: LinkEffect;
   external?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -16,7 +14,6 @@ export type LinkProps = {
 
 const StyledLink = styled.a<{
   $variant: LinkVariant;
-  $effect: LinkEffect;
   $disabled: boolean;
 }>`
   font-family: inherit;
@@ -61,80 +58,12 @@ const StyledLink = styled.a<{
         `;
     }
   }}
-
-  ${({ theme, $effect, $variant }) => {
-    if ($variant === "button") return ""; // Skip effects for button variant
-
-    switch ($effect) {
-      case "spark":
-        return `
-          position: relative;
-
-          &:hover {
-            animation: sparkle ${theme.layout.animation.speed.sparkle} ease-out forwards;
-            transform: translateX(${theme.layout.animation.movement.sparkSlide}) rotate(${theme.layout.animation.rotation.sparkTilt});
-            -webkit-font-smoothing: subpixel-antialiased;
-            backface-visibility: hidden;
-            will-change: transform;
-            user-select: text;
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-          }
-
-
-          &:hover::before {
-            content: '✨';
-            position: absolute;
-            top: ${theme.layout.animation.movement.sparkOffset};
-            right: ${theme.layout.animation.movement.sparkOffset};
-            pointer-events: none;
-            animation: sparkFloat ${theme.layout.animation.speed.sparkFloat} ease-out forwards;
-            font-size: ${theme.fontSize.caption};
-          }
-
-          @keyframes sparkle {
-            0% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(8px) rotate(4deg); }
-            100% { transform: translateX(6px) rotate(3deg); }
-          }
-
-          @keyframes sparkFloat {
-            0% {
-              opacity: 0;
-              transform: translateY(0px) translateX(0px) scale(0.2);
-            }
-            20% {
-              opacity: 0.8;
-              transform: translateY(-8px) translateX(2px) scale(0.9);
-            }
-            35% {
-              opacity: 1;
-              transform: translateY(-15px) translateX(3px) scale(1);
-            }
-            50% {
-              opacity: 0.3;
-              transform: translateY(-20px) translateX(4px) scale(0.7);
-            }
-            100% {
-              opacity: 0;
-              transform: translateY(-25px) translateX(5px) scale(0.1);
-            }
-          }
-
-        `;
-      case "none":
-      default:
-        return "";
-    }
-  }}
 `;
 
 export const Link: React.FC<LinkProps> = ({
   children,
   href,
   variant = "default",
-  effect = "none",
   external = false,
   disabled = false,
   onClick,
@@ -151,7 +80,6 @@ export const Link: React.FC<LinkProps> = ({
     <StyledLink
       href={disabled ? "#" : href}
       $variant={variant}
-      $effect={effect}
       $disabled={disabled}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}

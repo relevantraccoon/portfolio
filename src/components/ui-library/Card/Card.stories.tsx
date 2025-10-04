@@ -48,14 +48,14 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const SurfaceMainCard: Story = {
+export const Default: Story = {
   args: {
-    title: "Surface - Main Card",
-    subtitle: "Frontend Developer",
-    badges: ["React", "TypeScript"],
+    title: "Portfolio",
+    subtitle: "Live • 2025",
+    badges: ["Portfolio", "React", "TypeScript", "Styled Components"],
     hoverable: true,
-    backgroundImage: "/projectCardDemo/image.png",
-    children: "This is a comprehensive description of the project that showcases the main features, technologies used, and the impact it had. It demonstrates how the color system works with different text elements and provides context for the project's purpose and scope.",
+    backgroundImage: "/projectCardsFinal/portfolio.png",
+    children: "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
   },
 };
 

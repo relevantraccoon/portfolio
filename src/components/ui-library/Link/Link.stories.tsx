@@ -29,11 +29,6 @@ const meta: Meta<typeof Link> = {
       options: ["default", "subtle", "bold", "button"],
       description: "Visual style of the link",
     },
-    effect: {
-      control: { type: "select" },
-      options: ["none", "spark"],
-      description: "Hover effect animation",
-    },
     external: {
       control: { type: "boolean" },
       description: "Opens in new tab if true",
@@ -48,7 +43,6 @@ const meta: Meta<typeof Link> = {
 export default meta;
 type Story = StoryObj<typeof Link>;
 
-// Basic Variants
 export const Default: Story = {
   args: {
     href: "#",
@@ -56,17 +50,7 @@ export const Default: Story = {
   },
 };
 
-// Interactive Playground
-export const Playground: Story = {
-  args: {
-    href: "#",
-    variant: "default",
-    effect: "spark",
-    children: "Interactive Link",
-  },
-};
 
-// Showcase All Variants
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -89,33 +73,6 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <h3 style={{ color: "#BF5D54", marginBottom: "1rem" }}>Effects</h3>
-        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-          <Link href="#" effect="none">
-            No Effect
-          </Link>
-          <Link href="#" effect="spark">
-            Spark Effect
-          </Link>
-        </div>
-      </div>
-
-      <div>
-        <h3 style={{ color: "#BF5D54", marginBottom: "1rem" }}>Combinations</h3>
-        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-          <Link href="#" variant="bold" effect="spark">
-            Bold + Spark
-          </Link>
-          <Link href="#" variant="subtle" effect="spark">
-            Subtle + Spark
-          </Link>
-          <Link href="#" variant="default" effect="spark">
-            Default + Spark
-          </Link>
-        </div>
-      </div>
-
-      <div>
         <h3 style={{ color: "#BF5D54", marginBottom: "1rem" }}>
           Special Cases
         </h3>
@@ -127,10 +84,7 @@ export const AllVariants: Story = {
             alignItems: "center",
           }}
         >
-          <Link href="mailto:hello@example.com" effect="spark">
-            hello@example.com
-          </Link>
-          <Link href="https://example.com" external effect="spark">
+          <Link href="https://github.com/relevantraccoon" external>
             External Link
           </Link>
           <Link href="#" disabled>
