@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Card } from "./Card";
 
 const meta: Meta<typeof Card> = {
@@ -55,7 +55,7 @@ export const Default: Story = {
     badges: ["Portfolio", "React", "TypeScript", "Styled Components"],
     hoverable: true,
     backgroundImage: "/projectCardsFinal/portfolio.png",
-    children: "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
+    children:
+      "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
   },
 };
-

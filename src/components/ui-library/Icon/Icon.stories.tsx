@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Icon, type IconName } from "./Icon";
 import { DefaultThemeProvider } from "@/styles/theme/ThemeProvider";
 
@@ -9,9 +9,7 @@ const meta: Meta<typeof Icon> = {
     layout: "centered",
     backgrounds: {
       default: "white",
-      values: [
-        { name: "white", value: "#FFFFFF" },
-      ],
+      values: [{ name: "white", value: "#FFFFFF" }],
     },
   },
   decorators: [
@@ -102,11 +100,37 @@ export const AllIcons: Story = {
     ];
 
     return (
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "1.5rem", maxWidth: "800px", backgroundColor: "#FFFFFF", padding: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
+          gap: "1.5rem",
+          maxWidth: "800px",
+          backgroundColor: "#FFFFFF",
+          padding: "2rem",
+        }}
+      >
         {iconNames.map((iconName) => (
-          <div key={iconName} style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+          <div
+            key={iconName}
+            style={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
             <Icon name={iconName} color="#000000" />
-            <span style={{ fontSize: "0.75rem", wordBreak: "break-word", color: "#000000" }}>{iconName}</span>
+            <span
+              style={{
+                fontSize: "0.75rem",
+                wordBreak: "break-word",
+                color: "#000000",
+              }}
+            >
+              {iconName}
+            </span>
           </div>
         ))}
       </div>
