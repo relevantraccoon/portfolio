@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Hero } from "@/components/layout/Hero/Hero";
 import { DefaultThemeProvider } from "@/styles/theme/ThemeProvider";
+import j4 from "@/assets/images/hero/j_4.png";
 
 const meta: Meta<typeof Hero> = {
   title: "Components/Sections/Hero",
@@ -82,7 +83,7 @@ export const Default: Story = {
     subtitleLetterSpacing: 0.25,
     subtitleFontFamily: "default",
     subtitleFontSize: 20,
-    profileImageUrl: "/src/assets/images/hero/j_4.png",
+    profileImageUrl: j4,
   },
   decorators: [
     (Story) => (

@@ -28,6 +28,7 @@ import {
   FaCheck,
 } from "react-icons/fa";
 import { SiStrava } from "react-icons/si";
+import contactMeVideo from "@/assets/videos/contactme_video.webm";
 
 type ContactProps = {
   email?: string;
@@ -73,7 +74,7 @@ export const Contact: React.FC<ContactProps> = ({
             <VideoPlaceholder>
               <ContactVideo autoPlay muted loop>
                 <source
-                  src="/finalvideo/bounce_loop_premult_alpha.webm"
+                  src={contactMeVideo}
                   type="video/webm"
                 />
                 Your browser does not support the video tag.

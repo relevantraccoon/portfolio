@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Card } from "./Card";
+import portfolioImg from "@/assets/images/projects/portfolio.png";
 
 const meta: Meta<typeof Card> = {
   title: "UI Library/Card",
@@ -54,7 +55,7 @@ export const Default: Story = {
     subtitle: "Live • 2025",
     badges: ["Portfolio", "React", "TypeScript", "Styled Components"],
     hoverable: true,
-    backgroundImage: "/projectCardsFinal/portfolio.png",
+    backgroundImage: portfolioImg,
     children:
       "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
   },
