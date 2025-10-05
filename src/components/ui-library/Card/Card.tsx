@@ -172,7 +172,7 @@ const StyledCard = styled.div<{
       background: url(${$backgroundImage});
       background-position: center;
       background-repeat: no-repeat;
-      z-index: ${({ theme }) => theme.zIndex.card.base};
+      z-index: ${theme.zIndex.card.base};
       
       ${(() => {
         if ($variant === "mobile" || $variant === "mobileWide") {
@@ -216,7 +216,7 @@ const StyledCard = styled.div<{
       bottom: 0;
       background: ${theme.colors.palette.surface};
       border-right: 15px solid rgba(217, 176, 167, 0.2);
-      z-index: ${({ theme }) => theme.zIndex.card.hover};
+      z-index: ${theme.zIndex.card.hover};
       transition: ${theme.transitions.width};
     }
   `}

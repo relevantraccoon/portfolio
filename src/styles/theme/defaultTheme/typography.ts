@@ -21,6 +21,8 @@ export const fontSize = {
   caption: '0.875rem',   // 14px - small text
   button: '1.1rem',  // 17.6px - button text
   divider: '1.2rem', // Tech stack divider bullets
+  sm: '0.875rem',    // 14px - small size
+  lg: '1.125rem',    // 18px - large size
 }
 
 // Font weights
