@@ -48,7 +48,7 @@ function App() {
               This year, I've been entrusted with stepping up as{" "}
               <strong>internal audit lead for our ISO 27001 ISMS</strong>.
               Having been on the internal audit team for a couple of years, I
-              know my way around risk assessments, control objectives, and
+              know my way around control objectives, evidence gathering, and
               compliance - another lens into how companies scale.
             </>,
             <>
