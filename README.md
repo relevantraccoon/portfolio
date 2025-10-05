@@ -35,7 +35,7 @@ Typescript, React, Vite, Styled Components, Storybook
 ### Installation
 
 1. Clone the repo
-2. Head over to portfolio-website
+2. Head over to portfolio root folder
 3. Run npm install
 4. Run npm run start to start the dev server locally
 5. Run npm run storybook to check out Storybook
