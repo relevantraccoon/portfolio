@@ -29,8 +29,8 @@ Typescript, React, Vite, Styled Components, Storybook
 
 ### Prerequisites
 
-- Node.js (v16 or higher recommended)
-- npm or yarn
+- Node.js
+- npm
 
 ### Installation
 
