@@ -5,6 +5,7 @@ import { AboutMe } from "@/components/sections/AboutMe";
 import { CircleDivider } from "@/components/layout/CircleDivider";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+import portfolioImg from "@/assets/images/projects/portfolio.png";
 
 function App() {
   return (
@@ -64,7 +65,7 @@ function App() {
             {
               id: "1",
               title: "Portfolio",
-              thumbnail: "/projectCardsFinal/portfolio.png",
+              thumbnail: portfolioImg,
               description:
                 "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
               techStack: ["React", "TypeScript", "Styled Components"],

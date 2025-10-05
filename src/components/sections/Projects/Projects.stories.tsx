@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Projects } from "@/components/sections/Projects/Projects";
 import { DefaultThemeProvider } from "@/styles/theme/ThemeProvider";
+import portfolioImg from "@/assets/images/projects/portfolio.png";
+import cardBg1 from "@/assets/images/projects/card_bg1.png";
+import cardBg2 from "@/assets/images/projects/card_bg2.png";
+import cardBg3 from "@/assets/images/projects/card_bg3.png";
+import cardBg4 from "@/assets/images/projects/card_bg4.png";
 
 const meta: Meta<typeof Projects> = {
   title: "Components/Sections/Projects",
@@ -29,7 +34,7 @@ const sampleProjects = [
   {
     id: "1",
     title: "Portfolio",
-    thumbnail: "/projectCardsFinal/portfolio.png",
+    thumbnail: portfolioImg,
     description:
       "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
     techStack: ["React", "TypeScript", "Styled Components"],
@@ -40,7 +45,7 @@ const sampleProjects = [
   {
     id: "2",
     title: "Placeholder 1",
-    thumbnail: "/projectCardsFinal/card_bg1.png",
+    thumbnail: cardBg1,
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
     techStack: ["React", "TypeScript", "GraphQL"],
@@ -50,7 +55,7 @@ const sampleProjects = [
   {
     id: "3",
     title: "Placeholder 2",
-    thumbnail: "/projectCardsFinal/card_bg2.png",
+    thumbnail: cardBg2,
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
     techStack: ["JavaScript", "HTML5", "CSS3"],
@@ -60,7 +65,7 @@ const sampleProjects = [
   {
     id: "4",
     title: "Placeholder 3",
-    thumbnail: "/projectCardsFinal/card_bg3.png",
+    thumbnail: cardBg3,
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
     techStack: ["TypeScript", "Styled Components"],
@@ -70,7 +75,7 @@ const sampleProjects = [
   {
     id: "5",
     title: "Placeholder 4",
-    thumbnail: "/projectCardsFinal/card_bg4.png",
+    thumbnail: cardBg4,
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
     techStack: ["React", "Storybook", "Figma"],
