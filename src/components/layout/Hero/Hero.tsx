@@ -1,8 +1,6 @@
 import React from "react";
-import { useTheme } from "styled-components";
 import { HeroAnimatedBackground } from "@/components/layout/Hero/HeroAnimatedBackground";
 import j4 from "@/assets/images/hero/j_4.png";
-import type { DefaultThemeProps } from "@/styles/theme/defaultTheme";
 import {
   AnimationWrapper,
   CanvasContainer,
@@ -31,12 +29,8 @@ export const Hero: React.FC<HeroProps> = ({
   showOverlayImage = true,
   name = "Joakim Karlsson",
   subtitle = "Tech Support → Frontend Developer",
-  subtitleLetterSpacing = 0.25,
-  subtitleFontFamily = "default",
-  subtitleFontSize = 20,
   profileImageUrl = j4,
 }) => {
-  const theme = useTheme() as DefaultThemeProps;
 
   return (
     <HeroContainer>

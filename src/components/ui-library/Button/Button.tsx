@@ -45,14 +45,14 @@ const StyledButton = styled.button<{
             width: ${theme.controls.button.small.width};
             height: ${theme.controls.button.small.height};
             padding: 0;
-            font-size: ${theme.fontSize.sm || "0.875rem"};
+            font-size: ${theme.fontSize.sm};
           `;
         case "large":
           return `
             width: ${theme.controls.button.large.width};
             height: ${theme.controls.button.large.height};
             padding: 0;
-            font-size: ${theme.fontSize.lg || "1.125rem"};
+            font-size: ${theme.fontSize.lg};
           `;
         case "medium":
         default:
