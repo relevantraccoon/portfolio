@@ -7,8 +7,6 @@ export const ProjectsContainer = styled.section`
   flex-direction: column;
   position: relative;
   background-color: ${({ theme }) => theme.colors.palette.background};
-  overflow: hidden;
-  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 `;
 
 export const ProjectsContentWrapper = styled.div`

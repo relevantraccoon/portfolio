@@ -154,13 +154,6 @@ export const HeroAnimatedBackground: React.FC<HeroAnimatedBackgroundProps> = ({
       }
 
       const palette = Array.from(colors);
-      console.log("All extracted colors", {
-        totalUniqueColors: palette.length,
-        allColors: palette,
-        colorOpacity: config.colorOpacity,
-        canvasSize: `${tempCanvas.width}x${tempCanvas.height}`,
-        samplingStep: 16,
-      });
 
       return palette;
     },

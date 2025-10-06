@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSafari } from "@/hooks/useSafari";
 import {
   ContactWrapper,
   ContactContainer,
@@ -15,6 +16,7 @@ import {
   ContactEmailLink,
   ContactCopyIcon,
   ContactVideo,
+  ContactImage,
 } from "@/components/sections/Contact/styles";
 import { Content } from "@/components/layout/Content";
 import { Typography } from "@/components/ui-library/Typography";
@@ -29,6 +31,7 @@ import {
 } from "react-icons/fa";
 import { SiStrava } from "react-icons/si";
 import contactMeVideo from "@/assets/videos/contactme_video.webm";
+import profileImage from "@/assets/images/contact/profile_transparent.png";
 
 type ContactProps = {
   email?: string;
@@ -49,6 +52,7 @@ export const Contact: React.FC<ContactProps> = ({
   shouldShowCVButton = false,
 }) => {
   const [copied, setCopied] = useState(false);
+  const isSafari = useSafari();
 
 
   const handleCVDownload = () => {
@@ -72,13 +76,17 @@ export const Contact: React.FC<ContactProps> = ({
         <ContactContainer>
           <ContactGrid>
             <VideoPlaceholder>
-              <ContactVideo autoPlay muted loop>
-                <source
-                  src={contactMeVideo}
-                  type="video/webm"
-                />
-                Your browser does not support the video tag.
-              </ContactVideo>
+              {isSafari ? (
+                <ContactImage src={profileImage} alt="Profile" />
+              ) : (
+                <ContactVideo autoPlay muted loop playsInline>
+                  <source
+                    src={contactMeVideo}
+                    type="video/webm"
+                  />
+                  Your browser does not support the video tag.
+                </ContactVideo>
+              )}
             </VideoPlaceholder>
 
             <ContactContent>

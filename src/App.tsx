@@ -6,13 +6,20 @@ import { CircleDivider } from "@/components/layout/CircleDivider";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import portfolioImg from "@/assets/images/projects/portfolio.png";
+import styled from "styled-components";
+
+const ContentWrapper = styled.div`
+  position: relative;
+  z-index: ${({ theme }) => theme.zIndex.sections.wrapper};
+`;
 
 function App() {
   return (
     <DefaultThemeProvider>
       <>
         <GlobalStyles />
-        <Hero
+        <ContentWrapper>
+          <Hero
           shouldAnimate={true}
           showOverlayImage={true}
           name="Joakim Karlsson"
@@ -53,8 +60,8 @@ function App() {
             </>,
             <>
               Away from the keyboard, I'm passionate about long distance running
-              (2-time marathon finisher, working on 10k speed). At home, it's all
-              about my fiancée and our cats.
+              (2-time marathon finisher, working on 10k speed). At home, it's
+              all about my fiancée and our cats.
             </>,
           ]}
         />
@@ -71,11 +78,12 @@ function App() {
               techStack: ["React", "TypeScript", "Styled Components"],
               status: "Live • 2025",
               projectType: "Portfolio",
-              href: "https://github.com/relevantraccoon/portfolio",
+              href: "https://www.joakimkarlsson.com",
             },
           ]}
         />
         <CircleDivider circleCount={20} circleSize={16} />
+        </ContentWrapper>
         <Contact
           email="hello@joakimkarlsson.com"
           linkedinUrl="https://www.linkedin.com/in/joakim-t-karlsson/"

@@ -11,10 +11,8 @@ export const HeroContainer = styled.div`
   justify-content: space-between;
   padding: 0;
   font-family: ${({ theme }) => theme.fontFamily.primary};
-  overflow: hidden;
   box-sizing: border-box;
   position: relative;
-  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 
   ${mediaQuery.from("mobileWide")} {
     height: calc(100vh - (14px + (${({ theme }) => theme.spacing.xxl} * 2)));
