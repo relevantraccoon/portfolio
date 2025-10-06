@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSafari } from "@/hooks/useSafari";
 import {
   ContactWrapper,
   ContactContainer,
@@ -51,13 +52,7 @@ export const Contact: React.FC<ContactProps> = ({
   shouldShowCVButton = false,
 }) => {
   const [copied, setCopied] = useState(false);
-  const [isSafari, setIsSafari] = useState(false);
-
-  React.useEffect(() => {
-    const ua = navigator.userAgent.toLowerCase();
-    const isSafariBrowser = ua.includes('safari') && !ua.includes('chrome') && !ua.includes('android');
-    setIsSafari(isSafariBrowser);
-  }, []);
+  const isSafari = useSafari();
 
 
   const handleCVDownload = () => {
