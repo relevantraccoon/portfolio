@@ -12,15 +12,25 @@ export type ContentProps = {
   verticalPaddingSize?: VerticalPaddingSize;
 };
 
-const ContentContainer = styled.div<{ $contentType: ContentType; $verticalPadding: boolean; $verticalPaddingSize: VerticalPaddingSize }>`
+const ContentContainer = styled.div<{
+  $contentType: ContentType;
+  $verticalPadding: boolean;
+  $verticalPaddingSize: VerticalPaddingSize;
+}>`
   width: 100%;
   margin: 0 auto;
   padding-left: ${({ theme }) => theme.gutters.mobile};
   padding-right: ${({ theme }) => theme.gutters.mobile};
 
-  ${({ theme, $verticalPadding, $verticalPaddingSize }) => $verticalPadding && `
-    padding-top: ${$verticalPaddingSize === "half" ? theme.spacing.xxl : theme.spacing.xxxxxl};
-    padding-bottom: ${$verticalPaddingSize === "half" ? theme.spacing.xxl : theme.spacing.xxxxxl};
+  ${({ theme, $verticalPadding, $verticalPaddingSize }) =>
+    $verticalPadding &&
+    `
+    padding-top: ${
+      $verticalPaddingSize === "half" ? theme.spacing.xxl : theme.spacing.xxxxxl
+    };
+    padding-bottom: ${
+      $verticalPaddingSize === "half" ? theme.spacing.xxl : theme.spacing.xxxxxl
+    };
   `}
 
   /* Mobile */
@@ -76,7 +86,12 @@ export const Content: React.FC<ContentProps> = ({
   verticalPaddingSize = "full",
 }) => {
   return (
-    <ContentContainer $contentType={type} $verticalPadding={verticalPadding} $verticalPaddingSize={verticalPaddingSize} className={className}>
+    <ContentContainer
+      $contentType={type}
+      $verticalPadding={verticalPadding}
+      $verticalPaddingSize={verticalPaddingSize}
+      className={className}
+    >
       {children}
     </ContentContainer>
   );

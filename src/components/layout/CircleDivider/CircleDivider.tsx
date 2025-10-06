@@ -16,7 +16,6 @@ const FullWidthContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  z-index: ${({ theme }) => theme.zIndex.sections.normal};
 `;
 
 const CirclesContainer = styled.div`

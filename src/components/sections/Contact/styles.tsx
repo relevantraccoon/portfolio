@@ -11,7 +11,7 @@ export const ContactWrapper = styled.section`
   position: sticky;
   bottom: 0;
   background: ${({ theme }) => theme.colors.palette.primary};
-  z-index: ${({ theme }) => theme.zIndex.sections.bottom};
+  z-index: ${({ theme }) => theme.zIndex.sections.contact};
 `;
 
 export const ContactContainer = styled.div`
@@ -19,19 +19,16 @@ export const ContactContainer = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: 0;
   width: 100%;
-  height: ${({ theme }) => theme.layout.viewport.sections.contact.mobile};
+  height: auto;
   min-height: 500px;
+  max-height: 80vh;
   overflow-y: auto;
   text-align: center;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @media (orientation: portrait) {
-    height: auto;
-    max-height: 75vh;
-  }
+  align-items: center;
 
   ${mediaQuery.from("tablet")} {
     height: ${({ theme }) => theme.layout.viewport.sections.contact.tablet};
@@ -48,36 +45,41 @@ export const ContactContainer = styled.div`
 `;
 
 export const ContactGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.layout.responsive.gaps.small};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
-  align-items: center;
   padding: ${({ theme }) => theme.spacing.xl};
 
   ${mediaQuery.from('mobileWide')} {
-    gap: ${({ theme }) => theme.layout.responsive.gaps.medium};
     padding: ${({ theme }) => theme.spacing.xxxl};
   }
 
   ${mediaQuery.from('tablet')} and (orientation: portrait) {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: ${({ theme }) => theme.layout.responsive.gaps.xlarge};
+    align-items: center;
   }
 
   ${mediaQuery.from('tablet')} and (orientation: landscape) {
+    display: grid;
     grid-template-columns: ${({ theme }) => theme.layout.proportions.gridTemplates.majorMinor};
     gap: ${({ theme }) => theme.layout.responsive.gaps.large};
     padding: ${({ theme }) => theme.spacing.xxxxl};
+    align-items: center;
   }
 
   ${mediaQuery.from('desktop')} and (orientation: landscape) {
     grid-template-columns: ${({ theme }) => theme.layout.proportions.gridTemplates.majorMinor};
     gap: ${({ theme }) => theme.layout.responsive.gaps.xlarge};
+    align-items: center;
   }
 
   ${mediaQuery.from('desktopLarge')} and (orientation: landscape) {
     gap: ${({ theme }) => theme.layout.responsive.gaps.xxlarge};
     padding: ${({ theme }) => theme.spacing.xxxxl} ${({ theme }) => theme.gutters.widescreen};
+    align-items: center;
   }
 
   @media (max-height: 600px) {
@@ -292,8 +294,24 @@ export const ContactCopyIcon = styled.div`
 `;
 
 export const ContactVideo = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
+
+  ${mediaQuery.from('tablet')} and (min-height: 500px) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+export const ContactImage = styled.img`
+  display: none;
+
+  ${mediaQuery.from('tablet')} and (min-height: 500px) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 

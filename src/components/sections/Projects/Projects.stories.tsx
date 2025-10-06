@@ -40,7 +40,7 @@ const sampleProjects = [
     techStack: ["React", "TypeScript", "Styled Components"],
     status: "Live • 2025",
     projectType: "Portfolio",
-    href: "https://github.com/relevantraccoon/portfolio",
+    href: "https://www.joakimkarlsson.com",
   },
   {
     id: "2",
@@ -98,8 +98,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Multiple projects displayed in a carousel",
+        story: "Multiple projects displayed in a carousel",
       },
     },
   },

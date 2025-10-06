@@ -1,18 +1,16 @@
 export const zIndex = {
-  // Base layers
-  stickyBackground: -1,
-  base: 0,
+  // Base layers (used in Hero section)
   background: 1,
   content: 2,
 
-  // Interactive elements
+  // Card layers
   card: {
     base: 1,
     hover: 2,
     content: 3,
   },
 
-  // Carousel specific
+  // Carousel layers (used in Projects section)
   carousel: {
     hidden: 2,
     side: 6,
@@ -22,17 +20,10 @@ export const zIndex = {
 
   // Section layers
   sections: {
-    bottom: 1,
-    normal: 2,
-    content: 6,
-    overlay: 16,
+    wrapper: 1,    // ContentWrapper that holds all scrolling sections
+    contact: 0,    // Sticky contact section at bottom
+    content: 6,    // Content within contact section
   },
-
-  // UI elements
-  navigation: 51,
-  overlay: 101,
-  modal: 201,
-  tooltip: 301,
 };
 
 export type ZIndex = typeof zIndex;
