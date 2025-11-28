@@ -150,6 +150,14 @@ export const HeroName = styled.h1`
   ${mediaQuery.from("tablet")} {
     font-size: clamp(72px, 14vw, 120px);
   }
+
+  ${mediaQuery.from("widescreen")} {
+    font-size: clamp(100px, 14vw, 145px);
+  }
+
+  ${mediaQuery.from("fhd")} {
+    font-size: clamp(115px, 14vw, 165px);
+  }
 `;
 
 export const HeroSubtitleText = styled.h2`
@@ -172,6 +180,14 @@ export const HeroSubtitleText = styled.h2`
 
   ${mediaQuery.from("tablet")} {
     font-size: clamp(18px, 3vw, 28px);
+  }
+
+  ${mediaQuery.from("widescreen")} {
+    font-size: clamp(24px, 3vw, 34px);
+  }
+
+  ${mediaQuery.from("fhd")} {
+    font-size: clamp(27px, 3vw, 39px);
   }
 `;
 
