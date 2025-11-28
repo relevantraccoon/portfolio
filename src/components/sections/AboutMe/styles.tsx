@@ -80,6 +80,11 @@ export const SkillsMainTitle = styled.h1`
   color: ${({ theme }) => theme.colors.palette.onSecondary};
   margin: 0 0 ${({ theme }) => theme.spacing.lg} 0;
   text-shadow: ${({ theme }) => theme.textShadow.light};
+  text-align: center;
+
+  ${mediaQuery.from("desktopLarge")} {
+    text-align: left;
+  }
 `;
 
 export const SkillCategory = styled.div`
@@ -95,20 +100,28 @@ export const SkillCategoryTitle = styled.h3`
   color: ${({ theme }) => theme.colors.palette.onSecondary};
   margin: 0;
   text-shadow: ${({ theme }) => theme.textShadow.light};
+  text-align: center;
+
+  ${mediaQuery.from("desktopLarge")} {
+    text-align: left;
+  }
 `;
 
 export const SkillsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(${({ theme }) => theme.controls.skillItem.minWidth}, 1fr));
   gap: ${({ theme }) => theme.spacing.lg};
-  justify-items: start;
+  justify-items: center;
   max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
+  margin: 0 auto;
 
-  ${mediaQuery.from("tablet")} {
+  ${mediaQuery.from("mobileWide")} {
     max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
   }
 
-  ${mediaQuery.from("desktop")} {
+  ${mediaQuery.from("desktopLarge")} {
+    justify-items: start;
+    margin: 0;
     max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
   }
 
@@ -135,6 +148,57 @@ export const SkillItem = styled.span`
   text-shadow: ${({ theme }) => theme.textShadow.light};
   line-height: ${({ theme }) => theme.lineHeight.normal};
   letter-spacing: 0.01em;
+  width: 100%;
+
+  /* Mobile: 2 columns - left and right */
+  &:nth-child(odd) {
+    justify-content: flex-start;
+  }
+
+  &:nth-child(even) {
+    justify-content: flex-end;
+  }
+
+  /* Mobile Wide, Tablet, Desktop: 3 columns - left, center, right */
+  ${mediaQuery.from("mobileWide")} {
+    &:nth-child(3n+1) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(3n+2) {
+      justify-content: center;
+    }
+
+    &:nth-child(3n+3) {
+      justify-content: flex-end;
+    }
+  }
+
+  /* Desktop Large: 2 columns - left and right */
+  ${mediaQuery.from("desktopLarge")} {
+    &:nth-child(odd) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+    }
+  }
+
+  /* Widescreen: back to 3 columns - left, center, right */
+  ${mediaQuery.from("widescreen")} {
+    &:nth-child(3n+1) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(3n+2) {
+      justify-content: center;
+    }
+
+    &:nth-child(3n+3) {
+      justify-content: flex-end;
+    }
+  }
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.palette.outlineDarkVariant};
