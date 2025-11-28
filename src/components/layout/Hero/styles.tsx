@@ -24,7 +24,7 @@ export const HeroContainer = styled.div`
 `;
 
 export const AnimationWrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
   overflow: hidden;
@@ -54,18 +54,22 @@ export const HeroTextContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%;
+  height: 40%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   padding: 0;
   z-index: ${({ theme }) => theme.zIndex.content};
-  background-color: transparent;
+
+  ${mediaQuery.from("tablet")} {
+    height: 50%;
+  }
 
   ${mediaQuery.from("desktopLarge")} {
     width: ${({ theme }) =>
       theme.layout.proportions.split.majorMinor.split(" ")[0]};
     height: 100%;
+    align-items: center;
   }
 `;
 
@@ -104,10 +108,16 @@ export const HeroTextContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
-  padding: 0 ${({ theme }) => theme.spacing.md};
+  padding: 0 ${({ theme }) => theme.spacing.md}
+    ${({ theme }) => theme.spacing.md};
+
+  ${mediaQuery.from("desktopLarge")} {
+    justify-content: center;
+    padding: 0 ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 export const HeroName = styled.h1`
@@ -140,16 +150,28 @@ export const HeroName = styled.h1`
   ${mediaQuery.from("tablet")} {
     font-size: clamp(72px, 14vw, 120px);
   }
+
+  ${mediaQuery.from("widescreen")} {
+    font-size: clamp(100px, 14vw, 145px);
+  }
+
+  ${mediaQuery.from("fhd")} {
+    font-size: clamp(115px, 14vw, 165px);
+  }
 `;
 
 export const HeroSubtitleText = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-size: ${({ theme }) => theme.responsiveTypography.heroSubtitle};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
-  color: ${({ theme }) => theme.colors.palette.secondary};
+  color: ${({ theme }) => theme.colors.decorativePalette.lightest[0]};
   margin: ${({ theme }) => theme.spacing.xs} 0 0 0;
   letter-spacing: ${({ theme }) => theme.letterSpacing.wider};
   text-shadow: ${({ theme }) => theme.shadows.text.heroSubtitle};
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+  paint-order: stroke fill;
+  position: relative;
+  z-index: 1;
   white-space: nowrap;
 
   @media (max-width: 375px) {
@@ -158,6 +180,14 @@ export const HeroSubtitleText = styled.h2`
 
   ${mediaQuery.from("tablet")} {
     font-size: clamp(18px, 3vw, 28px);
+  }
+
+  ${mediaQuery.from("widescreen")} {
+    font-size: clamp(24px, 3vw, 34px);
+  }
+
+  ${mediaQuery.from("fhd")} {
+    font-size: clamp(27px, 3vw, 39px);
   }
 `;
 
@@ -191,24 +221,21 @@ export const TextContent = styled.div`
 `;
 
 export const Title = styled.h1.attrs({
-  className: 'hero-title'
+  className: "hero-title",
 })<{ $fontFamily?: string; $fontSize?: number; $letterSpacing?: number }>`
-  font-family: ${({ $fontFamily, theme }) => 
-    $fontFamily === "default" ? theme.fontFamily.primary : 
-    $fontFamily || theme.fontFamily.primary
-  };
-  font-size: ${({ $fontSize, theme }) => 
-    $fontSize ? `${$fontSize}px` : theme.fontSize.display
-  };
-  letter-spacing: ${({ $letterSpacing }) => 
-    $letterSpacing ? `${$letterSpacing}em` : 'normal'
-  };
+  font-family: ${({ $fontFamily, theme }) =>
+    $fontFamily === "default"
+      ? theme.fontFamily.primary
+      : $fontFamily || theme.fontFamily.primary};
+  font-size: ${({ $fontSize, theme }) =>
+    $fontSize ? `${$fontSize}px` : theme.fontSize.display};
+  letter-spacing: ${({ $letterSpacing }) =>
+    $letterSpacing ? `${$letterSpacing}em` : "normal"};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: ${({ theme }) => theme.lineHeight.tight};
   margin-bottom: ${({ theme }) => theme.spacing.xs};
   color: ${({ theme }) => theme.colors.palette.primary};
 `;
-
 
 export const Subtitle = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.primary};

@@ -25,4 +25,9 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+
+  ::selection {
+    background-color: ${({ theme }) => theme.colors.palette.primary};
+    color: ${({ theme }) => theme.colors.palette.onPrimary};
+  }
 `;
