@@ -226,7 +226,7 @@ const StyledCard = styled.div<{
     `
     &:hover {
       transform: scale(1.02);
-      
+
       &::after {
         width: 100%;
       }
@@ -461,7 +461,7 @@ const ContentWrapper = styled.div<{
     $hasBackgroundImage &&
     `
     opacity: 0;
-    
+
     .card-hoverable:hover & {
       opacity: 1;
     }

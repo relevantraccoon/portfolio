@@ -148,6 +148,7 @@ export const SkillItem = styled.span`
   text-shadow: ${({ theme }) => theme.textShadow.light};
   line-height: ${({ theme }) => theme.lineHeight.normal};
   letter-spacing: 0.01em;
+  white-space: nowrap;
   width: 100%;
 
   /* Mobile: 2 columns - left and right */
@@ -246,6 +247,15 @@ export const SkillIconWrapper = styled.span`
   }
   ${SkillItem}[data-tech="figma"]:hover & {
     color: ${({ theme }) => theme.colors.brandColors.figma};
+  }
+  ${SkillItem}[data-tech="docker"]:hover & {
+    color: ${({ theme }) => theme.colors.brandColors.docker};
+  }
+  ${SkillItem}[data-tech="cloudflare"]:hover & {
+    color: ${({ theme }) => theme.colors.brandColors.cloudflare};
+  }
+  ${SkillItem}[data-tech="grafana"]:hover & {
+    color: ${({ theme }) => theme.colors.brandColors.grafana};
   }
   ${SkillItem}[data-tech="storybook"]:hover & {
     color: ${({ theme }) => theme.colors.brandColors.storybook};

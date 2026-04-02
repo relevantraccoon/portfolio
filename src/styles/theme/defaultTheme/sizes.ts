@@ -68,7 +68,7 @@ export const controls = {
   },
   skillItem: {
     minHeight: "48px",
-    minWidth: "120px",
+    minWidth: "150px",
   },
 };
 

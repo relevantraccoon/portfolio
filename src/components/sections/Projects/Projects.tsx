@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useTheme } from "styled-components";
 import { Content } from "@/components/layout/Content";
 import { Card } from "@/components/ui-library/Card";
+import { MobileCard } from "@/components/ui-library/MobileCard";
 import { NavButton } from "@/components/ui-library/Button";
 import { Typography } from "@/components/ui-library/Typography";
 import {
@@ -11,6 +12,9 @@ import {
   CardStack,
   CarouselCard,
   NavigationContainer,
+  MobileCarouselContainer,
+  MobileCardWrapper,
+  DesktopCardWrapper,
 } from "@/components/sections/Projects/styles";
 import { ProjectData } from "@/components/sections/Projects/index";
 
@@ -46,12 +50,29 @@ export const Projects: React.FC<ProjectsProps> = ({
     return "hidden";
   };
 
+  const touchStartX = useRef(0);
+  const SWIPE_THRESHOLD = 50;
+
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) < SWIPE_THRESHOLD) return;
+    if (delta > 0) {
+      handleNext();
+    } else {
+      handlePrev();
+    }
   };
 
   return (
@@ -71,46 +92,76 @@ export const Projects: React.FC<ProjectsProps> = ({
           >
             {displayTitle}
           </Typography>
-          <CarouselContainer>
-            <CardStack>
-              {projects.map((project, index) => {
-                const position = getCardPosition(index);
 
-                return (
-                  <CarouselCard
-                    key={project.id}
-                    $position={position}
-                    aria-hidden={position !== "active"}
-                    tabIndex={position !== "active" ? -1 : undefined}
-                  >
-                    <Card
-                      title={project.title}
-                      subtitle={project.status}
-                      badges={[project.projectType, ...project.techStack]}
-                      hoverable={position === "active"}
-                      backgroundImage={project.thumbnail}
-                      variant="responsive"
-                      href={position === "active" ? project.href : undefined}
-                    >
-                      {project.description}
-                    </Card>
-                  </CarouselCard>
-                );
-              })}
-            </CardStack>
-          </CarouselContainer>
-
-          {shouldDisplayNavigation && (
-            <>
+          <MobileCarouselContainer
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {projects.map((project, index) => (
+              <MobileCardWrapper
+                key={project.id}
+                $active={index === activeIndex}
+              >
+                <MobileCard
+                  title={project.title}
+                  status={project.status}
+                  description={project.description}
+                  projectType={project.projectType}
+                  techStack={project.techStack}
+                  thumbnail={project.thumbnail}
+                  href={project.href}
+                />
+              </MobileCardWrapper>
+            ))}
+            {shouldDisplayNavigation && (
               <Typography variant="caption" color="onBackground" align="center">
                 {activeIndex + 1} / {projects.length}
               </Typography>
-              <NavigationContainer>
-                <NavButton direction="left" onClick={handlePrev} />
-                <NavButton direction="right" onClick={handleNext} />
-              </NavigationContainer>
-            </>
-          )}
+            )}
+          </MobileCarouselContainer>
+
+          <DesktopCardWrapper>
+            <CarouselContainer>
+              <CardStack>
+                {projects.map((project, index) => {
+                  const position = getCardPosition(index);
+
+                  return (
+                    <CarouselCard
+                      key={project.id}
+                      $position={position}
+                      aria-hidden={position !== "active"}
+                      tabIndex={position !== "active" ? -1 : undefined}
+                    >
+                      <Card
+                        title={project.title}
+                        subtitle={project.status}
+                        badges={[project.projectType, ...project.techStack]}
+                        hoverable={position === "active"}
+                        backgroundImage={project.thumbnail}
+                        variant="responsive"
+                        href={position === "active" ? project.href : undefined}
+                      >
+                        {project.description}
+                      </Card>
+                    </CarouselCard>
+                  );
+                })}
+              </CardStack>
+            </CarouselContainer>
+
+            {shouldDisplayNavigation && (
+              <>
+                <Typography variant="caption" color="onBackground" align="center">
+                  {activeIndex + 1} / {projects.length}
+                </Typography>
+                <NavigationContainer>
+                  <NavButton direction="left" onClick={handlePrev} />
+                  <NavButton direction="right" onClick={handleNext} />
+                </NavigationContainer>
+              </>
+            )}
+          </DesktopCardWrapper>
         </ProjectsContentWrapper>
       </Content>
     </ProjectsContainer>

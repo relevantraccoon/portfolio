@@ -93,6 +93,31 @@ export const CarouselCard = styled.div<{
     $position === "active" ? "auto" : "none"};
 `;
 
+export const MobileCarouselContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+  touch-action: pan-y;
+
+  ${mediaQuery.from("tablet")} {
+    display: none;
+  }
+`;
+
+export const MobileCardWrapper = styled.div<{ $active: boolean }>`
+  display: ${({ $active }) => ($active ? "block" : "none")};
+  width: 100%;
+`;
+
+export const DesktopCardWrapper = styled.div`
+  display: none;
+
+  ${mediaQuery.from("tablet")} {
+    display: block;
+  }
+`;
+
 export const NavigationContainer = styled.div`
   display: flex;
   justify-content: center;

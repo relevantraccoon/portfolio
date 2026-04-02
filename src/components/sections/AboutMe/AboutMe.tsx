@@ -24,6 +24,9 @@ import {
   SiFigma,
   SiReact,
   SiStorybook,
+  SiCloudflare,
+  SiDocker,
+  SiGrafana,
 } from "react-icons/si";
 
 const TECHNOLOGIES = [
@@ -37,6 +40,9 @@ const TECHNOLOGIES = [
 
 const TOOLS = [
   { id: "git", icon: SiGit, label: "Git" },
+  { id: "docker", icon: SiDocker, label: "Docker" },
+  { id: "cloudflare", icon: SiCloudflare, label: "Cloudflare" },
+  { id: "grafana", icon: SiGrafana, label: "Grafana / Loki" },
   { id: "storybook", icon: SiStorybook, label: "Storybook" },
   { id: "figma", icon: SiFigma, label: "Figma" },
 ] as const;

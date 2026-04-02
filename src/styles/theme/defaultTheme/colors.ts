@@ -57,6 +57,9 @@ export const colors = {
     git: "#f05032",
     figma: "#f24e1e",
     storybook: "#ff4785",
+    docker: "#2496ed",
+    cloudflare: "#f38020",
+    grafana: "#f46800",
   },
   // Decorative palette extracted from Hero image - used for circle dividers and accents
   decorativePalette: {
