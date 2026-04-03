@@ -93,6 +93,68 @@ export const CarouselCard = styled.div<{
     $position === "active" ? "auto" : "none"};
 `;
 
+export const MobileCarouselContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+  touch-action: pan-y;
+
+  ${mediaQuery.from("tablet")} {
+    display: none;
+  }
+`;
+
+export const MobileCardWrapper = styled.div<{
+  $active: boolean;
+  $direction: "left" | "right";
+}>`
+  display: ${({ $active }) => ($active ? "block" : "none")};
+  width: 100%;
+
+  ${({ $active, $direction }) =>
+    $active &&
+    `
+    animation: mobileCardSlide 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+
+    @keyframes mobileCardSlide {
+      from {
+        opacity: 0;
+        transform: translateX(${$direction === "right" ? "40px" : "-40px"});
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  `}
+`;
+
+export const MobileNavContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing.sm};
+  width: 100%;
+
+  & > button {
+    display: none;
+    flex-shrink: 0;
+    margin-top: 70px;
+
+    @media (hover: hover) and (pointer: fine) {
+      display: flex;
+    }
+  }
+`;
+
+export const DesktopCardWrapper = styled.div`
+  display: none;
+
+  ${mediaQuery.from("tablet")} {
+    display: block;
+  }
+`;
+
 export const NavigationContainer = styled.div`
   display: flex;
   justify-content: center;
