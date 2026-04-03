@@ -14,6 +14,7 @@ import {
   NavigationContainer,
   MobileCarouselContainer,
   MobileCardWrapper,
+  MobileNavContainer,
   DesktopCardWrapper,
 } from "@/components/sections/Projects/styles";
 import { ProjectData } from "@/components/sections/Projects/index";
@@ -28,6 +29,7 @@ export const Projects: React.FC<ProjectsProps> = ({
   title = "Featured Projects",
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
   const theme = useTheme();
 
   if (projects.length === 0) return null;
@@ -54,10 +56,12 @@ export const Projects: React.FC<ProjectsProps> = ({
   const SWIPE_THRESHOLD = 50;
 
   const handlePrev = () => {
+    setSlideDirection("left");
     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const handleNext = () => {
+    setSlideDirection("right");
     setActiveIndex((prev) => (prev + 1) % projects.length);
   };
 
@@ -93,31 +97,39 @@ export const Projects: React.FC<ProjectsProps> = ({
             {displayTitle}
           </Typography>
 
-          <MobileCarouselContainer
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {projects.map((project, index) => (
-              <MobileCardWrapper
-                key={project.id}
-                $active={index === activeIndex}
-              >
-                <MobileCard
-                  title={project.title}
-                  status={project.status}
-                  description={project.description}
-                  projectType={project.projectType}
-                  techStack={project.techStack}
-                  thumbnail={project.thumbnail}
-                  href={project.href}
-                />
-              </MobileCardWrapper>
-            ))}
+          <MobileCarouselContainer>
             {shouldDisplayNavigation && (
               <Typography variant="caption" color="onBackground" align="center">
                 {activeIndex + 1} / {projects.length}
               </Typography>
             )}
+            <MobileNavContainer>
+              <NavButton direction="left" onClick={handlePrev} />
+              <div
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                style={{ flex: 1, minWidth: 0 }}
+              >
+                {projects.map((project, index) => (
+                  <MobileCardWrapper
+                    key={project.id}
+                    $active={index === activeIndex}
+                    $direction={slideDirection}
+                  >
+                    <MobileCard
+                      title={project.title}
+                      status={project.status}
+                      description={project.description}
+                      projectType={project.projectType}
+                      techStack={project.techStack}
+                      thumbnail={project.thumbnail}
+                      href={project.href}
+                    />
+                  </MobileCardWrapper>
+                ))}
+              </div>
+              <NavButton direction="right" onClick={handleNext} />
+            </MobileNavContainer>
           </MobileCarouselContainer>
 
           <DesktopCardWrapper>
