@@ -97,7 +97,7 @@ export const CarouselCard = styled.div<{
 export const MobileCounter = styled.div`
   width: 100%;
 
-  @media (hover: none) and (pointer: coarse) and (min-width: 600px) {
+  @media (pointer: coarse) and (min-width: 600px) {
     display: none;
   }
 `;
@@ -111,7 +111,7 @@ export const MobileCarouselContainer = styled.div`
   margin-left: 50%;
   transform: translateX(-50%);
 
-  @media (hover: none) and (pointer: coarse) {
+  @media (pointer: coarse) {
     display: flex;
   }
 `;
@@ -133,7 +133,7 @@ export const MobileScrollTrack = styled.div`
     display: none;
   }
 
-  @media (hover: none) and (pointer: coarse) and (min-width: 600px) {
+  @media (pointer: coarse) and (min-width: 600px) {
     padding: ${({ theme }) => theme.spacing.sm} 4%;
   }
 `;
@@ -143,7 +143,7 @@ export const MobileCardSlide = styled.div<{ $active: boolean; $side?: "left" | "
   flex: 0 0 82%;
   min-width: 0;
 
-  @media (hover: none) and (pointer: coarse) and (min-width: 600px) {
+  @media (pointer: coarse) and (min-width: 600px) {
     flex: 0 0 92%;
   }
   transform: ${({ $active }) => ($active ? "translateY(0)" : "translateY(4px)")};
@@ -151,7 +151,7 @@ export const MobileCardSlide = styled.div<{ $active: boolean; $side?: "left" | "
   filter: ${({ $active }) => ($active ? "none" : "brightness(0.7)")};
   transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
 
-  @media (hover: none) and (pointer: coarse) and (min-width: 600px) {
+  @media (pointer: coarse) and (min-width: 600px) {
     opacity: ${({ $active }) => ($active ? 1 : 0.9)};
     filter: ${({ $active }) => ($active ? "none" : "brightness(0.9)")};
   }
@@ -169,7 +169,7 @@ export const MobileCardSlide = styled.div<{ $active: boolean; $side?: "left" | "
 export const DesktopCardWrapper = styled.div`
   display: block;
 
-  @media (hover: none) and (pointer: coarse) {
+  @media (pointer: coarse) {
     display: none;
   }
 `;
