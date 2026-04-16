@@ -89,6 +89,12 @@ export const ContactGrid = styled.div`
   @media (max-height: 600px) {
     gap: ${({ theme }) => theme.spacing.md};
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+  }
 `;
 
 export const ContactContent = styled.div`
@@ -116,6 +122,11 @@ export const ContactContent = styled.div`
   @media (max-height: 600px) {
     gap: 1.25rem;
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    text-align: center;
+    align-items: center;
+  }
 `;
 
 export const ContactTitle = styled.div`
@@ -124,6 +135,10 @@ export const ContactTitle = styled.div`
 
   ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    text-align: center;
   }
 `;
 
@@ -136,6 +151,11 @@ export const ContactTextContainer = styled.div`
   ${mediaQuery.from('tablet')} and (orientation: landscape) {
     text-align: left;
     margin: 0;
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    text-align: center;
+    margin: 0 auto;
   }
 `;
 
@@ -191,6 +211,13 @@ export const ContactLinks = styled.div`
     max-width: none;
     width: auto;
     margin: 0;
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    justify-content: space-between;
+    max-width: ${({ theme }) => theme.layout.components.contact.maxWidths.button};
+    width: 100%;
+    margin: 0 auto;
   }
 
   a {
