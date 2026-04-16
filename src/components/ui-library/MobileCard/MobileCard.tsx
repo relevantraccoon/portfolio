@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Badge } from "@/components/ui-library/Badge/Badge";
+import { Icon } from "@/components/ui-library/Icon/Icon";
 
 type MobileCardProps = {
   title: string;
@@ -13,6 +14,7 @@ type MobileCardProps = {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   background: ${({ theme }) => theme.colors.palette.surface};
   border: 1px solid ${({ theme }) => theme.colors.palette.outline};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
@@ -37,7 +39,29 @@ const Content = styled.div`
   gap: ${({ theme }) => theme.spacing.sm};
 `;
 
-const Title = styled.h3`
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.sm};
+`;
+
+const TitleLink = styled.a`
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-size: 1.4rem;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.palette.onSurface};
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+`;
+
+const TitlePlain = styled.h3`
   margin: 0;
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-size: 1.4rem;
@@ -67,6 +91,11 @@ const Description = styled.p`
   line-height: ${({ theme }) => theme.lineHeight.normal};
 `;
 
+const IconWrap = styled.div`
+  color: ${({ theme }) => theme.colors.palette.onSurfaceSubdued};
+  flex-shrink: 0;
+`;
+
 const BadgeRow = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -80,6 +109,7 @@ export const MobileCard: React.FC<MobileCardProps> = ({
   projectType,
   techStack,
   thumbnail,
+  href,
 }) => {
   const badges = [projectType, ...techStack];
 
@@ -87,7 +117,20 @@ export const MobileCard: React.FC<MobileCardProps> = ({
     <Wrapper>
       <Image $src={thumbnail} />
       <Content>
-        <Title>{title}</Title>
+        <TitleRow>
+          {href ? (
+            <TitleLink href={href} target="_blank" rel="noopener noreferrer">
+              {title}
+            </TitleLink>
+          ) : (
+            <TitlePlain>{title}</TitlePlain>
+          )}
+          {href && (
+            <IconWrap>
+              <Icon name="TbExternalLink" variant="iconLarge" />
+            </IconWrap>
+          )}
+        </TitleRow>
         <Status>{status}</Status>
         <Divider />
         <BadgeRow>

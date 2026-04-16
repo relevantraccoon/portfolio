@@ -6,6 +6,7 @@ export const ProjectsContainer = styled.section`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
   background-color: ${({ theme }) => theme.colors.palette.background};
 `;
 
@@ -98,53 +99,50 @@ export const MobileCarouselContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.md};
-  touch-action: pan-y;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
 
   ${mediaQuery.from("tablet")} {
     display: none;
   }
 `;
 
-export const MobileCardWrapper = styled.div<{
-  $active: boolean;
-  $direction: "left" | "right";
-}>`
-  display: ${({ $active }) => ($active ? "block" : "none")};
-  width: 100%;
+export const MobileScrollTrack = styled.div`
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
+  padding: ${({ theme }) => theme.spacing.lg} 9%;
+  touch-action: pan-x pan-y;
 
-  ${({ $active, $direction }) =>
-    $active &&
-    `
-    animation: mobileCardSlide 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
-
-    @keyframes mobileCardSlide {
-      from {
-        opacity: 0;
-        transform: translateX(${$direction === "right" ? "40px" : "-40px"});
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  `}
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
-export const MobileNavContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: ${({ theme }) => theme.spacing.sm};
-  width: 100%;
+export const MobileCardSlide = styled.div<{ $active: boolean; $side?: "left" | "right" }>`
+  scroll-snap-align: center;
+  flex: 0 0 82%;
+  min-width: 0;
+  transform: ${({ $active }) => ($active ? "translateY(0)" : "translateY(4px)")};
+  opacity: ${({ $active }) => ($active ? 1 : 0.7)};
+  filter: ${({ $active }) => ($active ? "none" : "brightness(0.7)")};
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
 
-  & > button {
-    display: none;
-    flex-shrink: 0;
-    margin-top: 70px;
-
-    @media (hover: hover) and (pointer: fine) {
-      display: flex;
-    }
-  }
+  ${({ $active, $side }) => {
+    if ($active || !$side) return "";
+    const direction = $side === "left" ? "to left" : "to right";
+    return `
+      -webkit-mask-image: linear-gradient(${direction}, transparent 0%, black 80%);
+      mask-image: linear-gradient(${direction}, transparent 0%, black 80%);
+    `;
+  }}
 `;
 
 export const DesktopCardWrapper = styled.div`
