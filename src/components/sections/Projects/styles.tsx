@@ -160,8 +160,8 @@ export const MobileCardSlide = styled.div<{ $active: boolean; $side?: "left" | "
     if ($active || !$side) return "";
     const direction = $side === "left" ? "to left" : "to right";
     return `
-      -webkit-mask-image: linear-gradient(${direction}, transparent 0%, black 80%);
-      mask-image: linear-gradient(${direction}, transparent 0%, black 80%);
+      -webkit-mask-image: linear-gradient(${direction}, rgba(0,0,0,0.6) 0%, black 80%);
+      mask-image: linear-gradient(${direction}, rgba(0,0,0,0.6) 0%, black 80%);
     `;
   }}
 `;
