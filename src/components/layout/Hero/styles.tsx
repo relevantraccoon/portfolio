@@ -21,6 +21,10 @@ export const HeroContainer = styled.div`
   ${mediaQuery.from("tablet")} {
     height: calc(100vh - (16px + (${({ theme }) => theme.spacing.xxl} * 2)));
   }
+
+  @media (hover: none) and (pointer: coarse) and (max-height: 500px) {
+    height: 100svh;
+  }
 `;
 
 export const AnimationWrapper = styled.div`

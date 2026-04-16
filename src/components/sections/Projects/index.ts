@@ -8,6 +8,7 @@ export type ProjectData = {
   title: string;
   logo?: string;
   thumbnail: string;
+  thumbnailWide?: string;
   description: string;
   moodImage?: string;
   techStack: string[];

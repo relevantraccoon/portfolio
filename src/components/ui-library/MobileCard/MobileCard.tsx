@@ -10,8 +10,12 @@ type MobileCardProps = {
   projectType: string;
   techStack: string[];
   thumbnail?: string;
+  thumbnailWide?: string;
   href?: string;
 };
+
+const WIDE_TOUCH =
+  "@media (hover: none) and (pointer: coarse) and (min-width: 600px)";
 
 const Wrapper = styled.div`
   position: relative;
@@ -22,9 +26,31 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 320px;
   margin: 0 auto;
+
+  ${WIDE_TOUCH} {
+    max-width: 720px;
+    max-height: calc(100svh - 60px);
+  }
 `;
 
-const Image = styled.div<{ $src?: string }>`
+const Portrait = styled.div`
+  display: block;
+
+  ${WIDE_TOUCH} {
+    display: none;
+  }
+`;
+
+const Landscape = styled.div`
+  display: none;
+
+  ${WIDE_TOUCH} {
+    display: flex;
+    align-items: stretch;
+  }
+`;
+
+const PortraitImage = styled.div<{ $src?: string }>`
   width: 100%;
   height: 140px;
   background: ${({ $src }) => ($src ? `url(${$src})` : "#000")};
@@ -32,18 +58,50 @@ const Image = styled.div<{ $src?: string }>`
   background-position: center;
 `;
 
-const Content = styled.div`
+const PortraitContent = styled.div`
   padding: ${({ theme }) => theme.spacing.md};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
 `;
 
-const TitleRow = styled.div`
+const PortraitTitleRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.sm};
+`;
+
+const LeftColumn = styled.div`
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+`;
+
+const LandscapeImage = styled.div<{ $src?: string }>`
+  width: 100%;
+  flex: 1;
+  min-height: 120px;
+  background: ${({ $src }) => ($src ? `url(${$src})` : "#000")};
+  background-size: cover;
+  background-position: center;
+`;
+
+const LandscapeTitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.sm};
+`;
+
+const RightColumn = styled.div`
+  flex: 1;
+  padding: ${({ theme }) => theme.spacing.md};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.sm};
+  min-width: 0;
 `;
 
 const TitleLink = styled.a`
@@ -109,39 +167,66 @@ export const MobileCard: React.FC<MobileCardProps> = ({
   projectType,
   techStack,
   thumbnail,
+  thumbnailWide,
   href,
 }) => {
   const badges = [projectType, ...techStack];
 
+  const titleNode = href ? (
+    <TitleLink href={href} target="_blank" rel="noopener noreferrer">
+      {title}
+    </TitleLink>
+  ) : (
+    <TitlePlain>{title}</TitlePlain>
+  );
+
+  const iconNode = href ? (
+    <IconWrap>
+      <Icon name="TbExternalLink" variant="iconLarge" />
+    </IconWrap>
+  ) : null;
+
+  const badgeRow = (
+    <BadgeRow>
+      {badges.map((b, i) => (
+        <Badge key={i} size="small" variant="primary">
+          {b}
+        </Badge>
+      ))}
+    </BadgeRow>
+  );
+
   return (
     <Wrapper>
-      <Image $src={thumbnail} />
-      <Content>
-        <TitleRow>
-          {href ? (
-            <TitleLink href={href} target="_blank" rel="noopener noreferrer">
-              {title}
-            </TitleLink>
-          ) : (
-            <TitlePlain>{title}</TitlePlain>
-          )}
-          {href && (
-            <IconWrap>
-              <Icon name="TbExternalLink" variant="iconLarge" />
-            </IconWrap>
-          )}
-        </TitleRow>
-        <Status>{status}</Status>
-        <Divider />
-        <BadgeRow>
-          {badges.map((b, i) => (
-            <Badge key={i} size="small" variant="primary">
-              {b}
-            </Badge>
-          ))}
-        </BadgeRow>
-        <Description>{description}</Description>
-      </Content>
+      <Portrait>
+        <PortraitImage $src={thumbnail} />
+        <PortraitContent>
+          <PortraitTitleRow>
+            {titleNode}
+            {iconNode}
+          </PortraitTitleRow>
+          <Status>{status}</Status>
+          <Divider />
+          {badgeRow}
+          <Description>{description}</Description>
+        </PortraitContent>
+      </Portrait>
+
+      <Landscape>
+        <LeftColumn>
+          <LandscapeImage $src={thumbnailWide ?? thumbnail} />
+        </LeftColumn>
+        <RightColumn>
+          <LandscapeTitleRow>
+            {titleNode}
+            {iconNode}
+          </LandscapeTitleRow>
+          <Status>{status}</Status>
+          <Divider />
+          {badgeRow}
+          <Description>{description}</Description>
+        </RightColumn>
+      </Landscape>
     </Wrapper>
   );
 };
