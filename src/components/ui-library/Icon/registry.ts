@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub, FaFilePdf, FaCopy } from "react-icons/fa";
 
 import { SiStrava, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiStyledcomponents, SiGraphql, SiGit, SiFigma, SiReact, SiStorybook } from "react-icons/si";
 
-import { TbArrowBigLeftFilled, TbArrowBigRightFilled } from "react-icons/tb";
+import { TbArrowBigLeftFilled, TbArrowBigRightFilled, TbExternalLink } from "react-icons/tb";
 
 export type IconName =
   | "FaLinkedin"
@@ -21,7 +21,8 @@ export type IconName =
   | "SiReact"
   | "SiStorybook"
   | "TbArrowBigLeftFilled"
-  | "TbArrowBigRightFilled";
+  | "TbArrowBigRightFilled"
+  | "TbExternalLink";
 
 export const iconRegistry = {
   FaLinkedin,
@@ -41,4 +42,5 @@ export const iconRegistry = {
   SiStorybook,
   TbArrowBigLeftFilled,
   TbArrowBigRightFilled,
+  TbExternalLink,
 } as const;
