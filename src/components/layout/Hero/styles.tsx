@@ -22,7 +22,7 @@ export const HeroContainer = styled.div`
     height: calc(100vh - (16px + (${({ theme }) => theme.spacing.xxl} * 2)));
   }
 
-  @media (hover: none) and (pointer: coarse) and (max-height: 500px) {
+  @media (pointer: coarse) and (max-height: 500px) {
     height: 100svh;
   }
 `;
