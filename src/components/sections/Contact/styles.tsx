@@ -22,7 +22,7 @@ export const ContactContainer = styled.div`
   height: auto;
   min-height: 500px;
   max-height: 80vh;
-  overflow-y: auto;
+  overflow: hidden;
   text-align: center;
   position: relative;
   display: flex;
@@ -54,9 +54,11 @@ export const ContactGrid = styled.div`
   justify-content: center;
   height: 100%;
   padding: ${({ theme }) => theme.spacing.xl};
+  padding-top: ${({ theme }) => theme.spacing.lg};
 
   ${mediaQuery.from('mobileWide')} {
     padding: ${({ theme }) => theme.spacing.xxxl};
+    padding-top: ${({ theme }) => theme.spacing.xxl};
   }
 
   ${mediaQuery.from('tablet')} and (orientation: portrait) {
