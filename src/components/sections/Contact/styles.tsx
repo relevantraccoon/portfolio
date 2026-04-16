@@ -42,6 +42,10 @@ export const ContactContainer = styled.div`
     height: ${({ theme }) => theme.layout.viewport.sections.contact.fhd};
   }
 
+  @media (hover: none) and (pointer: coarse) and (max-height: 500px) {
+    min-height: 0;
+    max-height: 100svh;
+  }
 `;
 
 export const ContactGrid = styled.div`

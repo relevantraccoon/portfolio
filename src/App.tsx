@@ -7,7 +7,9 @@ import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { Link } from "@/components/ui-library/Link";
 import plixitImg from "@/assets/images/projects/plixit.png";
+import plixitWideImg from "@/assets/images/projects/plixit_vertical_bg_2.png";
 import portfolioImg from "@/assets/images/projects/portfolio.png";
+import portfolioWideImg from "@/assets/images/projects/portfolio_vertical_bg.png";
 import styled from "styled-components";
 
 const ContentWrapper = styled.div`
@@ -82,6 +84,7 @@ function App() {
               id: "1",
               title: "Plixit",
               thumbnail: plixitImg,
+              thumbnailWide: plixitWideImg,
               description:
                 "Multiplayer territory game built on a custom game engine (Kubic Kode). Real-time sync over WebSockets. Self-hosted Docker stack with Grafana/Loki monitoring, in-game playtesting pipeline, and a structured ship process.",
               techStack: ["React", "TypeScript", "Node.js", "Docker", "Grafana"],
@@ -93,6 +96,7 @@ function App() {
               id: "2",
               title: "Portfolio",
               thumbnail: portfolioImg,
+              thumbnailWide: portfolioWideImg,
               description:
                 "Portfolio containing custom project carousel, unified theme system, fully responsive design.",
               techStack: ["React", "TypeScript", "Styled Components"],

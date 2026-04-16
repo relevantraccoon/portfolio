@@ -15,6 +15,7 @@ import {
   MobileCarouselContainer,
   MobileScrollTrack,
   MobileCardSlide,
+  MobileCounter,
   DesktopCardWrapper,
 } from "@/components/sections/Projects/styles";
 import { ProjectData } from "@/components/sections/Projects/index";
@@ -90,9 +91,15 @@ export const Projects: React.FC<ProjectsProps> = ({
 
           <MobileCarouselContainer>
             {shouldDisplayNavigation && (
-              <Typography variant="caption" color="onBackground" align="center">
-                {activeIndex + 1} / {projects.length}
-              </Typography>
+              <MobileCounter>
+                <Typography
+                  variant="caption"
+                  color="onBackground"
+                  align="center"
+                >
+                  {activeIndex + 1} / {projects.length}
+                </Typography>
+              </MobileCounter>
             )}
             <MobileScrollTrack ref={scrollRef} onScroll={handleMobileScroll}>
               {projects.map((project, index) => (
@@ -114,6 +121,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                     projectType={project.projectType}
                     techStack={project.techStack}
                     thumbnail={project.thumbnail}
+                    thumbnailWide={project.thumbnailWide}
                     href={project.href}
                   />
                 </MobileCardSlide>
