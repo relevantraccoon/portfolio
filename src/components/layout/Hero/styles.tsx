@@ -65,6 +65,10 @@ export const HeroTextContainer = styled.div`
   padding: 0;
   z-index: ${({ theme }) => theme.zIndex.content};
 
+  @media (pointer: coarse) and (max-height: 500px) {
+    height: 65%;
+  }
+
   ${mediaQuery.from("tablet")} {
     height: 50%;
   }
