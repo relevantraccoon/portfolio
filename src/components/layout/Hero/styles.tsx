@@ -3,7 +3,7 @@ import { mediaQuery } from "@/styles/theme/mediaQueries";
 
 export const HeroContainer = styled.div`
   width: 100%;
-  height: calc(100vh - (11px + (${({ theme }) => theme.spacing.xxl} * 2)));
+  height: calc(100svh - (11px + (${({ theme }) => theme.spacing.xxl} * 2)));
   background: ${({ theme }) => theme.colors.palette.background};
   display: flex;
   flex-direction: column;
@@ -15,11 +15,11 @@ export const HeroContainer = styled.div`
   position: relative;
 
   ${mediaQuery.from("mobileWide")} {
-    height: calc(100vh - (14px + (${({ theme }) => theme.spacing.xxl} * 2)));
+    height: calc(100svh - (14px + (${({ theme }) => theme.spacing.xxl} * 2)));
   }
 
   ${mediaQuery.from("tablet")} {
-    height: calc(100vh - (16px + (${({ theme }) => theme.spacing.xxl} * 2)));
+    height: calc(100svh - (16px + (${({ theme }) => theme.spacing.xxl} * 2)));
   }
 
   @media (pointer: coarse) and (max-height: 500px) {
