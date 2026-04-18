@@ -163,6 +163,10 @@ export const HeroName = styled.h1`
   ${mediaQuery.from("fhd")} {
     font-size: clamp(115px, 14vw, 165px);
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    font-size: clamp(28px, 12vh, 56px);
+  }
 `;
 
 export const HeroSubtitleText = styled.h2`
@@ -193,6 +197,10 @@ export const HeroSubtitleText = styled.h2`
 
   ${mediaQuery.from("fhd")} {
     font-size: clamp(27px, 3vw, 39px);
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    font-size: clamp(12px, 3vh, 18px);
   }
 `;
 
