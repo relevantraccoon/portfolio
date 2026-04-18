@@ -24,6 +24,7 @@ export const HeroContainer = styled.div`
 
   @media (pointer: coarse) and (max-height: 500px) {
     height: 100svh;
+    padding-top: var(--url-bar-inset, 0px);
   }
 `;
 
