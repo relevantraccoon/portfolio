@@ -193,7 +193,7 @@ export const HeroName = styled.h1`
   }
 
   @media (pointer: coarse) and (max-height: 500px) {
-    font-size: clamp(28px, 12vh, 56px);
+    font-size: clamp(32px, 15vh, 72px);
   }
 `;
 
