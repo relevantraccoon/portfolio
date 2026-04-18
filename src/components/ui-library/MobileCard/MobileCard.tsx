@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 
   ${WIDE_TOUCH} {
     max-width: 720px;
-    max-height: calc(100svh - 60px);
+    min-height: calc(100svh - 140px);
   }
 `;
 
