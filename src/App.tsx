@@ -6,6 +6,7 @@ import { CircleDivider } from "@/components/layout/CircleDivider";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { Link } from "@/components/ui-library/Link";
+import { useUrlBarInset } from "@/hooks/useUrlBarInset";
 import plixitImg from "@/assets/images/projects/plixit.png";
 import plixitWideImg from "@/assets/images/projects/plixit_vertical_bg_2.png";
 import portfolioImg from "@/assets/images/projects/portfolio.png";
@@ -18,6 +19,8 @@ const ContentWrapper = styled.div`
 `;
 
 function App() {
+  useUrlBarInset();
+
   return (
     <DefaultThemeProvider>
       <>
