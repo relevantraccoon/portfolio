@@ -30,6 +30,8 @@ const Wrapper = styled.div`
   ${WIDE_TOUCH} {
     max-width: 720px;
     min-height: calc(100svh - 140px);
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -46,6 +48,7 @@ const Landscape = styled.div`
 
   ${WIDE_TOUCH} {
     display: flex;
+    flex: 1;
     align-items: stretch;
   }
 `;

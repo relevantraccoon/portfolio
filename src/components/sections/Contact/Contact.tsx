@@ -10,6 +10,7 @@ import {
   ContactButtonContainer,
   ContactInfo,
   ContactLinks,
+  ContactSocialText,
   VideoPlaceholder,
   ContactTitleTypography,
   ContactEmailWrapper,
@@ -112,9 +113,11 @@ export const Contact: React.FC<ContactProps> = ({
                       </Link>
                     </ContactEmailWrapper>
                   </Typography>
-                  <Typography variant="body" color="secondary">
-                    ...or reach out on social media{" "}
-                  </Typography>
+                  <ContactSocialText>
+                    <Typography variant="body" color="secondary">
+                      ...or reach out on social media{" "}
+                    </Typography>
+                  </ContactSocialText>
 
                   <ContactLinks>
                     <Link href={githubUrl} variant="default" external>
