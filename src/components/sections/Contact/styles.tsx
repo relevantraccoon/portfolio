@@ -12,6 +12,10 @@ export const ContactWrapper = styled.section`
   bottom: 0;
   background: ${({ theme }) => theme.colors.palette.primary};
   z-index: ${({ theme }) => theme.zIndex.sections.contact};
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    height: 100lvh;
+  }
 `;
 
 export const ContactContainer = styled.div`
@@ -40,6 +44,11 @@ export const ContactContainer = styled.div`
 
   ${mediaQuery.from("fhd")} {
     height: ${({ theme }) => theme.layout.viewport.sections.contact.fhd};
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    height: 80lvh;
+    max-height: 80lvh;
   }
 `;
 
@@ -91,6 +100,8 @@ export const ContactGrid = styled.div`
     display: flex;
     flex-direction: column;
     grid-template-columns: none;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
   }
 `;
 
@@ -192,6 +203,12 @@ export const ContactInfo = styled.div`
 
   > *:nth-child(2) {
     margin-bottom: ${({ theme }) => theme.spacing.md};
+  }
+`;
+
+export const ContactSocialText = styled.div`
+  @media (pointer: coarse) and (max-height: 500px) {
+    display: none;
   }
 `;
 
