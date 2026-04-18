@@ -43,6 +43,12 @@ export const AnimationWrapper = styled.div`
       theme.layout.proportions.gridTemplates.majorMinor};
     grid-template-rows: none;
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    grid-template-columns: ${({ theme }) =>
+      theme.layout.proportions.gridTemplates.majorMinor};
+    grid-template-rows: none;
+  }
 `;
 
 export const CanvasContainer = styled.div`
@@ -76,6 +82,13 @@ export const HeroTextContainer = styled.div`
     height: 100%;
     align-items: center;
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    width: ${({ theme }) =>
+      theme.layout.proportions.split.majorMinor.split(" ")[0]};
+    height: 100%;
+    align-items: center;
+  }
 `;
 
 export const HeroImageContainer = styled.div`
@@ -92,6 +105,16 @@ export const HeroImageContainer = styled.div`
   background-color: transparent;
 
   ${mediaQuery.from("desktopLarge")} {
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    width: ${({ theme }) =>
+      theme.layout.proportions.split.majorMinor.split(" ")[1]};
+    height: 100%;
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
     top: 0;
     right: 0;
     left: auto;
@@ -120,6 +143,11 @@ export const HeroTextContent = styled.div`
     ${({ theme }) => theme.spacing.md};
 
   ${mediaQuery.from("desktopLarge")} {
+    justify-content: center;
+    padding: 0 ${({ theme }) => theme.spacing.md};
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
     justify-content: center;
     padding: 0 ${({ theme }) => theme.spacing.md};
   }
@@ -163,6 +191,10 @@ export const HeroName = styled.h1`
   ${mediaQuery.from("fhd")} {
     font-size: clamp(115px, 14vw, 165px);
   }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    font-size: clamp(36px, 18vh, 88px);
+  }
 `;
 
 export const HeroSubtitleText = styled.h2`
@@ -193,6 +225,10 @@ export const HeroSubtitleText = styled.h2`
 
   ${mediaQuery.from("fhd")} {
     font-size: clamp(27px, 3vw, 39px);
+  }
+
+  @media (pointer: coarse) and (max-height: 500px) {
+    font-size: clamp(12px, 3vh, 18px);
   }
 `;
 
