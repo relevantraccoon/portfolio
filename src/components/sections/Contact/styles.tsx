@@ -3,7 +3,7 @@ import { mediaQuery } from "@/styles/theme/mediaQueries";
 
 export const ContactWrapper = styled.section`
   width: 100%;
-  height: 100dvh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,8 +20,8 @@ export const ContactContainer = styled.div`
   padding: 0;
   width: 100%;
   height: auto;
-  min-height: 500px;
-  max-height: 80dvh;
+  min-height: 0;
+  max-height: 80svh;
   overflow-y: auto;
   text-align: center;
   position: relative;
@@ -44,7 +44,7 @@ export const ContactContainer = styled.div`
 
   @media (pointer: coarse) and (max-height: 500px) {
     min-height: 0;
-    max-height: 100dvh;
+    max-height: 100svh;
   }
 `;
 

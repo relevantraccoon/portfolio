@@ -90,9 +90,9 @@ function App() {
               thumbnailWide: plixitWideImg,
               description:
                 "Multiplayer territory game built on a custom game engine (Kubic Kode). Real-time sync over WebSockets. Self-hosted Docker stack with Grafana/Loki monitoring, in-game playtesting pipeline, and a structured ship process.",
-              techStack: ["React", "TypeScript", "Node.js", "Docker", "Grafana"],
+              techStack: ["React", "TypeScript", "Docker"],
               status: "Live \u2022 Active Development \u2022 2026",
-              projectType: "Multiplayer Game",
+              projectType: "Multiplayer",
               href: "https://www.plixit.io",
             },
             {
