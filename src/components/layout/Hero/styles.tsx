@@ -211,6 +211,14 @@ export const HeroSubtitleText = styled.h2`
   z-index: 1;
   white-space: nowrap;
 
+  /* The subtitle string carries a newline; nowrap collapses it to a space,
+     pre-line honours it so the title breaks in two on phones. The block is
+     centered by the flex parent, the lines inside it are not. */
+  ${mediaQuery.until("mobile")} {
+    white-space: pre-line;
+    text-align: center;
+  }
+
   @media (max-width: 375px) {
     letter-spacing: ${({ theme }) => theme.letterSpacing.medium};
   }
