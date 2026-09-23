@@ -30,7 +30,7 @@ function App() {
           shouldAnimate={true}
           showOverlayImage={true}
           name="Joakim Karlsson"
-          subtitle="Tech Support → Frontend Developer"
+          subtitle={"Technical Support\n& Software Engineer"}
         />
         <CircleDivider circleCount={20} circleSize={16} />
         <AboutMe
@@ -38,10 +38,10 @@ function App() {
             <>
               I'm the frontend guy behind{" "}
               <strong>Plixit</strong>, a browser-based multiplayer territory
-              game. Plixit came out of a hackathon where I built the{" "}
-              <strong>client-side part of the game engine</strong> Kubic Kode,
-              and the game is being built on top of it. The entire stack is
-              Dockerized on a self-hosted machine with monitoring.
+              game. Plixit came out of a hackathon where I{" "}
+              <strong>co-built the game engine</strong> Kubic Kode, and the
+              game is being built on top of it. The entire stack is Dockerized
+              on a self-hosted machine with monitoring.
             </>,
             <>
               Plixit is actively developed: I run playtests, collect data
@@ -56,21 +56,22 @@ function App() {
               </Link>
             </>,
             <>
-              By day, I'm the <strong>sole technical support</strong> at
-              Collegial, a Swedish learning transformation company. Between
-              handling tickets, I'm shipping real frontend work: Figma designs
-              get turned into <strong>type-safe components</strong>, bugs get
-              squashed, and
-              features get wired up to a GraphQL backend. The role is broad, but
-              the direction is clear.
+              By day, I'm{" "}
+              <strong>Technical Support &amp; Software Engineer</strong> at
+              Collegial, a Swedish learning transformation company. I ship
+              frontend work: Figma designs get turned into{" "}
+              <strong>type-safe components</strong>, bugs get squashed, and
+              features get wired up to a GraphQL backend. The role is broad: n8n
+              automations between Slack and Jira, AI tooling for the team
+              (Claude skills, agent instructions for the codebase), technical
+              support.
             </>,
             <>
               Having been on Collegial's internal audit team for a couple of
-              years, I stepped up as{" "}
-              <strong>internal audit lead</strong> in 2025 and delivered our ISO
-              27001 internal audit to management. Control objectives, evidence
-              gathering, compliance: another lens into how systems hold
-              together.
+              years, I've{" "}
+              <strong>led our ISO 27001 internal audit team</strong> since 2025.
+              Control objectives, evidence gathering, compliance: another lens
+              into how systems hold together.
             </>,
             <>
               Away from the keyboard, I'm a distance runner. Two marathons down,
@@ -89,7 +90,7 @@ function App() {
               thumbnail: plixitImg,
               thumbnailWide: plixitWideImg,
               description:
-                "Multiplayer territory game built on a custom game engine (Kubic Kode). Real-time sync over WebSockets. Self-hosted Docker stack with Grafana/Loki monitoring, in-game playtesting pipeline, and a structured ship process.",
+                "Multiplayer territory game built on a custom game engine (Kubic Kode). Real-time sync over WebSockets. Self-hosted Docker stack with Grafana/Loki monitoring, in-game playtesting pipeline, and an AI-reviewed ship pipeline.",
               techStack: ["React", "TypeScript", "Docker"],
               status: "Live \u2022 Active Development \u2022 2026",
               projectType: "Multiplayer",
