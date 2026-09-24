@@ -15,7 +15,7 @@ type MobileCardProps = {
 };
 
 const WIDE_TOUCH =
-  "@media (pointer: coarse) and (min-width: 600px)";
+  "@media (pointer: coarse) and (min-width: 600px) and (orientation: landscape)";
 
 const Wrapper = styled.div`
   position: relative;

@@ -27,6 +27,7 @@ export const AboutMeContainer = styled.section<{ $backgroundColor?: string }>`
 
 export const AboutGrid = styled.div`
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: ${({ theme }) => theme.spacing.xxxl};
   align-items: center;
 
@@ -108,6 +109,7 @@ export const SkillCategoryTitle = styled.h3`
 `;
 
 export const SkillsList = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(${({ theme }) => theme.controls.skillItem.minWidth}, 1fr));
   gap: ${({ theme }) => theme.spacing.lg};
@@ -115,7 +117,7 @@ export const SkillsList = styled.div`
   max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 2 + ${({ theme }) => theme.spacing.lg});
   margin: 0 auto;
 
-  ${mediaQuery.from("mobileWide")} {
+  ${mediaQuery.from("tablet")} {
     max-width: calc(${({ theme }) => theme.controls.skillItem.minWidth} * 3 + ${({ theme }) => theme.spacing.lg} * 2);
   }
 
@@ -160,8 +162,15 @@ export const SkillItem = styled.span`
     justify-content: flex-end;
   }
 
-  /* Mobile Wide, Tablet, Desktop: 3 columns - left, center, right */
-  ${mediaQuery.from("mobileWide")} {
+  /* Below 356px only one column fits (2 * minWidth + gap + 2 * 16px padding) */
+  @media (max-width: 355px) {
+    &:nth-child(n) {
+      justify-content: center;
+    }
+  }
+
+  /* Tablet, Desktop: 3 columns - left, center, right */
+  ${mediaQuery.from("tablet")} {
     &:nth-child(3n+1) {
       justify-content: flex-start;
     }
