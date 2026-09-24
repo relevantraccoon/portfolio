@@ -9,7 +9,7 @@ import { Link } from "@/components/ui-library/Link";
 import { useUrlBarInset } from "@/hooks/useUrlBarInset";
 import plixitImg from "@/assets/images/projects/plixit.png";
 import plixitWideImg from "@/assets/images/projects/plixit_vertical_bg_2.png";
-import portfolioImg from "@/assets/images/projects/portfolio.png";
+import portfolioImg from "@/assets/images/projects/portfolio2.png";
 import portfolioWideImg from "@/assets/images/projects/portfolio_vertical_bg.png";
 import styled from "styled-components";
 
